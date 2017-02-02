@@ -10,8 +10,8 @@
 \usepackage{xspace}
 
 \usepackage{marginnote}
-\usepackage[top=1.5cm,bottom=1.5cm,outer=6cm,inner=1cm,heightrounded,%
-            marginparwidth=4cm,marginparsep=1.2cm]{geometry}
+\usepackage[top=1.5cm,bottom=1.5cm,outer=6cm,inner=4cm,heightrounded,marginparwidth=4cm,%
+            marginparsep=1.2cm]{geometry}
 
 \newcommand{\note}[1]{\color{OrangeRed}(#1)\xspace}
 \newcommand{\definition}[2]{\marginnote{{\color{teal}#1:} #2}}
@@ -19,6 +19,9 @@
 \newcommand{\Hip}{\ensuremath{\bm{\Theta}}\xspace}
 \newcommand{\hip}{\ensuremath{\bm{\theta}}\xspace}
 \newcommand{\dat}{\ensuremath{\{\mathcal{D}\}}\xspace}
+\newcommand{\pos}[2]{\ensuremath{\pi_N\left(#1|#2\right)}\xspace}
+\newcommand{\pri}[2]{\ensuremath{\pi_0\left(#1|#2\right)}\xspace}
+\newcommand{\pro}[1]{\ensuremath{Pr\left(#1\right)}\xspace}
 
 \title{Inferencia en el marco de la Estadística Bayesiana}
 \author{Alfredo Mejía-Narváez}
@@ -81,10 +84,10 @@ podemos admitir que sabemos nuestro grado de conocimiento de $\theta_1$ y $\thet
 
 \section{El teorema de Bayes}
 %
-El teorema de Bayes se desprende de estas dos simples relaciones y sostiene que
-%
 \definition{$P(\hip|\dat,I)$}{es la distribución de probabilidad posterior y representa nuestro
 grado de conocimiento de la hipótesis a la luz de los datos, $\dat$.}
+%
+El teorema de Bayes se desprende de estas dos simples relaciones y sostiene que
 %
 \begin{equation}\label{ec:bayes}
 P(\hip|\dat,I) = \frac{P(\dat|\hip,I)\times P(\hip|I)}{P(\dat|I)},
@@ -137,7 +140,9 @@ anterior a la obtención de los datos actuales o incluso, pudo ser la posterior 
 distinto. En estos casos decimos que la distribución prior está introduciendo dominio de
 conocimiento sobre el modelo.
 
-\subsection*{Efecto de la elección del prior}
+\section{Inferencia bayesiana: regresión lineal}
+
+\section{Efecto del prior}
 %
 En esta sección veremos como la elección de la distribución prior puede afectar significativamente
 nuestra inferencia y como depende dicho efecto en la cantidad de los datos y en la forma del prior.
@@ -182,9 +187,8 @@ podría sentirse tentado también a introducir un prior informativo, mientras qu
 tiene poco conocimiento del problema lo mejor sería asumir un prior objetivo. Como hemos visto
 anteriormente, independientemente del prior que se
 
-\section{Inferencia bayesiana: ejemplo de juguete}
 
-\section{¿Cómo muestrear la distribución posterior?}
+\section{Muestreo de la posterior}
 %
 Existen varias formas de muestrar la posterior y la eficiencia de la técnica adoptada dependerá
 exclusivamente de la naturaleza del problema reflejada en la forma de la distribución posterior. Por
@@ -201,17 +205,19 @@ conjugada a cualquier distribución perteneciente a la misma familia. Por ejempl
 la estadística bayesiana, si la distribución prior y la distribución posterior son familias, se dice
 que el prior es el conjudado de la posterior y viceversa.
 
-\section{Parámetros molestos y marginalización}
+\section{Marginalización}
 
-\section{¿Es este un buen modelo?}
+\section{Chequeo del modelo}
 
-\section{Un caso de la vida real}
+\section{Ejemplo: X}
 
-\section{Lecciones para llevarlas a la tumba}
+\section{Epílogo}
 
 \appendix
 
-\section{¿Cómo asignar distribuciones de probabilidad?}\label{sec:pdfs}
+\section{Distribuciones conjugadas}\label{sc:conjugate-pdf}
+
+\section{Método de máxima entropía}\label{sc:me-method}
 
 Supongamos que tenemos información constrastable sobre una hipótesis $\hip$ y queremos asignar una
 distribución de probabilidad que cumpla con esa condición y con la condición de que la distribución
