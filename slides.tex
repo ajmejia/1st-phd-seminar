@@ -33,21 +33,22 @@
 
 \begin{abstract}
 %
-La estadística bayesiana no es solo un conjunto de reglas diseñadas para la interpretación de los
-datos en nuevo conocimiento dada la experiencia previa, es una forma de pensar. De la gran mayoría
-de los libros de estadística aprendemos a responder a la pregunta equivocada o, al menos, una que
-realmente nos es la que nos interesa como científicos: dado que tenemos conocimiento absoluto del
-estado del problema (e.g., el modelo con el cual describimos los datos con sus estadísticas
-correspondientes), ¿cuál es la probabilidad de haber obervado los datos?. La estadística bayesiana
-no solo nos permite responder a la pregunta de interés científico, sino que nos permite darle una
-respuesta lo más objetivamente posible, mediante probabilidades. Entonces, la pregunta de interés es
-en general: dados la experiencia previa (nuestro grado de conocimiento del problema en ausencia de
-los datos) y los datos ¿qué podemos inferir para incrementar nuestro grado de conocimiento del
-problema?. En este seminario les presentaré el esquema general de la inferencia bayesiana, algunas
-de sus aplicaciones en la astrofísica y dos ejemplos: uno de juguete para ilustrar conceptos básicos
-y otro de la vida real.
+La estadística representa un conjunto de reglas diseñadas para expresar nuestro grado de
+conocimiento dados cierta evidencia y/o conocimiento previo, o al menos eso es para lo que ha sido
+concebida. Sin embargo, nuestra línea de razonamiento científico se ve forzada a desviarse un poco
+de este esquema, y la pregunta de interés científico real: ¿cuál es el grado de creencia
+(\emph{belief}) sobre un evento dados un conjunto de observaciones y conocimiento previo o
+prejuicios? se transforma en un \emph{surrogate} en el que se supone que la hipótesis planteada es
+cierta: dado que tenemos conocimiento absoluto del estado del problema (e.g., el modelo con el cual
+describimos los datos con sus estadísticas correspondientes), ¿cuál es la probabilidad de haber
+obervado los datos?. La estadística Bayesiana presenta un esquema que permite responder naturalmente
+a la pregunta de interés científico, al mismo tiempo de la manera más objetiva posible. En este
+seminario les presentaré el esquema general de la inferencia bayesiana, algunas de sus aplicaciones
+en la astrofísica.
 %
 \end{abstract}
+
+%---------------------------------------------------------------------------------------------------
 
 \section{Introducción: estadística básica}
 
@@ -82,6 +83,8 @@ cantidades sumadas forman una \emph{certeza}; la segunda ecuación nos dice que 
 conocimiento de $\theta_2$ y nuestro grado de conocimiento en $\theta_1$ condicionado en $\theta_2$,
 podemos admitir que sabemos nuestro grado de conocimiento de $\theta_1$ y $\theta_2$.
 
+%---------------------------------------------------------------------------------------------------
+
 \section{El teorema de Bayes}
 %
 \definition{$P(\hip|\dat,I)$}{es la distribución de probabilidad posterior y representa nuestro
@@ -110,6 +113,8 @@ prejuicios) sobre problema previo a la obtención de los datos}, la primera dist
 probabilidades por otra parte, requiere un poco más de elaboración y conocimiento (probablemente
 también prejuicios) sobre los datos, pues representa la \emph{plausibilidad de la hipótesis asumida
 a la luz de los datos}.
+
+%---------------------------------------------------------------------------------------------------
 
 \section{Inferencia bayesiana}
 %
@@ -140,7 +145,11 @@ anterior a la obtención de los datos actuales o incluso, pudo ser la posterior 
 distinto. En estos casos decimos que la distribución prior está introduciendo dominio de
 conocimiento sobre el modelo.
 
+%---------------------------------------------------------------------------------------------------
+
 \section{Inferencia bayesiana: regresión lineal}
+
+%---------------------------------------------------------------------------------------------------
 
 \section{Efecto del prior}
 %
@@ -187,6 +196,7 @@ podría sentirse tentado también a introducir un prior informativo, mientras qu
 tiene poco conocimiento del problema lo mejor sería asumir un prior objetivo. Como hemos visto
 anteriormente, independientemente del prior que se
 
+%---------------------------------------------------------------------------------------------------
 
 \section{Muestreo de la posterior}
 %
@@ -205,17 +215,28 @@ conjugada a cualquier distribución perteneciente a la misma familia. Por ejempl
 la estadística bayesiana, si la distribución prior y la distribución posterior son familias, se dice
 que el prior es el conjudado de la posterior y viceversa.
 
+%---------------------------------------------------------------------------------------------------
+
 \section{Marginalización}
+
+%---------------------------------------------------------------------------------------------------
 
 \section{Chequeo del modelo}
 
+%---------------------------------------------------------------------------------------------------
+
 \section{Ejemplo: X}
+
+%---------------------------------------------------------------------------------------------------
 
 \section{Epílogo}
 
+%===================================================================================================
 \appendix
 
 \section{Distribuciones conjugadas}\label{sc:conjugate-pdf}
+
+%---------------------------------------------------------------------------------------------------
 
 \section{Método de máxima entropía}\label{sc:me-method}
 
