@@ -1,0 +1,8 @@
+library
+.comments
+*.snm
+*.aux
+*.out
+*.nav
+*.log
+*.toc

@@ -1,0 +1,171 @@
+\documentclass[xcolor=dvipsnames,4pt]{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+\usefonttheme{professionalfonts}
+\useinnertheme{circles}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[orientation=portrait,size=custom,width=32,height=18]{beamerposter}
+
+\usepackage[notocbib]{apacite}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\usecolortheme[named=Black]{structure}
+
+\usetikzlibrary{arrows,shapes,positioning,backgrounds}
+
+% My default font
+%\usepackage{newcent}
+
+% Computer Modern Bright font
+%\usepackage{cmbright}
+
+% Iwona light
+\usepackage[light,math]{iwona}
+
+% LX fonts
+%\usepackage{lxfonts}
+
+% Malvern
+%\input T1fmv.fd
+%\renewcommand*\sfdefault{fmv}
+%\renewcommand*\familydefault{\sfdefault}
+
+% Comfortaa
+%\usepackage[default]{comfortaa}
+
+%\setbeamercolor{frametitle}{fg=NavyBlue}
+%\setbeamercolor{structure}{fg=NavyBlue}
+%\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{alerted text}{fg=NavyBlue}
+%\setbeamercolor{example text}{fg=red}
+
+\newcommand{\cl}[1]{\multicolumn{1}{c}{#1}}
+
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+\item[]}{\end{list}}
+
+\begin{document}
+\tikzstyle{every picture}+=[remember picture]
+\tikzstyle{na} = [baseline=-.5ex]
+
+\begin{frame}
+\title{La era de la resolución espacial en sondeos de galaxias}
+%\subtitle{}
+\author{Alfredo J. Mej\'ia$^{1,2}$}
+
+\date{\today}
+
+\institute{$^{1}$Posgrado de F\'isica Fundamental\\ Universidad de Los Andes \and $^{2}$Centro de%
+Investigaciones de Astronom\'ia%
+}
+
+\maketitle
+\end{frame}
+
+%Motivación
+\begin{frame}{}
+%
+Hoy día existen sondeos que permiten resolver espacialmente a las galaxias en el universo local,
+pero ¿qué nos ha llevado a idear esta nueva era de la exploración de nuestro universo?
+
+Las galaxias hasta $z\sim1$ pueden resolverse como objetos extendidos en una imagen astronómica, sin
+embargo los sondeos espectroscópicos en su mayoría están limitados a una apertura fija y por lo
+general integran en una pequeña región de la imagen producida por las galaxias más cercanas debido a
+problemas de ingeniería (mostrar una imgen ejemplo de una galaxia del SDSS, con su $z$ y la apertura
+correspondiente). La fotometría, por otro lado, permite integrar una imagen producida por una
+galaxia en su totalidad, más aún, permite variar la apertura dentro de la cual se mide el brillo
+integrado, pues una vez producida la imagen la forma en que esta se estudia no ofrece límites. Sin
+embargo, la fotometría tradicional se ha limitado a integrar la imagen en su totalidad o dentro de
+una apertura variable, dependiendo del extensión y/o perfil de la fuente que la produce (e.g. radio
+Petrosian, el perfil de brillo).
+
+Ahora somos concientes que en la formación y evolución de las galaxias intervienen una variedad de
+fenómenos físicos que tienen lugar en distintas escalas temporales y espaciales. Aunque la
+disponibilidad de observaciones profundas del cielo han permitido estudiar la evolución de las
+galaxias en escalas temporales del orden de la mitad de la edad de universo, apenas estamos rozando
+la superficie de lo que podemos hacer con sondeos que ofrecen resolución espacial.
+
+En este seminario les hablaré de lo que hemos conseguido usando los sondeos con unidades de campo
+integrado actuales y las perspectivas con los próximos sondeos del mismo tipo.
+%
+\end{frame}
+
+%Historia
+\begin{frame}{}
+%
+\begin{itemize}
+\item Primera idea de resolución espacial.
+\item Limitaciones que impiden desarrollarla.
+\item Primer sondeo con resolución espacial.
+\item Primeros hallazgos.
+\end{itemize}
+%
+\end{frame}
+
+%Unidad de campo integrado (actual)
+\begin{frame}{}
+%
+\begin{itemize}
+\item ¿Qué es?
+\item ¿Cómo funciona?
+\end{itemize}
+%
+\end{frame}
+
+%Datos producidos
+\begin{frame}{}
+%
+\begin{itemize}
+\item ¿Qué tipo de datos produce?
+\item ¿Qué estudios permite?
+\end{itemize}
+%
+\end{frame}
+
+%Resultados
+\begin{frame}{}
+%
+\begin{itemize}
+\item Estudios poblacionales.
+\item Estudios de dinámica.
+\item Relaciones de escala.
+\item Problemas abiertos.
+\end{itemize}
+%
+\end{frame}
+
+%Unidad de campo integrado (en el futuro)
+\begin{frame}{}
+%
+\begin{itemize}
+\item Mejoras respecto a lo anterior
+\item Estudios que permitirá
+\item Limitaciones
+\end{itemize}
+%
+\end{frame}
+
+
+%Perspectivas a futuro (SED-fitting wise)
+\begin{frame}{}
+%
+\begin{itemize}
+\item Estudios de relaciones de escala como función de la masa
+\item Estudios de la conformidad galáctica
+\end{itemize}
+%
+\end{frame}
+
+\end{document}
