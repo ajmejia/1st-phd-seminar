@@ -8,7 +8,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[orientation=portrait,size=custom,width=32,height=18]{beamerposter}
 
-\usepackage[notocbib]{apacite}
+\usepackage{natbib}
 \usepackage{multirow}
 \usepackage{graphicx}
 \usepackage{tikz}
@@ -67,7 +67,7 @@
 
 \date{\today}
 
-\institute{$^{1}$Posgrado de F\'isica Fundamental\\ Universidad de Los Andes \and $^{2}$Centro de%
+\institute{$^{1}$Posgrado de F\'isica Fundamental\\ Universidad de Los Andes \and $^{2}$Centro de %
 Investigaciones de Astronom\'ia%
 }
 
@@ -75,7 +75,7 @@ Investigaciones de Astronom\'ia%
 \end{frame}
 
 %Motivación
-\begin{frame}{}
+\begin{frame}[allowframebreaks]{\textsc{Motivación}}
 %
 Hoy día existen sondeos que permiten resolver espacialmente a las galaxias en el universo local,
 pero ¿qué nos ha llevado a idear esta nueva era de la exploración de nuestro universo?
@@ -83,15 +83,15 @@ pero ¿qué nos ha llevado a idear esta nueva era de la exploración de nuestro 
 Las galaxias hasta $z\sim1$ pueden resolverse como objetos extendidos en una imagen astronómica, sin
 embargo los sondeos espectroscópicos en su mayoría están limitados a una apertura fija y por lo
 general integran en una pequeña región de la imagen producida por las galaxias más cercanas debido a
-problemas de ingeniería (mostrar una imgen ejemplo de una galaxia del SDSS, con su $z$ y la apertura
-correspondiente). La fotometría, por otro lado, permite integrar una imagen producida por una
-galaxia en su totalidad, más aún, permite variar la apertura dentro de la cual se mide el brillo
+problemas de ingeniería (mostrar una imagen ejemplo de una galaxia del SDSS, con su $z$ y la
+apertura correspondiente). La fotometría, por otro lado, permite integrar una imagen producida por
+una galaxia en su totalidad, más aún, permite variar la apertura dentro de la cual se mide el brillo
 integrado, pues una vez producida la imagen la forma en que esta se estudia no ofrece límites. Sin
 embargo, la fotometría tradicional se ha limitado a integrar la imagen en su totalidad o dentro de
 una apertura variable, dependiendo del extensión y/o perfil de la fuente que la produce (e.g. radio
 Petrosian, el perfil de brillo).
 
-Ahora somos concientes que en la formación y evolución de las galaxias intervienen una variedad de
+Ahora somos conscientes que en la formación y evolución de las galaxias intervienen una variedad de
 fenómenos físicos que tienen lugar en distintas escalas temporales y espaciales. Aunque la
 disponibilidad de observaciones profundas del cielo han permitido estudiar la evolución de las
 galaxias en escalas temporales del orden de la mitad de la edad de universo, apenas estamos rozando
@@ -103,46 +103,199 @@ integrado actuales y las perspectivas con los próximos sondeos del mismo tipo.
 \end{frame}
 
 %Historia
-\begin{frame}{}
+\begin{frame}[allowframebreaks]{\textsc{Antecedentes de sondeos con IFU}}
 %
+El problema de adquisición de imágenes astronómicas es, en el sentido general, un problema de dos
+dimensiones espaciales y una dimensión espectral $(x,y;\lambda)$. Desafortunadamente, debido a
+problemas de ingeniería, la mayoría de los esfuerzos que ofrecen una resolución espectral
+$R\sim1000$, están limitados a una dimensión espacial, i.\,e. $(x;\lambda)$. El uso del formato
+\emph{long-slit} (rendija) resuelve parcialmente el problema de la dimensión perdida por
+espectrógrafos convencionales: si la dispersión de la luz proveniente de las fuentes se hace
+perpendicular al largo de la rendija, es posible en principio obtener espectros de distintas
+regiones de un mismo objeto extendido (e.\,g. una galaxia en el universo local) o de varios objetos
+adyacentes en su proyección en el cielo. Existen sin embargo varias limitaciones que complican la
+adquisición efectiva de la segunda dimensión usando este formato, todas relacionadas con el hecho de
+que las componentes espaciales y la espectral están correlacionadas.
+
+Las unidades de campo integrado \citep[IFU en inglés][]{Vanderriest1980} aparecieron en escena para
+resolver las limitaciones de resolución espacial de los previos intentos por registrar espectros de
+los objetos celestes. \citeauthor{Vanderriest1980} presentó un primer prototipo de IFU que consistía
+en un arreglo de fibras ópticas con forma hexagonal capaz de resolver espacialmente objetos en un
+campo de unas pocas decenas de segundos de arco ($\sim20''$) y bajo brillo superficial. Tal
+disposivo permitiría estudios de objetos cercanos siempre que la resolución espectral no fuera un
+factor importante para su desarrollo.
+
+A mediado de los 90's aparecieron los primeros resultados obtenidos a partir del análisis de datos
+de IFU como fuera concebida por \citet{Courtes1982} \citep[véase][para un resumen de los hallazgos
+con el dispositivo TIGER]{Beacon1995}.
+
+%mostrar una imagen con el diseño óptico del IFU.
+
 \begin{itemize}
-\item Primera idea de resolución espacial.
-\item Limitaciones que impiden desarrollarla.
-\item Primer sondeo con resolución espacial.
-\item Primeros hallazgos.
+%
+\item Primera medida de campos de velocidad estelar en la región central de galaxias cercanas
+\citep{Bacon1994}.
+%
+\item Prueba de que las componentes de la cruz de Einstein (2237+0305) son en realidad imágenes
+multiples del mismo objeto \citep{Fitte1994}.
+%
+\item Se logró resolver y mapear fuentes de emisión y continuo en NGC 1275 \citep{Ferruit1994}.
+%
+\item etc.
+%
 \end{itemize}
+%
+Las principales limitaciones eran el campo de visión, que seguía siendo demasiado pequeño para un
+estudio de la sitemático de una fuente extendida y la resolución espectral.
+
+En los últimos 20 años las IFU han alcanzado madurez y han permitido estudios sistemáticos de
+muestras completas de galaxias en el universo local, abarcando en la mayoría de los casos la
+todalidad de la imagen proyectada de los objetos. En buena parte de lo que resta de este seminario
+hablaré de los resultados más importantes que estos sondeos han permitido y en qué sentido han
+cambiado los paradigmas en el contexto de la formación y la evolución de las galaxias.
+%
+% \begin{itemize}
+% \item Primera idea de resolución espacial.
+% \item Principales limitaciones.
+% \item Primer sondeo con resolución espacial.
+% \item Primeros hallazgos.
+% \end{itemize}
 %
 \end{frame}
 
 %Unidad de campo integrado (actual)
-\begin{frame}{}
+\begin{frame}[allowframebreaks]{\textsc{Sondeos con IFU en la actualidad}}
+%
+Las IFU de la actualidad ($<2012$) presentan las siguientes ventajas frente a la primera generación
+de IFUs:
 %
 \begin{itemize}
-\item ¿Qué es?
-\item ¿Cómo funciona?
-\end{itemize}
+%
+\item Tienen grandes campos de visión, usualmente permitiendo abarcar la imagen
+proyectada de galaxias a $z\sim0.05$
+%
+\item Tienen una mejor función de respuesta que permite integrar espectros de fuentes más débiles en
+exposiciones cortas $\sim30\,$min.
+%
+\end{itemize}.
+%
+Aún así, dos principales desventajas permanecen: la limitada resolución espectral y solo una fuente
+por exposición puede observarse.
 %
 \end{frame}
 
 %Datos producidos
-\begin{frame}{}
+\begin{frame}[allowframebreaks]{\textsc{Características de los datos}}
 %
-\begin{itemize}
-\item ¿Qué tipo de datos produce?
-\item ¿Qué estudios permite?
-\end{itemize}
+Los datos que se obtienen viven en el espacio $(x,y,\lambda)$, por lo tanto la información que
+permitiría construir mapas de determinada información espectral, a una resolución espacial fija,
+depende del rango y de la resolución espectral. Desde el punto de vista poblacional, probablemente
+los estudios más atractivos tienen que ver con la dependencia ambiental de las propiedades físicas
+de las galaxias, i.\,e., cómo cambian los promedios en la edad, la composición química, las
+propiedades del polvo, tasa de formación estelar, como función de la densidad bariónica, por ejemplo
+y a su vez como cambian estas propiedades de una galaxia a otra.
+%
+Por supuesto, como mostré en el seminario anterior, los resultados de sondeos con IFU han permitido
+el refinamiento de los modelos dinámicos de galaxias y una clasificación morfológica basada en las
+propiedades físicas de las galaxias.
+%
+El seminario anterior fue intencionalmente sesgado a galaxias tempranas porque la mayoría de los
+esfuerzos de los sondeos con IFU están también sesgados de la misma manera. Construir muestras de
+galaxias que permitan estudios cinemáticos sistemáticos necesariamente improndrá un sesgo hacia
+galaxias tempranas. Ahora mostraré los resultados de los estudios poblacionales, en los que la
+secuencia de Hubble se abarca en completitud. Por lo tanto los resultados que mostraré estarán
+claramente sesgados hacia los de CALIFA, que ya ha completado el sondeo de la muestra
+%
+% \begin{itemize}
+% \item ¿Qué tipo de datos produce?
+% \item ¿Qué estudios permite?
+% \end{itemize}
 %
 \end{frame}
 
 %Resultados
-\begin{frame}{}
+\begin{frame}[allowframebreaks]{\textsc{Relaciones de escala -- antes de IFS}}
 %
-\begin{itemize}
-\item Estudios poblacionales.
-\item Estudios de dinámica.
-\item Relaciones de escala.
-\item Problemas abiertos.
-\end{itemize}
+Primero es bueno recapitular rápidamente qué sabemos de las propiedades globales de las galaxias y
+de las posibles correlaciones que existen entre estas:
+%
+\begin{description}
+%
+\item[\textsc{Relación Edad-Metalicidad.}] Esta relación se ha observado entre la edad media y la
+metalicidad media ponderadas por el flujo integrado de la galaxia, que son trazadores de la HFE
+reciente de las galaxias. Fue primero observada en galaxias tempranas, aunque la fuerte degeneración
+entre la ambas propiedades físicas, i.\,e. la degeneración edad-metalicidad, empañaba la
+interpretación de esta relación de escala \citep{Worthey1994}. La mayor parte de los estudios
+posteriores se concentró en sistemas tempranos, incluyendo bulbos de galaxias tardías
+\citep{Proctor2002, Terlevich2002}, probablemente debido a que ambos, los modelos de síntesis de
+poblaciones y los índices espectrales usados para estimar la edad y la metalicidad, favorecían
+particularmente el estudio de estos sistemas. Sin embargo, poco después \citet{Gallazzi2005}
+presento un análisis de la relación edad-metalicidad que incluía galaxias tardías. Sus resultados se
+pueden resumir como sigue: ambos, la edad y la metalicidad están correlacionados con la masa
+estelar, aunque la fuerza de dicha correlación depende fuertemente del rango de masa. En general,
+las galaxias menos masivas eran también dominadas por poblaciones más jóvenes y menos ricas en
+metales con una dispersión intrínseca más grande (i.\,e. el rango dinámico de las distribuciones de
+edad y de metalicidad por bin de masa eran más grandes), mientras que las más masivas eran dominadas
+por poblaciones más viejas y más ricas en metales (con dispersión intrínseca menor), esto último en
+acuerdo con los estudios previos de galaxias tempranas. En el caso de las galaxias más masivas, la
+relación edad-metalicdad sugiere que estas se forman en escalas de tiempo más cortas ($\sim1\,$Gaño)
+que sus homólogas menos masivas. Las galaxias menos masivas, por otro lado, se distribuyen en el
+plano edad-metalicidad dependiendo del tipo: dominadas por disco o dominadas por esferoides. Esto
+evidencia que la HFE presente podría depender de parámetros estructurales y/o fenómenos locales en
+estos sistemas. Es importante notar, sin embargo, las galaxias menos masivas, por lo general
+dominadas por galaxias tardías, determinar la metalicidad es particularmente complicado, pues los
+trazadores de metalicidad en poblaciones jóvenes suelen ser débiles en el rango óptico debido al
+efecto del \emph{outshining} \citep[e.\,g.][]{Conroy2013a}.
+%
+\item[\textsc{Relación Masa-Metalicidad.}] \citet{Tremonti2004} estimó la relación masa-metalicidad
+en una muestra de galaxias con formación estelar, usando como trazador de la metalicidad la
+abundancia de oxigeno en unidades de $12+\log{\text{O}/\text{H}}$ medida de la emisión del gas en
+varias líneas prohibidas (i.\,e. usando trazadores de la metalicidad en el medio interestelar),
+entontró una estrecha relación entre la metalicidad y la masa estelar en galaxias con formación
+estelar, donde las galaxias menos masivas eran también menos ricas en metales, mientras que las más
+masivas eran más ricas en metales, un resultado en acuerdo con estudios previos, en los que se usaba
+la luminosidad como \emph{proxy} para la masa estelar. Dos hipótesis competían para explicar el
+origen físico de la relación masa-metalicidad. Si es que las galaxias más masivas forman más una
+fracción de estrellas mayor que sus contrapartes menos masivas, en el mismo rango de tiempo,
+entonces la relación indica una secuencia de astración, i.\,e. las estrellas formadas en las
+galaxias más masivas enriquecen el medio más eficientemente, mientras que las galaxias menos masivas
+encapsulan los metales por más tiempo en las estrellas. Si es que la eficiencia de la tasa de
+formación estelar es irrespectiva de la masa estelar, entonces las galaxias menos masivas de alguna
+forma han perdido de manera selectiva los metales, tal vez mediante vientos galácticos. Evidencia de
+que la fracción másica de gas decrece con la masa estelar existe \citep{Bell2000} y podría explicar
+la relación masa-metalicidad como que las galaxias menos masivas están menos enriquecidas en
+metales. Por otra parte, existe evidencia también de que las galaxias \emph{star-burst} sufren de
+fuertes vientos galácticos, que el medio intracúmulo y el medio intergaláctico están está
+enriquecidos en metales.
+%
+De acuerdo con las expectativas de un modelo de caja cerrada, la metalicidad está directamente
+relacionada con el \emph{yield} estelar de la siguiente manera:
+%
+$$
+Z = y\ln{\left[{\mu_\text{gas}}^{-1}\right]},
+$$
+%
+donde $y$ es el \emph{yield} y $\mu_\text{gas}$ es la fracción de masa en gas. Suponiendo que $y$ es
+constante (i.\,e. la tasa de formación estelar decrece continuamente en el tiempo). Dada una
+fracción de metales $Z$ y una fracción de masa en gas $\mu_\text{gas}$, usando la esta relación se
+puede calcular el \emph{yield efectivo}, i.\,e. el \emph{yield} producido por las extrellas para
+observar \emph{al menos} la metalicidad $Z$. Si el modelo de caja cerrada efectivamente describe a
+las galaxias tardías como las de la muestra de \citeauthor{Tremonti2004}, entonces
+$y_\text{efectivo}=y$ independientemente de la masa bariónica. Sin embargo, lo que se observa es que
+$y_\text{efectivo}$ decrece con la masa bariónica. Este hallazgo sugiere que la relación
+masa-metalicidad tiene un origen local, en el sentido de que depende de la distribución de la
+materia total en las galaxias. El hecho de que se ha observado que el medio intergaláctico está
+enriquecido y que las galaxias star-burst sufren fuertes vientos galácticos que superan la velocidad
+de escape, soportan esta hipótesis para explicar esta relación de escala.
+%
+\end{description}
+
+% \begin{itemize}
+% \item Estudios poblacionales.
+% \item Estudios de dinámica.
+% \item Relaciones de escala.
+% \item Problemas abiertos.
+% \end{itemize}
 %
 \end{frame}
 
