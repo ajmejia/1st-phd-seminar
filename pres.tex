@@ -1,4 +1,5 @@
-\documentclass[xcolor=dvipsnames,4pt]{beamer}
+\documentclass[xcolor=dvipsnames,4pt,hyperref={colorlinks,citecolor=black,linkcolor=black,urlcolor=black}]{beamer}
+
 
 \setbeamertemplate{navigation symbols}{}
 \usefonttheme{professionalfonts}
@@ -8,7 +9,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[orientation=portrait,size=custom,width=32,height=18]{beamerposter}
 
-\usepackage{natbib}
 \usepackage{multirow}
 \usepackage{graphicx}
 \usepackage{tikz}
@@ -16,6 +16,38 @@
 \usecolortheme[named=Black]{structure}
 
 \usetikzlibrary{arrows,shapes,positioning,backgrounds}
+
+\PassOptionsToPackage{%
+%backend=biber, % Instead of bibtex
+backend=bibtex8,bibencoding=ascii,%
+language=auto,%
+%style=numeric-comp,%
+style=authoryear-comp, % Author 1999, 2010
+bibstyle=authoryear,dashed=false, % dashed: substitute rep. author with ---
+sorting=ynt, % year, name, title
+maxbibnames=3, % default: 3, et al.
+backref=false,%
+natbib=true, % natbib compatibility mode (\citep and \citet still work)
+url=false, %
+doi=false, %
+eprint=false %
+}{biblatex}
+\usepackage{biblatex}
+
+\addbibresource{library.bib}
+
+\hypersetup{
+% Uncomment the line below to remove all links (to references, figures, tables, etc), useful for b/w printouts
+%draft,
+colorlinks=true, linktocpage=true, pdfstartpage=3, pdfstartview=FitV,
+% Uncomment the line below if you want to have black links (e.g. for printing black and white)
+%colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=3, pdfstartview=FitV,
+breaklinks=true, pdfpagemode=UseNone, pageanchor=true, pdfpagemode=UseOutlines,%
+plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,%
+hypertexnames=true, pdfhighlight=/O,%nesting=true,%frenchlinks,%
+urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
+%urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,%
+}
 
 % My default font
 %\usepackage{newcent}
@@ -224,8 +256,8 @@ de las posibles correlaciones que existen entre estas:
 \item[\textsc{Relación Edad-Metalicidad.}] Esta relación se ha observado entre la edad media y la
 metalicidad media ponderadas por el flujo integrado de la galaxia, que son trazadores de la HFE
 reciente de las galaxias. Fue primero observada en galaxias tempranas, aunque la fuerte degeneración
-entre la ambas propiedades físicas, i.\,e. la degeneración edad-metalicidad, empañaba la
-interpretación de esta relación de escala \citep{Worthey1994}. La mayor parte de los estudios
+entre la ambas propiedades físicas, i.\,e. la degeneración edad-metalicidad, dificulta la
+interpretación de esta relación \citep{Worthey1994}. La mayor parte de los estudios
 posteriores se concentró en sistemas tempranos, incluyendo bulbos de galaxias tardías
 \citep{Proctor2002, Terlevich2002}, probablemente debido a que ambos, los modelos de síntesis de
 poblaciones y los índices espectrales usados para estimar la edad y la metalicidad, favorecían
@@ -290,6 +322,43 @@ de escape, soportan esta hipótesis para explicar esta relación de escala.
 %
 \end{description}
 
+Algunos aspectos de estas dos escalas quedaban sin explicarse completamente y/o estaban plagadas de
+incertidumbres que limitaban una clara interpretación. Las fuentes de incertidumbres más importantes
+eran:
+
+\begin{description}
+%
+\item[\textbf{Incertidumbres observacionales.}] Probablemente el efecto sistemático introducido por
+los sondeos espectroscópicos convencionales es el más importante, me refiero al efecto de apertura.
+Es bien sabido que existen gradientes radiales en las propiedades de las galaxias, por lo tanto,
+estudiar las relaciones entre las propiedades físicas `integradas', supone aproximaciones que deben
+tomarse en cuenta durante la interpretación de dichas relaciones. Más cuidado aún se debe tener
+cuando se comparan propiedades integradas con diferentes aperturas. En este sentido las galaxias
+tempranas han ofrecido mejores posibilidades. Las galaxias tardías por otro lado, tienen brillos
+superficiales típicamente menores y por lo tanto requieren tiempos de exposición más prolongados
+para alcanzar determinada $S/N$. Una alta $S/N$ es deseable en estos sistemas para determinar de
+manera confiable la metalicidad estelar usando rasgos espectrales como en \citet{Gallazzi2005},
+generalmente más débiles que en galaxias tempranas. Resolución espacial es deseable para estudios de
+galaxias tardías para interpretar de manera adecuada las relaciones de escala, i.\,e. tomando en
+cuenta los efectos de gradientes radiales y de ángulo de inclinación.
+%
+\item[\textbf{Incertidumbres en los modelos.}] Las galaxias tempranas de nuevo han sido favorecidas
+en el sentido de los modelos que usamos para interpretar su contenido estelar. Una población estelar
+simple por lo general es buena aproximación en estos sistemas, pues la relación masa luminosidad (en
+el óptico) evoluciona poco en poblaciones más viejas que unos pocos Gaños evolucionando pasivamente.
+Las galaxias tardías, por otro lado suponen retos que dificultan la interpretación de sus
+propiedades integradas como ya vimos en el punto anterior. Adicionalmente modelos de HFE más
+complejos deben adoptarse para interpretar de manera adecuada su emisión en el espectro óptico,
+considerando otras componentes además de la estelar, como por ejemplo el contenido de polvo y de
+gas. Es costumbre estudiar estas componentes por separado, probablemente debido a la ausencia de
+modelos de poblaciones estelares que incluyan de manera consistente la emisión del gas, la
+absorción. El efecto del \emph{outshining} aunado al efecto de apertura atenta contra la
+interpretación de la masa estelar (usualmente menor que la masa real integrada de la galaxia) y de
+la metalicidad estelar. Varios intentos se han hecho por superar ambas limitaciones usando
+observaciones fotométricas. 
+%
+\end{description}
+
 % \begin{itemize}
 % \item Estudios poblacionales.
 % \item Estudios de dinámica.
@@ -319,6 +388,11 @@ de escape, soportan esta hipótesis para explicar esta relación de escala.
 \item Estudios de la conformidad galáctica
 \end{itemize}
 %
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Referencias}
+%\bibliographystyle{plainnat}
+\printbibliography
 \end{frame}
 
 \end{document}
