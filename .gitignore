@@ -1,0 +1,12 @@
+library
+.comments
+*.snm
+*.aux
+*.out
+*.nav
+*.log
+*.toc
+*.xml
+*.bbl
+*.blg
+*blx.bib

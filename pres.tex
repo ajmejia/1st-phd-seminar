@@ -1,0 +1,116 @@
+\documentclass[xcolor=dvipsnames,4pt,hyperref={colorlinks,citecolor=black,linkcolor=black,urlcolor=black}]{beamer}
+
+
+\setbeamertemplate{navigation symbols}{}
+\usefonttheme{professionalfonts}
+\useinnertheme{circles}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[orientation=portrait,size=custom,width=32,height=18]{beamerposter}
+
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\usecolortheme[named=Black]{structure}
+
+\usetikzlibrary{arrows,shapes,positioning,backgrounds}
+
+\PassOptionsToPackage{%
+%backend=biber, % Instead of bibtex
+backend=bibtex8,bibencoding=ascii,%
+language=auto,%
+%style=numeric-comp,%
+style=authoryear-comp, % Author 1999, 2010
+bibstyle=authoryear,dashed=false, % dashed: substitute rep. author with ---
+sorting=ynt, % year, name, title
+maxbibnames=3, % default: 3, et al.
+backref=false,%
+natbib=true, % natbib compatibility mode (\citep and \citet still work)
+url=false, %
+doi=false, %
+eprint=false %
+}{biblatex}
+\usepackage{biblatex}
+
+\addbibresource{library.bib}
+
+\hypersetup{
+% Uncomment the line below to remove all links (to references, figures, tables, etc), useful for b/w printouts
+%draft,
+colorlinks=true, linktocpage=true, pdfstartpage=3, pdfstartview=FitV,
+% Uncomment the line below if you want to have black links (e.g. for printing black and white)
+%colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=3, pdfstartview=FitV,
+breaklinks=true, pdfpagemode=UseNone, pageanchor=true, pdfpagemode=UseOutlines,%
+plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,%
+hypertexnames=true, pdfhighlight=/O,%nesting=true,%frenchlinks,%
+urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
+%urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,%
+}
+
+% My default font
+%\usepackage{newcent}
+
+% Computer Modern Bright font
+%\usepackage{cmbright}
+
+% Iwona light
+\usepackage[light,math]{iwona}
+
+% LX fonts
+%\usepackage{lxfonts}
+
+% Malvern
+%\input T1fmv.fd
+%\renewcommand*\sfdefault{fmv}
+%\renewcommand*\familydefault{\sfdefault}
+
+% Comfortaa
+%\usepackage[default]{comfortaa}
+
+%\setbeamercolor{frametitle}{fg=NavyBlue}
+%\setbeamercolor{structure}{fg=NavyBlue}
+%\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{alerted text}{fg=NavyBlue}
+%\setbeamercolor{example text}{fg=red}
+
+\newcommand{\cl}[1]{\multicolumn{1}{c}{#1}}
+
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+\item[]}{\end{list}}
+
+\begin{document}
+\tikzstyle{every picture}+=[remember picture]
+\tikzstyle{na} = [baseline=-.5ex]
+
+\begin{frame}
+\title{Formación y Evolución de galaxias}
+%\subtitle{}
+\author{Alfredo J. Mej\'ia$^{1,2}$}
+
+\date{\today}
+
+\institute{$^{1}$Posgrado de F\'isica Fundamental\\ Universidad de Los Andes \and $^{2}$Centro de %
+Investigaciones de Astronom\'ia%
+}
+
+\maketitle
+\end{frame}
+
+%Motivación
+\begin{frame}[allowframebreaks]{\textsc{Motivación}}
+%
+
+%
+\end{frame}
+
+\end{document}
