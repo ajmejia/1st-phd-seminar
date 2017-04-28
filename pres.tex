@@ -1,5 +1,7 @@
 \documentclass[xcolor=dvipsnames,4pt,hyperref={colorlinks,citecolor=black,linkcolor=black,urlcolor=black}]{beamer}
 
+\usepackage{amsmath}
+\usepackage{eulervm}
 
 \setbeamertemplate{navigation symbols}{}
 \usefonttheme{professionalfonts}
@@ -56,7 +58,7 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 %\usepackage{cmbright}
 
 % Iwona light
-\usepackage[light,math]{iwona}
+\usepackage[light]{iwona}
 
 % LX fonts
 %\usepackage{lxfonts}
@@ -135,36 +137,17 @@ observaciones.
 %
 \begin{description}
 %
-\item[\textsc{Formación de galaxias.}] Es comúnmente aceptado (y físicamente plausible) que en un
-universo en expansión acelerada, dominado por materia oscura fría las galaxias se forman en regiones
-de sobredensidad que llamamos halos de materia oscura \citep{Davis1985}. Estos halos pueden, por
-acción de la gravedad, fusionarse con halos vecinos para dar origen a galaxias más masivas. Este
-proceso es denominado formación formación jerárquica de galaxias \citep{Baugh1996, Kauffmann1996}.
-Un conjunto de procesos físicos que tienen lugar a diferentes escalas espaciales
-($\sim10\,$---$\,10^6\,$pc) y temporales ($\sim10^6\,$---$\,10^9\,$años) regulan la subsiguiente
-evolución de las galaxias. En los primeros intentos por teorizar dicho proceso de formación y
-evolución de las galaxias en el marco de la cosmología moderna, se identificaron los siguiente
-procesos físicos como fundamentales:
-%
-\begin{itemize}
-\item Fusión de (sub)halos,
-\item enfriamiento del material bariónico (termodinámica y transferencia radiativa),
-\item formación estelar,
-\item evolución química, y
-\item \emph{feedback} de la formación estelar \citep{Larson1974a, Larson1974b, White1978}.
-\end{itemize}
-%
-Aunque en los primeros modelos de formación de galaxias lograban predecir algunas propiedades
-globales, como la función de luminosidad de las galaxias y la existencia de galaxias satelites y
-galaxias centrales masivas compartiendo el mismo halo de materia oscura \citep{White1978}. Más aún,
-el modelo de colapso monolítico aún permitía predecir algunas de las propiedades observadas en
-galaxias elípticas \citep{Larson1974a, Larson1974c}. En particular, estos modelos predecían colores
-más azules hacia el núcleo galáctico que los observados, esto debido a que la tasa de formación
-estelar se extendendía en desde el momento en que el colapso iniciaba hasta el presente.
-\citet{Larson1974c} sugería que para `apagar' la formación estelar en este tipo de galaxias, una
-fuente de energía en el núcleo de estas galaxias era necesaria para barrer y calentar el material
-gaseoso. La realización de que algunos fenómenos físicos aún faltaban en la construcción de una
-teoría para describir la formación y evolución de las galaxias, era clara.
+\item[\textsc{Formación de galaxias.}] Aunque en los primeros modelos de formación de galaxias
+lograban predecir algunas propiedades globales, como la función de luminosidad de las galaxias y la
+existencia de galaxias satelites y galaxias centrales masivas compartiendo el mismo halo de materia
+oscura \citep{White1978}. Más aún, el modelo de colapso monolítico aún permitía predecir algunas de
+las propiedades observadas en galaxias elípticas \citep{Larson1974a, Larson1974c}. En particular,
+estos modelos predecían colores más azules hacia el núcleo galáctico que los observados, esto debido
+a que la tasa de formación estelar se extendendía en desde el momento en que el colapso iniciaba
+hasta el presente. \citet{Larson1974c} sugería que para `apagar' la formación estelar en este tipo
+de galaxias, una fuente de energía en el núcleo de estas galaxias era necesaria para barrer y
+calentar el material gaseoso. La realización de que algunos fenómenos físicos aún faltaban en la
+construcción de una teoría para describir la formación y evolución de las galaxias, era clara.
 
 Primeros indicios de que un número significativo de galaxias podrían albergar un agujero negro
 supermasivo ($\sim10^6\,$---$\,10^9\,$M$_\odot$) apareció entre finales de los 80's y comienzos de
@@ -178,10 +161,17 @@ con la dispersión de velocidades central][]{Ferrarese2000}. Estas correlaciones
 que debía existir un vínculo fundamental entre la formación de las galaxias y la formación del
 agujero negro supermasivo que estas albergan. Eventualmente, los intentos por teorizar la formación
 de las galaxias comenzaron a incluir la formación y evolución de agujeros negros supermasivos y los
-efectos ambientales que estos producían \citep[e.\,g.][]{Springel2005}:
+efectos ambientales que estos producían \citep[e.\,g.][]{Springel2005d}. La lista de fenómenos
+físicos que capturaban la esencia de la formación y evolución de galaxias en el universo tomó la
+forma que hoy conocemos:
 %
 \begin{itemize}
-\item Formación de agujeros negros supermasivos, y
+\item Fusión de (sub)halos (gravedad),
+\item enfriamiento del material bariónico (termodinámica y transferencia radiativa),
+\item formación estelar,
+\item evolución química,
+\item \emph{feedback} de la formación estelar,
+\item formación de agujeros negros supermasivos, y
 \item \emph{feedback} de núcleos activos.
 \end{itemize}
 %
@@ -210,46 +200,136 @@ estimadas como la tasa de formación estelar.
 %
 \end{frame}
 
-\begin{frame}[allowframebreaks]{\textsc{Teoría de formación de galaxias}}
+\begin{frame}[allowframebreaks]{\textsc{Teoría de formación de galaxias -- en construcción}}
 %
-Ahora podemos decir que somos conscientes de los fenómenos más importantes que intervienen en la
-formación de estructuras a gran escala en el universo.
+En el marco del \emph{Big Bang} se postula que el universo comenzó en un estado altamente denso,
+caliente y esencialmente homogéneo. Durante un corto período en su expansión, llamado inflación, se
+manifestaron fluctuaciones cuánticas que dieron origen a inhomogeneidades, las mismas que detectamos
+ahora en el Fondo Cósmico de Microondas (FCM). Las observaciones del FCM junto con mediciones de la
+distancia y las Oscilaciones Acústicas de Bariones (OAB) permiten determinar los parámetros
+cosmológicos con un nivel de incertidumbre considerablemente bajo ($\sim10\,$por ciento). Estas
+mediciones han permitido determinar que el universo en el presente es plano y que está dominado por
+materia oscura y energía oscura en más de un $95\,$por ciento. Aunque no sabemos qué es exactamente
+la materia oscura, simulaciones han permitido descartar entre un gran número de candidatos. Es
+comúnmente asumido que la materia oscura se comporta como un fluído frío y no colisional y
+constituye el $\sim25\,$por ciento de la materia-energía en el universo. La energía oscura, por otra
+parte, es aún más misteriosa y se ha introducido como un parámetro \emph{ad hoc} para explicar la
+geometría y la tasa de expansión (acelerada) del universo. En las ecuaciones fundamentales de la
+Relatividad General, la energía oscura toma la forma de una constante, llamada Constante Cosmológica
+$\Lambda$ y representa el $\sim70\,$por ciento de la materia-energía. El restante $\sim4\,$por
+ciento es materia bariónica.
+
+Dadas estas condiciones iniciales, en un universo en expansión que contiene solo materia oscura, se
+desarrollan de manera natural regiones de sobre densidad. A medida que el universo se expande la
+densidad de campo (densidad promedio) disminuye. Sin embargo, cuando en estas regiones de sobre
+densidad se alcanza un valor crítico, la expansión del universo es despreciable y el material
+acumulado se convierte en autogravitante.
+
+Los sondeos del cielo de los últimos 20 años nos ha permitido estudiar con relativo detalle (aún así
+estadísticamente hablando) los propiedades observables y físicas de las galaxias en escalas de
+tiempo cosmológicas ($z<6$). Por una parte los métodos que buscan explotar los registros fósiles en
+el universo local ($z<0.5$) han servido su propósito revelando correlaciones entre las propiedades
+físicas de las galaxias (\cites[la relación masa-metalicidad,][]{Tremonti2004, Sanchez2013}[la
+relación edad-metalicidad,][]{Worthey1994, Gallazzi2005, Panter2008}), mientras que estudios fuera
+del universo local ($z>1$) han permitido muestrear la distribución de masa estelar a escalas
+cosmológicas, la densidad de TFE, entre otros \citep[véase][para una revisión completa]{Madau2014}.
+Estas observaciones y mediciones han permitido la construcción de calibraciones en vista de una
+construcción \emph{ab initio} de la formación de galaxias. También nos han permitido decir con
+certeza que hoy tenemos conocimiento de los fenómenos físicos que intervienen en la construcción de
+dicha teoría.
+
+Aún así, los aspectos fundamentales relacionados con la formación estelar no están completamente
+entendidos. Por un lado las simulaciones que apuntan a resolver el problema de la formación de
+galaxias a escalas cosmológicas, de primeros principios, (e.\,g.,
+\cites[\textsc{millenium}][]{Springel2005c}[\textsc{illustris}][]{Vogelsberger2014}) no han
+alcanzado la resolución espacial ($<20\,$pc) y ni en masa ($<10^6$M$_\odot$) requeridos para
+experimentar distintos escenarios de formación estelar físicamente plausibles, de nuevo, en el
+contexto cosmológico. Por otro lado, las observaciones, incluso en nuestra propia galaxia
+\citep[e.\,g.][]{}, son aún insuficientes para elaborar una compresión completa de los mecanismos
+físicos que intervienen en el MIE y como estos propician o inhiben la formación estelar
+\citep[véase][para una revisión]{Naab2016}.
+
+A continuación una representación esquemática de los ingredientes necesarios para la elaboración de
+una teoría de formación de galaxias.
 %
-\begin{itemize}
-\item Fundamento físico.
-\item Fenómenos que sabemos intervienen.
-\item Resultados.
-\end{itemize}
+% - Eje horizontal: tiempo cosmico, eje vertical: espacio.
+% - Evolución desde la fusión de halos de materia oscura hasta la formación de una galaxia como la
+%   veríamos a z=0.
+% - En cada estadío evolutivo, representar lo que sucede a distintas escalas espaciales.
+%
+% \begin{itemize}
+% \item Fundamento físico.
+% \item Fenómenos que sabemos intervienen.
+% \item Resultados.
+% \end{itemize}
 %
 \end{frame}
 
+\begin{frame}[allowframebreaks]{\textsc{Enfriamiento del gas}}
 %
-\begin{frame}[allowframebreaks]{\textsc{Simulaciones hidrodinámicas}}
+% Electron-ionized plasmas (also called collisionally ionized plasmas) are formed in a di-
+% verse variety of objects in the universe. These range from stellar coronae and supernova
+% remnants to the interstellar medium and gas in galaxies or in clusters of galaxies. The phys-
+% ical properties of these sources can be determined using spectral observations coupled with
+% theoretical models. This allows one to infer electron and ion temperatures, densities, emis-
+% sion measure distributions, and ion and elemental abundances. Reliably determining these
+% properties requires accurate fractional abundance calculations for the different ionization
+% stages of the various elements in the plasma (i.e., the ionization balance of the gas).
+% Since many of the observed sources are not in local thermodynamic equilibrium, in order
+% to determine the ionization balance of the plasma one needs to know the rate coefficients
+% for all the relevant ionization and recombination processes. Often the observed systems
+% are optically-thin, low-density, dust-free, and in steady-state or quasi-steady-state. Under
+% these conditions the effects of any radiation field can be ignored, three-body collisions are
+% unimportant, and the ionization balance of the gas is time-independent. This is commonly
+% called collisional ionization equilibrium (CIE) or sometimes coronal equilibrium.
 %
-\begin{itemize}
-\item Física de entrada.
-\item Procedimientos.
-\item Resultados.
-\end{itemize}
+El gas en el halo se asume que es calentado por ondas de choque producidas por el durante el
+colapso. Tradicionalmente se asume que el gas se encontraba en equilibrio colisional \citep[sin
+embargo véase][]{Wiersma2009}. Bajo esta suposición, el mecanismo de enfriamiento más eficiente a
+escalas cosmológicas son los procesos radiativos de dos cuerpos. Dependiendo de la temperatura del
+gas, el mecanismo específico de enfriamiento será uno u otro:
+%
+\begin{description}
+%
+\item[\textsc{\emph{Bremsstrahlung}.}] A temperaturas $T>10^7\,$K, el gas está completamente
+ionizado, por lo tanto se enfría vía interacciones libre-libre como enfriamiento `Bremsstrahlung'.
+% mostrar un diagrama representando este proceso.
+\item[\textsc{Recombinación.}] En el rango de temperaturas $10^4<T<10^7\,$K, las especies
+colisionalmente ionizadas pueden decaer al nivel base y los electrones recombinarse con los iones.
+%
+\item[\textsc{Emisión de metales.}] A temperaturas $T<10^4\,$K el enfriamiento ocurre mediante
+(des)excitación colisional de especies pesadas, mediante un proceso llamado emisión de metales.
+%
+\end{description}
+%
+Los mecanismos de enfriamiento dependen, por supuesto, de las condiciones del gas y del medio en que
+este se encuentra. Si alguno de los procesos antes mencionados no es capaz de enfriar eficientemente
+el gas, este se convertirá en una estructura cuasi-estática soportada por presión, con una
+temperatura cercana a la temperatura virial \citep{Cole2000}. Eventualmente se enfriará, perderá su
+estructura soportada por presión. El gas frío es acretado en un disco en el centro del halo de
+materia oscura. Durante el proceso de acreción del gas se asume que el disco conserva su momento
+angular.
+
+Para que la formación estelar tenga lugar, el gas debe entonces enfriarse lo suficiente como para
+condensarse en nubes de unas pocas decenas de parsecs.
 %
 \end{frame}
 
-\begin{frame}[allowframebreaks]{\textsc{Simulaciones semianalíticas}}
+\begin{frame}[allowframebreaks]{\textsc{Formación estelar y \emph{mergers}}}
 %
-\begin{itemize}
-\item Física de entrada.
-\item Procedimientos.
-\item Resultados.
-\end{itemize}
+
 %
 \end{frame}
 
-\begin{frame}[allowframebreaks]{\textsc{Análisis comparativo}}
+\begin{frame}[allowframebreaks]{\textsc{Evolución química}}
 %
-\begin{itemize}
-\item Fortalezas y debilidades de ambos métodos.
-\item Perspectivas.
-\end{itemize}
+
+%
+\end{frame}
+
+\begin{frame}[allowframebreaks]{\textsc{\emph{Feedback} estelar y de núcleos activos}}
+%
+
 %
 \end{frame}
 
