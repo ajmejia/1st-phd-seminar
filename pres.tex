@@ -285,9 +285,15 @@ una teoría de formación de galaxias.
 %
 El gas en el halo se asume que es calentado por ondas de choque producidas por el durante el
 colapso. Tradicionalmente se asume que el gas se encontraba en equilibrio colisional \citep[sin
-embargo véase][]{Wiersma2009}. Bajo esta suposición, el mecanismo de enfriamiento más eficiente a
-escalas cosmológicas son los procesos radiativos de dos cuerpos. Dependiendo de la temperatura del
-gas, el mecanismo específico de enfriamiento será uno u otro:
+embargo véase][]{Wiersma2009a}, por lo tanto el tiempo de enfriamiento se puede escribir como
+%
+$$
+t_\text{enf} = \frac{3}{2}\frac{1}{\mu\,m_\text{H}}\frac{k\,T_\text{gas}}{\rho_\text{gas}(r)\Lambda(T_\text{gas}, Z_\text{gas})}.
+$$
+%
+Bajo esta suposición, el mecanismo de enfriamiento más eficiente a escalas cosmológicas son los
+procesos radiativos de dos cuerpos. Dependiendo de la temperatura del gas, el mecanismo específico
+de enfriamiento, encapsulado en la función $\Lambda(T_\text{gas}, Z_\text{gas})$, será uno u otro:
 %
 \begin{description}
 %
@@ -464,13 +470,93 @@ la formación estelar (más adelante explicaré con más detalle la física detr
 
 \begin{frame}[allowframebreaks]{\textsc{Evolución química}}
 %
-
+Una de las consecuencias de la evolución estelar es el enriquecimiento químico del MIE y del MIG.
+Posteriormente parte del material devuelto al MIG en eventos de supernovas y/o AGNs puede retornar
+al MIE, en el que el ciclo de formación estelar tiene lugar. La evolución química de estos medios es
+importante para la formación y evolución de galaxias por varias razones:
+%
+\begin{itemize}
+\item La tasa de enfriamiento del gas puede depender de la metalicidad,
+\item la presencia de elementos pesados en el MIE propicia el crecimiento de granos de polvo,
+\item las propiedades observables de las galaxias son afectadas directa e indirectamente.
+\end{itemize}
+%
+El objetivo principal de la teoría de evolución química del material bariónico es seguir la
+evolución de la abundancia de las distintas especies \emph{observadas} en estrellas y en el MIE/MIG.
+El punto de partida es el calculo de la masa retornada por las estrellas durante su vida al MIE.
+Existen principalmente dos mecanismos mediante los cuales las estrellas pueden retornar material al
+MIE: vientos estelares y explosiones de supernova. El primer mecanismo es importante para el retorno
+al MIE del material enriquecido producido en el proceso de nucleosíntesis en el interior de las
+estrellas y es particularmente eficiente en la fase de gigantes de las estrellas de masa intermedia,
+$\lesssim5\,$M$_\odot$. En estrellas de mayor masa $<100\,$M$_\odot$, los vientos estelares y la
+nucleosíntesis en explosiones de supernova al final de la vida de estas estrellas son más
+importantes. Por otra parte, existen especies en la composición inicial de las estrellas que no es
+ni creado ni destruido durante la vida de las estrellas. La importancia de estas especies dependerá
+por supuesto de la composición química inicial de las estrellas. La masa retornada por una estrella
+en un momento dado al MIE depende entonces de varios factores:
+%
+\begin{itemize}
+\item la masa inicial de la estrella,
+\item La composición química inicial de la estrella,
+\item la edad de la estrella.
+\end{itemize}
+%
+Sin embargo, las propiedades estelares son descritas más facilmente si se considera que las
+estrellas nacen en grupo a partir del material en nubes moleculares, por lo tanto es una
+aproximación justa asumir que en un instante dado un conjunto de estrellas tendrá la misma
+composición química, $Z_\star$ y la misma edad, $t$ y estará distribuída en masa de acuerdo a una
+FIM, $\phi(m,Z_\star)$. El artificio físico que mejor describe a tal población es conocido como una
+población estelar simple (PES). La tasa de masa eyectada por una PES en el instante $t$ es
+\citep{Yates2013}:
+%
+$$
+e_\text{masa}(t) = \int_{m_\text{inf}}^{m_\text{sup}}\left[m-m_\text{rem}(m,Z_\star)\right]\psi(t-\tau(m,Z_\star))\phi(m,Z_\star)\text{d}m,
+$$
+%
+donde $m_\text{rem}$ es la masa del remanente estelar que deja una estrella de masa y metalicidad
+iniciales $m$ y $Z_\star$, respectivamente; $\tau(m,Z_\star)$ es el tiempo de vida y
+$\phi(m,Z_\star)$ es la FIM normalizada de manera que su integral en el rango
+$m_\text{inf}\,$---$\,m_\text{sup}$ es igual al número de estrellas en una PES de $1\,$M$_\odot$. En
+este sentido, el producto $\psi(t-\tau)\times\phi$ es la tasa de nacimiento de estrellas de masa $m$
+y metalicidad $Z$ en el instante $t-\tau$. El producto de esta tasa de nacimiento por
+$m-m_\text{rem}$ es simplemente la tasa de eyección instantánea de masa en estrellas de masa $m$ en
+$t$. Ahora, más interesante que esto es la masa en \emph{metales} eyectada por una PES:
+%
+$$
+e_Z(t) = \int_{m_\text{inf}}^{m_\text{sup}}\left[y(m,Z_\star)+Z_\star\times(m-m_\text{rem})\right]\psi(t-\tau(m,Z_\star))\phi(m,Z_\star)\text{d}m,
+$$
+%
+donde $y(m,Z_\star)$ es el \emph{yield} (la masa en metales nucleosintéticos) y
+$Z_\star\times(m-m_\star{rem})$ es la masa inicial en metales que no fue procesada por la estrella.
+La suma de estos dos términos es la masa en metales retornada al MIE por una estrella de masa y
+metalicidad iniciales, $m$ y $Z_\star$, respectivamente. Lo que en realidad nos interesa es la
+contribución en masa de cada especie. En ese caso el corchete en la integral anterior se puede
+escribir como:
+%
+$$
+m_i = y_i(m,Z_\star) + \frac{m_i}{m}(m-m_\text{rem}).
+$$
+%
+Las funciones $\tau(m,Z_\star)$, $y_i(m,Z_\star)$ son resultados de la teoría de evolución estelar
+\citep[e.\,g.][]{Portinari1998, Marigo2001}.
+% mostrar fig. 1 de Yates et al. 2013 (tiempos de vida).
+De acuerdo de predicciones de la teoría de evolución estelar, el \emph{yield} es el resultado de
+distintos mecanismo de eyección que se activan en tiempos diferentes, como podemos ver en los
+gráficos a continuación \citep{Yates2013}.
+% mostrar fig. 2 Yates et al. 2013 (masa de distintas especies eyectada por estrellas en AGB).
+% mostrar fig. 3 Yates et al. 2013 (masa de distintas especies eyectada por supernovas Ia).
+% mostrar fig. 4 Yates et al. 2013 (masa de distintas especies eyectada por supernovas II).
+En la práctica solo un número reducido de especies es considerado puesto que estas son relativamente
+más abundantes que otras y por lo tanto más facilmente observables/medibles. En particular las
+especies en color en el gráfico son importantes en el calculo de las tasas de enfriamiento del gas
+\citep{Wiersma2009a}.
 %
 \end{frame}
 
 \begin{frame}[allowframebreaks]{\textsc{\emph{Feedback} estelar y de núcleos activos}}
 %
-
+Los vientos estelares y los eventos de supernova no solo introducen nuevas especies al MIE, también
+inyectan cantidades importantes de energía cinética.
 %
 \end{frame}
 
