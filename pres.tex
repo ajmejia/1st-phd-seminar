@@ -615,7 +615,85 @@ escalas galácticas están:
 %
 \citep[ver][para una revisión completa]{Krumholz2014}.
 %
-\item[\textsc{Núcleos activos.}]
+\item[\textsc{Núcleos activos.}] Probablemente una de las evidencias más claras de que las galaxias
+más masivas ($>10^{11}\,$M$_\odot$) siguen mecanismos formación/evolución diferentes al que siguen
+las galaxias menos masivas ($<10^{11}\,$M$_\odot$) se encuentra en la dicotomía observada en sus
+clases espectrales: las galaxias masivas son consistentemente las más rojas en el óptico (en reposo)
+mientras que las galaxias menos masivas son sistemáticamente más azules. La distribución de color
+como función de la luminosidad muestra una clara bimodalidad \citep{Strateva2001, Baldry2004,
+Balogh2004}, sin embargo no muestra fuerte dependencia con el ambiente \citep[medido usando la
+densidad local, e.\,g.,][]{Balogh2004}. Desde hace algún tiempo ha sido claro que las galaxias más
+masivas se forman en regiones preferiblemente más densas, lo cual podría sugerir que mecanismos
+dinámicos dominan la formación de estos objetos. Sin embargo, bajo el escenario de que las
+componentes que ensamblan a estas galaxias contienen una fracción importante del material bariónico
+en forma de gas, no es posible reproducir galaxias tan rojas como las galaxias que observamos en el
+universo local. Más aún, no es posible reproducir la dicotomía en la distribución de color la cual
+sugiere que si las galaxias azules de alguna forma son progenitoras de las galaxias rojas, entonces
+la evolución/transición tiene que ocurrir en una escala de tiempo lo suficientemente corta como para
+que la dicotomía.
+% mostrar fig. 1 de Balogh+2004
+De manera independiente la aparentemente íntima relación entre la masa del agujero negro central y
+la dispersión de velocidades del bulbo sugería un vínculo co-evolutivo entre ambas componentes
+\citep{Ferrarese2000, Tremaine2002}. La acreción de material en el agujero central puede activar un
+AGN no solo es capaz de inyectar energía térmica a escalas galácticas sino también energía y momento
+mecánicos. Se piensa que dicha energía-momento asociados son mantenidos hasta que el agujero negro
+ha barrido todo el material disponible para acretar. Si dicha hipótesis es cierta, los AGNs pueden
+regular o incluso detener completamente la formación estelar en una galaxia.
+% mostrar figs. 2 y 3 de Springel+2005a
+Estos primeros resultados de \citet{Springel2005a} parecían prometedores, sin embargo, sobrestimaban
+artificialmente la influcencia térmica en la reducción de la TFE. Como hemos visto antes, los
+fotones pueden distribuir en energía y momento en el MIE. De hecho, la contribución al
+\emph{feedback} del AGN puede dividirse en dos componentes: radiativa y mecánica. La primera es
+relativamente simple y establece la conexión entre los flujos entrantes y salientes de materia y el
+material acretado, el momento y la energía cinética. Suponiendo leyes de conservación estas
+relaciones son:
+%
+\begin{align}
+\dot{M}_\text{acr}    &= \dot{M}_\text{ent} - \dot{M}_\text{sal}, \nonumber\\
+\dot{E}_\text{viento} &= \epsilon_\text{viento}\dot{M}_\text{acr}c^2 = \frac{1}{2}\dot{M}_\text{sal}\left<v_\text{viento}^2\right>, \nonumber\\
+\dot{p}               &= \dot{M}_\text{sal}\left<v_\text{viento}\right>, \nonumber
+\end{align}
+%
+donde la tasa de acreción en la región central alrededor del agujero negro se puede resolver, según
+el modelo de acreción de Bondi-Hoyle-Lyttleton, a partir del radio de Bondi
+%
+$$
+R_\text{Bondi} \equiv \frac{2GM_\text{AN}}{c_\text{s}^2 + v_\text{rel}^2},
+$$
+%
+donde $v_\text{rel}$ es la velocidad relativa del gas respecto del AN. La masa acretada por el
+agujero negro es
+%
+$$
+\dot{M}_\text{int} = \dot{M}_\text{Bondi} \equiv \frac{4\pi G^2M_\text{AN}^2\rho}{\left(c_\text{s}^2 + v_\text{rel}^2\right)^{3/2}}.
+$$
+%
+De manera que la masa realmente acretada por el AN es
+%
+$$
+\dot{M}_\text{acr} = \dot{M}_\text{ent}\frac{1}{1+\psi_\text{acr}},
+$$
+%
+donde $\psi_\text{acr} = 2\epsilon_\text{viento}c^2/v_\text{viento}^2$ es un parámetro relacionado
+con la eficiencia en dicha acreción y por lo general se fija en las simulaciones de formación de
+galaxias.
+%
+% esquema que representa las interacciones descritas por estas ecuaciones:
+% - agujero negro central, acreción, radio de Bondi, flujo de entrada y de salida.
+%
+El espectro de energía de un AGN tiene un pico importante en la región de los rayos X, los cuales
+son capaces de impartir momento en el medio. Durante la fase de AGN, las condiciones del MIE son
+modificadas drásticamente y la formación estelar es esencialmente suprimida, de manera que las
+galaxias crecen casi exclusivamente mediante fusión de halos. Eventualmente el flujo másico de
+entrada se iguala con el se salida y la acreción se detiene. En este punto una fracción importante
+del gas que estaba originalmente en el MIE ha sido expulsada al MIG y la radiación emitida por el
+AGN ha termalizado el ambiente de manera que este tiene una probabilidad muy baja de reingresar al
+halo de materia oscura y resumir la formación estelar. La distribución de colores y de masas en el
+universo local parece consistente con esta idea.
+
+Las ideas expuestas en el párrafo anterior resuelven varias incógnitas en la formación de galaxias
+masivas: ¿por qué son aparentemente más viejas? ¿el fenómeno de \emph{downsizing}? ¿enriquecimiento
+químico del MIG?.
 %
 \end{description}
 %
@@ -623,11 +701,27 @@ escalas galácticas están:
 
 \begin{frame}[allowframebreaks]{\textsc{Poder predictivo}}
 %
-\begin{itemize}
-\item Comparación de los resultados de las simulaciones con las observaciones.
-\item Discutir las incertidumbres que intervienen cuando se falla en la predicción.
-\item ¿Cómo se puede mejorar?.
-\end{itemize}
+En las siguientes secciones mostraré cómo todas las reglas físicas que he expuesto hasta ahora se
+compaginan para reproducir las observaciones que hacemos en el universo local y, por lo tanto
+proveen una teoría física (aunque incompleta) para describir la formación y la evolución de las
+galaxias.
+%
+
+\begin{description}
+%
+\item[\textsc{Comparación con las observaciones.}]
+
+%
+\item[\textsc{Principales incertidumbres.}]
+
+%
+\end{description}
+%
+% \begin{itemize}
+% \item Comparación de los resultados de las simulaciones con las observaciones.
+% \item Discutir las incertidumbres que intervienen cuando se falla en la predicción.
+% \item ¿Cómo se puede mejorar?.
+% \end{itemize}
 %
 \end{frame}
 
