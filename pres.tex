@@ -699,20 +699,71 @@ químico del MIG?.
 %
 \end{frame}
 
-\begin{frame}[allowframebreaks]{\textsc{Poder predictivo}}
+\begin{frame}[allowframebreaks]{\textsc{Poder Predictivo -- Teoría vs. Observaciones}}
 %
 En las siguientes secciones mostraré cómo todas las reglas físicas que he expuesto hasta ahora se
 compaginan para reproducir las observaciones que hacemos en el universo local y, por lo tanto
 proveen una teoría física (aunque incompleta) para describir la formación y la evolución de las
 galaxias.
-%
+
+En general, en las simulaciones de formación y evolución de galaxias un conjunto de $\sim6$
+parámetros son introducidos y ajustados para reproducir un conjunto de observables y/o estimaciones
+basadas en la observaciones, mayormente en el universo local \citep{Somerville2015, Guo2016,
+Naab2016}.
 
 \begin{description}
 %
-\item[\textsc{Comparación con las observaciones.}]
+\item[\textsc{Función de masa.}] La Función de Masa contiene la información más fundamental sobre la
+formación y la evolución de las galaxias. Reproducirla es por supuesto de vital importancia en el
+marco de una compresión completa de los mecanismos de formación y de evolución de galaxias.
+
+% figura 4 de Naab+2017
+En la figura se muestran en color las distintas Funciones de Masa que resultan de las simulaciones
+numéricas de distintos grupos y se comparan con las medidas de Li y White y de Bernardi y
+colaboradores. La fracción cósmica de bariones se muestra como comparación y demuestra el caracter
+no lineal del origen de la Función de Masa. Los halos de materia oscura de baja masa se forman
+primero y luego estos ensamblan halos de mayor masa. Por el contrario y de acuerdo con las
+observaciones, las galaxias más masivas forman su contenido estelar primero y en escalas de tiempo
+cortas que las galaxias de masa intermedia y baja, las cuales forman su contenido estelar después en
+escalas de tiempo extendidas. Este fenómeno se ha apodado \emph{downsizing} \citep{Cowie1996}. Las
+dos pendientes en la Función de Masa de alguna manera reflejan esas diferencias en la forman en que
+las galaxias adquieren su contenido estelar.
+
+Las regiones donde existen las discrepancias más grandes se encuentran en los extremos de la Función
+de Masa. En la región de galaxias de baja masa los modelos tienden a sobreestimar la producción de
+galaxias de baja masa. De hecho, contrario a lo que las observaciones indican, en las simulaciones
+la formación estelar sigue tendencias muy similares a la historia de acreción de materia oscura en
+halos. De acuerdo con lo dicho anteriormente, estas diferencias están probablemente relacionadas con
+las incertidumbres en la física que describe la formación estelar \citep{McKee2007, Krumholz2014}.
+En la región de alta masa de la Función de Masa, por otra parte, hay concenso general en que el
+\emph{feedback} de AGNs juega un papel importante regulando la tasa de formación estelar en halos de
+alta masa. Las recetas para la inclusión de los efectos del AGN en MIE de las galaxias y en el MIG
+están aún en discusión. En algunos casos pareciera suficiente la inclusión de mecanismos puramente
+radiativos, los cuales logran resolver el problema de la eficiencia en la formación estelar en estos
+halos, sin embargo, no logran reproducir las observaciones del MIG.
+%
+\item[\textsc{Relaciones de escala.}] Las relaciones de escala son probablemente las pruebas más
+exigentes por las que tiene que pasar cualquier modelo que intenta describir la formación y la
+evolución de las galaxias. A continuación mostraré aquellas relaciones de escala que han sido
+particularmente difíciles de reproducir en el contexto de las simulaciones de formación de galaxias.
+
+\textbf{La relación TFE\,--\,$M_\star$} como función del tiempo cósmico representa la evolución
+competitiva entre la acreción del gas al MIE y los fenómenos de \emph{feedback}. La mayoría de los
+modelos predicen exitosamente la pendiente en casi todo el rango de masa, sin embargo, la amplitud
+en la mayoría de los casos está subestimada. Más aún, el cambio de la pendiente en la región de alta
+masa no es el mismo en todos los modelos, lo cual refleja incertidumbres en la definición de
+galaxias pasivas, es decir, incertidumbres en la implementación del `apagado' de la TFE. En el rango
+$4<z\lesssim0$ se espera que la TFE diverja de la tasa de acreción de materia oscura en los halos,
+pues la `formación estelar' está dominada por procesos \emph{in situ}. A $z>4$ por otra parte es de
+esperarse que la eficiencia en la TFE sea baja debido a prolongados tiempos de enfriamiento del gas
+en un MIE pobre en metales, sin embargo, modelos en los que se incorporan estas consideraciones aún
+fallan en reproducir la amplitud de esta relación.
+% figura 5 Somerville+2015
+
+\textbf{La relación $Z_\text{gas}\,$--$\,M_\star$} representa la fracción de
 
 %
-\item[\textsc{Principales incertidumbres.}]
+\item[\textsc{}]
 
 %
 \end{description}
