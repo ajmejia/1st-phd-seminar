@@ -93,15 +93,14 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 \tikzstyle{na} = [baseline=-.5ex]
 
 \begin{frame}
-\title{La era de la resolución espacial en sondeos de galaxias}
-%\subtitle{}
+\title{La Relación $M_\star$--$\psi$--$Z_\star$}
+\subtitle{En la ``nueva'' era de sondeos espectroscópicos}
 \author{Alfredo J. Mej\'ia$^{1,2}$}
 
 \date{\today}
 
-\institute{$^{1}$Posgrado de F\'isica Fundamental\\ Universidad de Los Andes \and $^{2}$Centro de %
-Investigaciones de Astronom\'ia%
-}
+\institute{$^{1}$Posgrado de F\'isica Fundamental\\ Universidad de Los Andes \and %
+           $^{2}$Centro de Investigaciones de Astronom\'ia}
 
 \maketitle
 \end{frame}
@@ -110,24 +109,27 @@ Investigaciones de Astronom\'ia%
 \begin{frame}[allowframebreaks]{\textsc{Motivación}}
 %
 Hoy día existen sondeos que permiten resolver espacialmente a las galaxias en el universo local,
-pero ¿qué nos ha llevado a idear esta nueva era de la exploración de nuestro universo?
+pero ¿qué nos ha llevado a idear esta nueva era de la exploración de nuestro universo? Bueno, las
+simulaciones cosmológicas y las observaciones profundas del cielo nos han llevado a restringir los
+fenómenos físicos que intervienen en las diversas escalas espaciales y temporales para propiciar el
+desarrollo de las galaxias en el Universo.
 
-Las galaxias hasta $z\sim1$ pueden resolverse como objetos extendidos en una imagen astronómica, sin
-embargo los sondeos espectroscópicos en su mayoría están limitados a una apertura fija y por lo
-general integran en una pequeña región de la imagen producida por las galaxias más cercanas debido a
-problemas de ingeniería (mostrar una imagen ejemplo de una galaxia del SDSS, con su $z$ y la
-apertura correspondiente). La fotometría, por otro lado, permite integrar una imagen producida por
-una galaxia en su totalidad, más aún, permite variar la apertura dentro de la cual se mide el brillo
-integrado, pues una vez producida la imagen la forma en que esta se estudia no ofrece límites. Sin
-embargo, la fotometría tradicional se ha limitado a integrar la imagen en su totalidad o dentro de
-una apertura variable, dependiendo del extensión y/o perfil de la fuente que la produce (e.g. radio
-Petrosian, el perfil de brillo).
+Las galaxias hasta $z\sim1$ pueden resolverse como objetos extendidos en una imagen astronómica. Los
+sondeos espectroscópicos en su mayoría están limitados a una apertura fija y por lo general integran
+en una pequeña región de la imagen producida por las galaxias más cercanas debido a limitaciones de
+ingeniería.
+% mostrar una imagen ejemplo de una galaxia del SDSS, con su $z$ y la apertura correspondiente
+La fotometría, por otro lado, permite integrar una imagen producida por una galaxia en su totalidad,
+más aún, permite variar la apertura dentro de la cual se mide el brillo integrado, pues una vez
+producida la imagen, la forma en que esta se estudia no ofrece límites. Sin embargo, la fotometría
+tradicional se ha limitado a integrar la imagen en su totalidad o dentro de una apertura variable,
+dependiendo de la extensión y/o perfil de la fuente que la produce (e.g. radio Petrosian, el perfil
+de brillo).
 
-Ahora somos conscientes que en la formación y evolución de las galaxias intervienen una variedad de
-fenómenos físicos que tienen lugar en distintas escalas temporales y espaciales. Aunque la
-disponibilidad de observaciones profundas del cielo han permitido estudiar la evolución de las
-galaxias en escalas temporales del orden de la mitad de la edad de universo, apenas estamos rozando
-la superficie de lo que podemos hacer con sondeos que ofrecen resolución espacial.
+El desarrollo de sondeos espectroscópicos con resolución espacial a mediados de los $90$s, nos
+permitió estudiar en gran detalle la distribución espacial del contenido estelar en las galaxias del
+universo local, hasta el punto en que tenemos una comprensión decente de los fenómenos físicos que
+regulan la relación entre la masa y su distribución, la TFE y la evolución química.
 
 En este seminario les hablaré de lo que hemos conseguido usando los sondeos con unidades de campo
 integrado actuales y las perspectivas con los próximos sondeos del mismo tipo.
@@ -139,16 +141,17 @@ integrado actuales y las perspectivas con los próximos sondeos del mismo tipo.
 %
 El problema de adquisición de imágenes astronómicas es, en el sentido general, un problema de dos
 dimensiones espaciales y una dimensión espectral $(x,y;\lambda)$. Desafortunadamente, debido a
-problemas de ingeniería, la mayoría de los esfuerzos que ofrecen una resolución espectral
+limitaciones de ingeniería, la mayoría de los esfuerzos que ofrecen una resolución espectral
 $R\sim1000$, están limitados a una dimensión espacial, i.\,e. $(x;\lambda)$. El uso del formato
 \emph{long-slit} (rendija) resuelve parcialmente el problema de la dimensión perdida por
 espectrógrafos convencionales: si la dispersión de la luz proveniente de las fuentes se hace
 perpendicular al largo de la rendija, es posible en principio obtener espectros de distintas
-regiones de un mismo objeto extendido (e.\,g. una galaxia en el universo local) o de varios objetos
+regiones de un mismo objeto extendido (e.\,g. una galaxia en el Universo local) o de varios objetos
 adyacentes en su proyección en el cielo. Existen sin embargo varias limitaciones que complican la
 adquisición efectiva de la segunda dimensión usando este formato, todas relacionadas con el hecho de
 que las componentes espaciales y la espectral están correlacionadas.
 
+%mostrar una imagen con el diseño óptico del IFU.
 Las unidades de campo integrado \citep[IFU en inglés][]{Vanderriest1980} aparecieron en escena para
 resolver las limitaciones de resolución espacial de los previos intentos por registrar espectros de
 los objetos celestes. \citeauthor{Vanderriest1980} presentó un primer prototipo de IFU que consistía
@@ -157,11 +160,9 @@ campo de unas pocas decenas de segundos de arco ($\sim20''$) y bajo brillo super
 disposivo permitiría estudios de objetos cercanos siempre que la resolución espectral no fuera un
 factor importante para su desarrollo.
 
-A mediado de los 90's aparecieron los primeros resultados obtenidos a partir del análisis de datos
+A mediado de los $90$s aparecieron los primeros resultados obtenidos a partir del análisis de datos
 de IFU como fuera concebida por \citet{Courtes1982} \citep[véase][para un resumen de los hallazgos
 con el dispositivo TIGER]{Bacon1995}.
-
-%mostrar una imagen con el diseño óptico del IFU.
 
 \begin{itemize}
 %
@@ -180,19 +181,12 @@ multiples del mismo objeto \citep{Fitte1994}.
 Las principales limitaciones eran el campo de visión, que seguía siendo demasiado pequeño para un
 estudio de la sitemático de una fuente extendida y la resolución espectral.
 
-En los últimos 20 años las IFU han alcanzado madurez y han permitido estudios sistemáticos de
+En los últimos $20$ años las IFU han alcanzado madurez y han permitido estudios sistemáticos de
 muestras completas de galaxias en el universo local, abarcando en la mayoría de los casos la
 todalidad de la imagen proyectada de los objetos. En buena parte de lo que resta de este seminario
 hablaré de los resultados más importantes que estos sondeos han permitido y en qué sentido han
 cambiado los paradigmas en el contexto de la formación y la evolución de las galaxias.
-%
-% \begin{itemize}
-% \item Primera idea de resolución espacial.
-% \item Principales limitaciones.
-% \item Primer sondeo con resolución espacial.
-% \item Primeros hallazgos.
-% \end{itemize}
-%
+
 \end{frame}
 
 %Unidad de campo integrado (actual)
@@ -226,23 +220,18 @@ los estudios más atractivos tienen que ver con la dependencia ambiental de las 
 de las galaxias, i.\,e., cómo cambian los promedios en la edad, la composición química, las
 propiedades del polvo, tasa de formación estelar (TFE), como función de la densidad bariónica, por
 ejemplo y a su vez como cambian estas propiedades de una galaxia a otra.
-%
+
 Por supuesto, como mostré en el seminario anterior, los resultados de sondeos con IFU han permitido
 el refinamiento de los modelos dinámicos de galaxias y una clasificación morfológica basada en las
 propiedades físicas de las galaxias.
-%
+
 El seminario anterior fue intencionalmente sesgado a galaxias tempranas porque la mayoría de los
 esfuerzos de los sondeos con IFU están también sesgados de la misma manera. Construir muestras de
 galaxias que permitan estudios cinemáticos sistemáticos necesariamente improndrá un sesgo hacia
 galaxias tempranas. Ahora mostraré los resultados de los estudios poblacionales, en los que la
 secuencia de Hubble se abarca en completitud. Por lo tanto los resultados que mostraré estarán
 claramente sesgados hacia los de CALIFA, que ya ha completado el sondeo de la muestra
-%
-% \begin{itemize}
-% \item ¿Qué tipo de datos produce?
-% \item ¿Qué estudios permite?
-% \end{itemize}
-%
+
 \end{frame}
 
 %Resultados
