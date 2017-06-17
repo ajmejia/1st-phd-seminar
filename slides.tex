@@ -8,6 +8,7 @@
 \usepackage{eulervm}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{xspace}
+\usepackage{natbib}
 
 \usepackage{marginnote}
 \usepackage[top=1.5cm,bottom=1.5cm,outer=6cm,inner=4cm,heightrounded,marginparwidth=4cm,%
@@ -19,7 +20,7 @@
 \newcommand{\br}{\ensuremath{\,|\,}\xspace}
 \newcommand{\Hip}{\ensuremath{\mathbold{\Theta}}\xspace}
 \newcommand{\hip}{\ensuremath{\mathbold{\theta}}\xspace}
-\newcommand{\dat}{\ensuremath{\{\mathcal{D}\}}\xspace}
+\newcommand{\dat}{\ensuremath{\{\mathcal{D}_i\}}\xspace}
 \newcommand{\pos}[2]{\ensuremath{\pi_N\left(#1\br #2\right)}\xspace}
 \newcommand{\pri}[2]{\ensuremath{\pi_0\left(#1\br #2\right)}\xspace}
 \newcommand{\lik}[3][]{\ensuremath{\mathcal{L}_{#1}\left(#2\br #3\right)}\xspace}
@@ -38,15 +39,14 @@
 La estadística representa un conjunto de reglas diseñadas para expresar nuestro grado de
 conocimiento dados cierta evidencia y/o conocimiento previo, o al menos eso es para lo que ha sido
 concebida. Sin embargo, nuestra línea de razonamiento científico se ve forzada a desviarse un poco
-de este esquema, y la pregunta de interés científico real: ¿cuál es el grado de creencia
-(\emph{belief}) sobre un evento dados un conjunto de observaciones y conocimiento previo o
-prejuicios? se transforma en un \emph{surrogate} en el que se supone que la hipótesis planteada es
-cierta: dado que tenemos conocimiento absoluto del estado del problema (e.g., el modelo con el cual
-describimos los datos con sus estadísticas correspondientes), ¿cuál es la probabilidad de haber
-obervado los datos?. La estadística Bayesiana presenta un esquema que permite responder naturalmente
-a la pregunta de interés científico, al mismo tiempo de la manera más objetiva posible. En este
-seminario les presentaré el esquema general de la inferencia bayesiana, algunas de sus aplicaciones
-en la astrofísica.
+de este esquema, y la pregunta de interés científico real: ¿cuál es el grado de conocimiento sobre
+un evento, dados un conjunto de observaciones y conocimiento previo o prejuicios? se transforma en
+un \emph{surrogate} en el que se supone que la hipótesis planteada es cierta: dado que tenemos
+conocimiento absoluto del estado del problema (e.g., el modelo con el cual describimos los datos con
+sus estadísticas correspondientes), ¿cuál es la verosimilitud de los datos?. La estadística
+Bayesiana presenta un esquema que permite responder naturalmente a la pregunta de interés
+científico, al mismo tiempo de la manera más objetiva posible. En este seminario les presentaré el
+esquema general de la inferencia bayesiana y algunas de sus aplicaciones.
 %
 \end{abstract}
 
@@ -64,23 +64,20 @@ que es y debe ser particularmente apreciado en las ramas del conocimiento cient�
 
 Las operaciones matemáticas sobre las cuales se construyen las bases de una teoría de probabilidad
 son bastante simples y están bien definidas. Hoy en día se conocen como las reglas de Cox y
-matemáticamente se resumen en dos ecuaciones
+matemáticamente se resumen en dos ecuaciones:
 %
-\begin{equation}\label{ec:norm}
+\begin{subequations}
+\begin{align}
 %
-\pro{\theta\br I} + \pro{\bar{\theta}\br I} = 1
+1                            &= \pro{\theta\br I} + \pro{\bar{\theta}\br I} \label{ec:norm}\\
+\pro{\theta_A,\theta_B\br I} &= \pro{\theta_A\br\theta_B,I}\times\pro{\theta_B\br I}
 %
-\end{equation}
+\end{align}
+\end{subequations}
 %
 \definition{\(\pro{\theta\br I}\)}{es nuestro grado de conocimiento sobre una hipótesis o premisa
 \(\theta\) condicionado sobre \(I\). En el sentido más general \(\theta\) puede representar un
-vector, \(\hip\), en el espacio de hipótesis, \(\Hip\).} y
-%
-\begin{equation}
-%
-\pro{\theta_A,\theta_B\br I} = \pro{\theta_A\br\theta_B,I}\times\pro{\theta_B\br I}
-%
-\end{equation}
+vector, \(\hip\), en el espacio de hipótesis, \(\Hip\).}
 %
 En lenguaje cotidiano, la primera ecuación nos dice que dado nuestro grado de conocimiento
 (probabilidad) de conjunto exhaustivo y mutuamente excluyente de posibilidades, podemos asignar
@@ -114,9 +111,9 @@ marginalizada sobre el espacio de parámetros.}
 %
 El poder del teorema de Bayes en sí yace en nuestra capacidad para asignar las distribuciones
 (densidades en realidad) de probabilidad en el lado derecho de la igualdad, \(P(\dat\br\hip,I)\) y
-\(P(\hip\br I)\), en la Ec.~\eqref{ec:bayes}. Mientras esto es usualmente cierto en el caso de la
-última distribución, pues esta refleja simplemente \emph{nuestro grado de conocimiento (ignorancia
-y/o prejuicios) sobre problema previo a la obtención de los datos}, la primera distribución de
+\(P(\hip\br I)\), en la Ec.~\eqref{ec:bayes}. Esto es usualmente cierto en el caso de la última
+distribución, pues esta refleja simplemente \emph{nuestro grado de conocimiento (ignorancia y/o
+prejuicios) sobre problema previo a la obtención de los datos}, la primera distribución de
 probabilidades por otra parte, requiere un poco más de elaboración y conocimiento (probablemente
 también prejuicios) sobre los datos, pues representa la \emph{plausibilidad de la hipótesis asumida
 a la luz de los datos}.
@@ -126,13 +123,14 @@ a la luz de los datos}.
 \section{Inferencia bayesiana}
 %
 La inferencia bayesiana es la técnica que consiste en calcular la distribución de probabilidad
-posterior, \(\pos{\hip}{\dat,I}\). El primer paso es construir la función que describe la
-probabilidad de haber hecho la observación suponiendo la hipótesis como correcta y la distribución
-prior que describe nuestro grado de conocimiento de la hipótesis antes de haber hecho la observación
-(véase el paréntesis A). Ambas distribuciones de probabilidad requieren de nuestro conocimiento del
-problema, pero en particular, la distribución \emph{likelihood} solo se puede concebir correctamente
-si conocemos también los datos (e.g., los errores son Gaussianos, las observaciones son naturalmente
-poco probables, el número de posibilidades es bajo, etc.).
+posterior, \(\pos{\hip}{\dat,I}\) para hacer algún avance en nuestro grado de conocimiento sobre
+\(\hip\). El primer paso es construir la función que describe la probabilidad de haber hecho la
+observación suponiendo la hipótesis como correcta y la distribución prior que describe nuestro grado
+de conocimiento de la hipótesis antes de haber hecho la observación (véase el paréntesis A). Ambas
+distribuciones de probabilidad requieren de nuestro conocimiento del problema, pero en particular,
+la distribución \emph{likelihood} solo se puede concebir correctamente si conocemos también los
+datos (e.g., los errores son Gaussianos, las observaciones son naturalmente poco probables, el
+número de posibilidades es bajo, etc.).
 
 La elección de la distribución de probabilidad prior, por otra parte, representa un problema más
 complejo y que muchas veces es desestimado. Existen básicamente dos clases de distribuciones prior:
@@ -154,7 +152,42 @@ conocimiento sobre el modelo.
 
 %---------------------------------------------------------------------------------------------------
 
-\section{Inferencia bayesiana: regresión lineal}
+\section{Ejemplo: regresión lineal}
+%
+Ahora vamos a hacer el ejercicio más vulgar y silvestre y, aún así uno de los más útiles si se hace
+bien: ajustar una línea recta a un conjunto de datos. Supongamos que dicho conjunto de datos está
+descrito por un arreglo independiente (i.\,e., dado) \(\{x_i\}\) y un arreglo de medidas \(\{y_i\}\)
+cuyas desviaciones estándar están dadas también \(\{\sigma_i\}\).
+% el conjunto de datos pueden ser 10 puntos en el rango x=(1,10) y y=2*x^0.9+0.5
+% el error en y viene de una distribución que no es Gaussiana.
+% mostrar el conjunto de datos en un gráfico
+La intuición nos dice que por allí podría pasar una línea recta. La forma más objetiva de plantear
+el problema, desde el punto de vista probabilístico, consiste en construir un modelo generativo
+\citep{Hogg2010}: una descripción estadística que permite reproducir los datos observados. Esto es
+esencialmente, construir la distribución de verosimilitud. Bajo la suposición de que los errores en
+\(\{y_i\}\) son Gaussianos y no correlados, la verosimilitud es simplemente:
+%
+\[\lik{\{y_i\}}{\{x_i\},\{\sigma_i\},m,b} = \prod_{i=1}^N\frac{1}{\sqrt{2\pi\sigma_i^2}}\exp{\left[-\frac{\left(y_i-m\,x_i+b\right)^2}{2\sigma_i^2}\right]}.\]
+%
+En este punto el problema ya se ha convertido en un tecnicismo: ¿cómo encontrar los parámetros \(m\)
+y \(b\), tal que la verosimilitud es máxima? La respuesta fácil (y muchas veces conveniente) a esa
+pregunta es simplemente minimizar la función de mérito \(\chi^2\).
+% mostrar el ajuste lineal y los parámetros resultantes
+Uno podría, sin razón lógica aparente, simplemente ir directo a la inferencia Bayesiana y encontrar
+la distribución posterior \(\pos{m,b}{\{y_i\},\{x_i\},\{\sigma_i\}}\) usando distribuciones
+\emph{prior} objetivas, por ejemplo.
+% mostrar la evolución de las posterior en m y b.
+Sin embargo, ¿qué pasa si realmente no estamos seguros de que
+\(\lik{\{y_i\}}{\{x_i\},\{\sigma_i\},m,b}\) realmente es un modelo generativo de todo el espacio de
+\(\{y_i\}\)? Y nos hacemos esta pregunta independientemente del la forma en que estén relacionados
+los parámetros de interés.
+% mostrar la distribución real de parámetros m y b.
+Una forma de resolver este tipo de problemas es usando inferencia Bayesiana.
+
+Bajo el esquema Bayesiano, las distribuciones \emph{prior} no solo se usan para introducir
+conocimiento previo a la obtención de los datos, sino que al mismo tiempo se introducen
+incertidumbres (de acuerdo con la definición de probabilidad). Podemos usar esto a nuestro favor.
+% probar ajustar el mismo modelo usando un prior parecido a la verdadera distribución de errores.
 
 %---------------------------------------------------------------------------------------------------
 
@@ -167,12 +200,10 @@ Para cuantificar el efecto del prior, estudiaré la dependencia de la diferencia
 distribuciones posteriores obtenidas usando un prior objetivo y uno subjetivo, como función del
 número de datos observados.
 
-\begin{description}
+\paragraph{\textit{\color{teal}Dependencia con la cantidad de datos.}} Supongamos que la
+distribución \emph{likelihood} dado un conjunto de datos \(\dat\) es
 %
-\item[\textit{\color{teal} Dependencia con la cantidad de datos.}] Supongamos que la distribución
-\emph{likelihood} dado un conjunto de datos \(\dat\) es
-%
-\[\lik{\dat}{\hip,I} = \prod_{i=1}^N\lik[i]{\mathcal{D}_i}{\hip,I}\]
+\[\lik{\dat}{\hip,I} = \prod_{i=1}^N\lik[i]{\mathcal{D}_i}{\hip,I},\]
 %
 entonces la log-posterior es simplemente
 %
@@ -182,22 +213,24 @@ donde \(K\) es una constante. Es claro entonces que la distribución posterior e
 número de datos. Esto tiene sentido intuitivamente hablando, porque es de esperarse que en el límite
 de \(N\to\infty\) la información que proveen los datos acerca de nuestra inferencia sea más
 relevante que la de la distribución prior.
-%
-\item[\textit{\color{teal} Dependencia con la forma del prior.}] Es de esperarse que nuestra
+
+\paragraph{\textit{\color{teal}Dependencia con la forma del prior.}} Es de esperarse que nuestra
 inferencia estadística sea fuertemente dependiente de nuestra elección de la distribución prior en
 el límite de pocos datos, aún cuando el prior sea objetivo. Sin embargo, siempre tendremos la
 oportunidad de introducir nuestros prejuicios (aún cuando \(N\to\infty\)) si el prior es lo
 suficientemente subjetivo o mejor dicho, informativo.
-%
-\end{description}
 
-\subsection*{¿Cómo elegir priors de manera apropiada?}
+\section{¿Cómo elegir priors de manera apropiada?}
 %
 Por supuesto la elección de la distribución de probabilidad prior depende del problema en particular
-que se quiera resolver. Por ejemplo, si el científico se siente muy confiado sobre sus prejuicios
-podría sentirse tentado también a introducir un prior informativo, mientras que si por el contrario
-tiene poco conocimiento del problema lo mejor sería asumir un prior objetivo. Como hemos visto
-anteriormente, independientemente del prior que se
+que se quiera resolver. Por ejemplo, si nos sentimos muy seguros sobre nuestros prejuicios podríamos
+sentirnos tentados también a introducir un prior informativo, mientras que si por el contrario
+tenemos poco conocimiento sobre el problema lo mejor sería asumir un \emph{prior} objetivo. Pero
+¿cómo representar lo que sabemos o ignoramos en forma de distribución de probabilidad de la forma
+más objetiva posible? Bueno, en el caso de un \emph{prior} es obvio: usamos el ``principio de razón
+insuficiente'', el cual supone que dado un conjunto exhaustivo y mutuamente excluyente de
+posibilidades, si no hay razones para pensar que una posibilidad es más probable que otra, entonces
+lo más justo es asignar la misma probabilidad a todas.
 
 %---------------------------------------------------------------------------------------------------
 
@@ -220,15 +253,11 @@ que el prior es el conjudado de la posterior y viceversa.
 
 %---------------------------------------------------------------------------------------------------
 
-\section{Marginalización}
+\section{Chequeo de la \emph{posterior}}
 
 %---------------------------------------------------------------------------------------------------
 
-\section{Chequeo del modelo}
-
-%---------------------------------------------------------------------------------------------------
-
-\section{Ejemplo: X}
+\section{Ejemplo: Función Inicial de Masa}
 
 %---------------------------------------------------------------------------------------------------
 
@@ -241,7 +270,7 @@ que el prior es el conjudado de la posterior y viceversa.
 
 %---------------------------------------------------------------------------------------------------
 
-\section{Método de máxima entropía}\label{sc:me-method}
+\section{Método de Máxima Entropía}\label{sc:me-method}
 
 Supongamos que tenemos información constrastable sobre una hipótesis \(\hip\) y queremos asignar una
 distribución de probabilidad que cumpla con esa condición y con la condición de que la distribución
