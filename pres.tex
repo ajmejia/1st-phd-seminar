@@ -410,8 +410,7 @@ temporal termodinámica en el que material del reservorio caliente se mueve al f
 % Ecuación del tiempo de enfriamiento
 La formación estelar define la escala típica en que el material del reservorio frío se mueve al
 reservorio estelar.
-% Ecuación TFE = M_* / tau_*
-% Ley de KS
+% Ecuación tau_* = M_* / TFE
 
 Ahora, dos preguntas interesantes después de haber visto lo que las observaciones indican y en el
 marco de estos procesos físicos son:
@@ -419,7 +418,67 @@ marco de estos procesos físicos son:
 ¿en qué escala temporal ocurre el enriquecimiento químico?
 %
 y más importante aún ¿por qué este parece ser independiente de la TFE?
+%
+En la siguiente figura
+% Fig. 3 Cole+2000
+está representado esquemáticamente el ciclo de masa bariónica en una galaxia.
+Tres reservorios son importantes: el estelar y los de gas caliente y frío. Por supuesto entre los
+tres habrá intercambio de materia debido a los procesos de enfríamiento del gas caliente, la
+formación estelar y el \emph{feedback} debido a vientos estelares y explosiones de supernova.
+Dependiendo de las propiedades dinámicas de la galaxias, una fracción del material expulsado por las
+estrellas puede ir directo al reservorio de gas caliente.
 
+Debido a la evolución estelar, parte del material devuelto al MIE está enriquecido químicamente, de
+manera que las siguientes generaciones de estrellas tendrán una metalicidad cada vez más alta.
+Suponiendo conservación de la masa, el transporte de material de un reservorio a otro puede
+describirse mediante las ecuaciones de continuidad:
+%
+\begin{subequations}
+\begin{align}
+\dot{M}_\star         &= (1-R)\psi \\
+\dot{M}_\text{hot}    &= -\dot{M}_\text{cool} + \beta\psi \\
+\dot{M}_\text{cold}   &= \dot{M}_\text{cool} - (1-R+\beta)\psi \\
+\dot{M}_\star^Z       &= (1-R)Z_\text{cold}\psi \\
+\dot{M}_\text{hot}^Z  &= -\dot{M}_\text{cool}Z_\text{hot} + (pe+\beta Z_\text{cold})\psi \\
+\dot{M}_\text{cold}^Z &= \dot{M}_\text{cool}Z_\text{hot} + [p(1-e)-(1+\beta-R)Z_\text{cold}]\psi
+\end{align}
+\end{subequations}
+%
+Ahora, estamos particularmente interesados en calcular la TEQ estelar y en fase de gas (frío),
+porque son las que podemos estimar a partir de las observaciones con relativa facilidad. Usando la
+relación $Z\equiv M^Z/M$ y las ecuaciones del ciclo de masa tenemos que:
+%
+\begin{subequations}
+\begin{align}
+\dot{Z}_\star       &= (1-R)\frac{\psi}{M_\star}(Z_\text{cold}-Z_\star) \\
+\dot{Z}_\text{cold} &= (Z_\text{hot}-Z_\text{cold})\frac{\dot{M}_\text{cool}}{M_\text{cold}} + p(1-e)\frac{\psi}{M_\text{cold}}
+\end{align}
+\end{subequations}
+%
+Es interesante notar que el enriquecimiento químico estelar ocurre en la misma escala temporal en
+que ocurre la formación estelar. En este caso, la dependencia con la densidad de masa se puede
+justificar directamente de la ley de KS, que supone que:
+%
+\begin{equation}
+\tau_\star \equiv \frac{\Sigma_\text{cold}}{\Sigma_\psi} = (4\pm1)\times10^9\,\text{años}\left(\frac{\Sigma_\text{cold}}{1\,\text{M}_\odot\,\text{pc}^{-2}}\right)^{-(0.4\pm0.15)}
+\end{equation}
+%
+De manera que las conclusiones de \citet{Gonzalez2014b} cobran sentido en el terreno teórico: el
+enriquecimiento químico estelar depende de ambos, fenómenos locales
+($\mu_\star\sim\Sigma_\text{cold}$) que regulan la evolución química y globales ($M_\star$) que
+modulan la amplitud de esta.
+
+La TEQ del gas en el reservorio frío depende de la tasa de enfríamiento y de la TFE. Intuitivamente
+se espera que la escala temporal dinámica sea más corta que la escala térmica. Sin embargo, bajo
+ciertas circunstancias (densidad, temperatura y metalicidad) la escala temporal de enfriamiento
+puede ser más corta.
+% Fig. 3b Wiersma+2009
+De hecho la dependencia de la escala temporal de enfriamiento con la densidad, la temperatura y la
+metalicidad del gas caliente es:
+%
+\begin{equation}
+\tau_\text{cool}\approx10\times10^9\,\text{años}\left(\frac{T_\text{hot}}{10^7\,\text{K}}\right)\left(\frac{10^{-3}\,\text{cm}^{-3}}{\rho_\text{hot}}\right)\left(\frac{10^{-23}\,\text{erg\,cm}^{-3}\,\text{s}^{-1}}{\Lambda(T_\text{hot},Z_\text{hot})}\right)
+\end{equation}
 %
 \item[\textsc{¿Caja cerrada?}]
 %
