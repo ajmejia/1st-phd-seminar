@@ -395,7 +395,7 @@ TFE-metalicidad.
 \end{description}
 \end{frame}
 
-\begin{frame}[allowframebreaks]{Prólogo --- una visión teórica del ciclo de masa}
+\begin{frame}[allowframebreaks]{Una visión teórica del ciclo de masa}
 %
 \begin{description}
 %
@@ -421,12 +421,12 @@ y más importante aún ¿por qué este parece ser independiente de la TFE?
 %
 En la siguiente figura
 % Fig. 3 Cole+2000
-está representado esquemáticamente el ciclo de masa bariónica en una galaxia.
-Tres reservorios son importantes: el estelar y los de gas caliente y frío. Por supuesto entre los
-tres habrá intercambio de materia debido a los procesos de enfríamiento del gas caliente, la
-formación estelar y el \emph{feedback} debido a vientos estelares y explosiones de supernova.
-Dependiendo de las propiedades dinámicas de la galaxias, una fracción del material expulsado por las
-estrellas puede ir directo al reservorio de gas caliente.
+está representado esquemáticamente el ciclo de masa bariónica en una galaxia. Tres reservorios son
+importantes: el estelar y los de gas caliente y frío. Por supuesto entre los tres habrá intercambio
+de materia debido a los procesos de enfríamiento del gas caliente, la formación estelar y el
+\emph{feedback} debido a vientos estelares y explosiones de supernova. Dependiendo de las
+propiedades dinámicas de la galaxias, una fracción del material expulsado por las estrellas puede ir
+directo al reservorio de gas caliente.
 
 Debido a la evolución estelar, parte del material devuelto al MIE está enriquecido químicamente, de
 manera que las siguientes generaciones de estrellas tendrán una metalicidad cada vez más alta.
@@ -477,10 +477,46 @@ De hecho la dependencia de la escala temporal de enfriamiento con la densidad, l
 metalicidad del gas caliente es:
 %
 \begin{equation}
-\tau_\text{cool}\approx10\times10^9\,\text{años}\left(\frac{T_\text{hot}}{10^7\,\text{K}}\right)\left(\frac{10^{-3}\,\text{cm}^{-3}}{\rho_\text{hot}}\right)\left(\frac{10^{-23}\,\text{erg\,cm}^{-3}\,\text{s}^{-1}}{\Lambda(T_\text{hot},Z_\text{hot})}\right)
+\tau_\text{cool}\approx10\times10^9\,\text{años}\left(\frac{T_\text{hot}}{10^7\,\text{K}}\right)\left(\frac{10^{-3}\,\text{cm}^{-3}}{\rho_\text{hot}}\right)\left(\frac{10^{-23}\,\text{erg\,cm}^{3}\,\text{s}^{-1}}{\Lambda(T_\text{hot},Z_\text{hot})}\right)
 \end{equation}
 %
-\item[\textsc{¿Caja cerrada?}]
+Si comparamos ambas escalas temporales tenemos:
+%
+\begin{equation*}
+\frac{\tau_\star}{\tau_\text{cool}} \approx 0.4\left(\frac{\Sigma_\text{cold}}{1\,\text{M}_\odot\,\text{pc}^{-2}}\right)^{-0.4}\left(\frac{10^7}{T_\text{hot}}\right)\left(\frac{\rho_\text{hot}}{10^{-3}\,\text{cm}^{-3}}\right)\left(\frac{\Lambda(T_\text{hot},Z_\text{hot})}{10^{-23}\,\text{erg\,cm}^{3}\,\text{s}^{-1}}\right)
+\end{equation*}
+%
+En la figura se muestra el comportamiento de esta fracción variando los cuatro parámetros que
+interesan uno a la vez. Es claro que en la mayoría de los casos la escala temporal de formación
+estelar es más corta que la escala temporal de enfriamiento. La temperatura del reservorio caliente
+es el parámetro más sensible y que puede disminuir drásticamente la escala temporal de enfriamiento
+en el rango de plausibilidad. Es seguido por la metalicidad en el reservorio caliente y valores
+extremos de la densidad.
+
+Las observaciones de que el gas está enriquecido en galaxias con formación estelar en un amplio
+rango de masa estelar ($10^{10}\,$---$\,10^{12}\,\text{M}_\odot$)
+% Fig. 1 Gonzalez+2014
+mientras que las estrellas son comparativamente pobres en metales, respalda la hipótesis de que la
+formación estelar ocurre en una escala temporal larga en comparación con el enfriamiento de gas. Sin
+embargo resulta curioso que aunque en estas galaxias la formación estelar no es tan eficiente, el
+gas luzca tan enriquecido. Por ejemplo, una galaxia de $M_\star=10^{10}\,\text{M}_\odot$ forma una
+masa solar por año, mientras que galaxias más masivas pueden formar hasta diez masas solares por año
+\citep{Sanchez2013}. ¿Cómo llegó a enriquecerse el gas? Uno puede especular que estas galaxias
+sufrieron eventos de formación estelar importante en el pasado que pudo enriquecer el medio
+relativamente rápido, en cuyo caso ¿por qué la formación estelar ya no es tan eficiente ahora? Es
+posible que el enriquecimiento químico sea catalizador para el enfriamiento, pero no necesariamente
+para la formación estelar.
+
+Uno puede irse por caminos más exóticos, especulando que estas galaxias obtienen el gas enriquecido
+del MIG y no por formación estelar. Lo cual está soportado por observaciones de gas enriquecido en
+el medio intracúmulo y por que estas galaxias parecen haber formado sus estrellas pasivamente, en
+una escala de tiempo del orden de la edad del universo.
+%
+\item[\textsc{¿Caja cerrada?}] Durante la mayor parte de la discusión anterior se asumió
+implicitamente que las galaxias se comportan como cajas cerradas. Sin embargo el hecho de que el MIG
+se encuentre enriquecido en algunos casos definitivamente refuta esa hipótesis. La pregunta se
+reduce entonces a ¿es el fenómeno de \emph{feedback} suficiente para remover efectivamente material
+enriquecido del MIE?
 %
 \end{description}
 \end{frame}
