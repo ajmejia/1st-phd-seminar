@@ -199,7 +199,7 @@ Para cuantificar el efecto del prior, estudiaré la dependencia de la diferencia
 distribuciones posteriores obtenidas usando un prior objetivo y uno subjetivo, como función del
 número de datos observados.
 
-\paragraph{\textit{\color{teal}Dependencia con la cantidad de datos.}} Supongamos que la
+\paragraph{\textit{\color{teal}Dependencia con la cantidad de los datos.}} Supongamos que la
 distribución \emph{likelihood} dado un conjunto de datos \(\dat\) es
 %
 \[\lik{\dat}{\hip,I} = \prod_{i=1}^N\lik[i]{\mathcal{D}_i}{\hip,I},\]
@@ -210,39 +210,41 @@ entonces la log-posterior es simplemente
 %
 donde \(K\) es una constante. Es claro entonces que la distribución posterior escala con \(N\), el
 número de datos. Esto tiene sentido intuitivamente hablando, porque es de esperarse que en el límite
-de \(N\to\infty\) la información que proveen los datos acerca de nuestra inferencia sea más
-relevante que la de la distribución prior.
+de \(N\to\infty\) los datos sean lo suficientemente informativos a través de la verosimilitud como
+para anular la contribución de la distribución previa.
+% Mostrar ejemplo de la actualización de la distribución posterior al añadir observaciones.
 
-\paragraph{\textit{\color{teal}Dependencia con la forma del prior.}} Es de esperarse que nuestra
-inferencia estadística sea fuertemente dependiente de nuestra elección de la distribución prior en
-el límite de pocos datos, aún cuando el prior sea objetivo. Sin embargo, siempre tendremos la
-oportunidad de introducir nuestros prejuicios (aún cuando \(N\to\infty\)) si el prior es lo
-suficientemente subjetivo o mejor dicho, informativo.
+\paragraph{\textit{\color{teal}Dependencia calidad de los datos.}} Si los datos son de baja calidad,
+e.\,g. tienen incertidumbres típicas muy altas, la contribución de la verosimilitud de nuevo se ve
+comprometida, más aún en caso de una distribución previa sea no objetiva.
+% Mostrar ejemplo de la distribución posterior usando datos con distinto valor de la S/N.
+
+%---------------------------------------------------------------------------------------------------
 
 \section{¿Cómo elegir priors de manera apropiada?}
 %
 Por supuesto la elección de la distribución de probabilidad prior depende del problema en particular
-que se quiera resolver. Por ejemplo, si nos sentimos muy seguros sobre nuestros prejuicios podríamos
-sentirnos tentados también a introducir un prior informativo, mientras que si por el contrario
-tenemos poco conocimiento sobre el problema lo mejor sería asumir un \emph{prior} objetivo. Pero
-¿cómo representar lo que sabemos o ignoramos en forma de distribución de probabilidad de la forma
-más objetiva posible? Bueno, en el caso de un \emph{prior} es obvio: usamos el ``principio de razón
-insuficiente'', el cual supone que dado un conjunto exhaustivo y mutuamente excluyente de
-posibilidades, si no hay razones para pensar que una posibilidad es más probable que otra, entonces
-lo más justo es asignar la misma probabilidad a todas.
+que se quiera resolver, pero sobre todo del conocimiento que se posea en el espacio de la hipótesis.
+Por ejemplo, si nos sentimos muy seguros sobre nuestros prejuicios podríamos sentirnos tentados
+también a introducir un prior informativo, mientras que si por el contrario tenemos poco
+conocimiento sobre el problema lo mejor sería asumir una distribución previa objetiva. Pero ¿cómo
+representar lo que sabemos o ignoramos en forma de distribución de probabilidad de la forma más
+objetiva posible? Bueno, en el caso de una distribución previa objetiva es obvio: usamos el
+``principio de razón insuficiente'', el cual supone que dado un conjunto exhaustivo y mutuamente
+excluyente de posibilidades, si no hay razones para pensar que una posibilidad es más probable que
+otra, entonces lo más justo es asignar la misma probabilidad a todas. Pero ¿qué pasa si en efecto
+poseemos razones suficientes para pensar que la distribución no es objetiva?
+
+\paragraph{\textit{\color{teal}Información y entropía.}}
+
+\paragraph{\textit{\color{teal}Método de Máxima Entropía.}} Supongamos que tenemos información
+contrastable sobre una hipótesis \(\hip\) y queremos asignar una distribución de probabilidad que
+cumpla con esa condición ¿cuál es la forma más \emph{justa} de asignar dicha distribución de
+probabilidad?
 
 %---------------------------------------------------------------------------------------------------
 
-\section{Método de Máxima Entropía}\label{sc:me-method}
-
-Supongamos que tenemos información constrastable sobre una hipótesis \(\hip\) y queremos asignar una
-distribución de probabilidad que cumpla con esa condición y con la condición de que la distribución
-represente en sí una distribución de probabilidad, i.e. que se cumple la condición \eqref{ec:norm}
-¿cuál es la forma más \emph{justa} de asignar dicha distribución de probabilidad?
-
-%---------------------------------------------------------------------------------------------------
-
-\section{Chequeo de la \emph{posterior}}
+\section{¿Es el modelo adoptado el correcto?}
 
 La distribución posterior proporciona estimaciones de los parámetros y de sus incertidumbres,
 incluyendo la propagación de las incertidumbres observacionales, de manera consistente y confiable,
@@ -258,7 +260,12 @@ posterior predictiva, esto es:
 \end{equation}
 %
 donde el primer factor dentro de la integral es la probabilidad de haber observado
-\(\dat^\text{pre}\) dada la hipótesis.
+\(\dat^\text{pre}\) dada la hipótesis. La premisa es que si el modelo (o mejor dicho la
+verosimilitud) comprende el espacio de observaciones en su completitud, entonces una muestra tomada
+de la distribución
+\(\pro{\dat^\text{pre}}{\hip,I}\sim\mathcal{N}(\set{\mu_i(\hip)},\set{\sigma_i})\) debería ser
+indistinguible de las observaciones reales.
+
 
 %---------------------------------------------------------------------------------------------------
 
@@ -266,7 +273,7 @@ donde el primer factor dentro de la integral es la probabilidad de haber observa
 
 %---------------------------------------------------------------------------------------------------
 
-\section{Epílogo}
+\section{Lecciones}
 
 %===================================================================================================
 \appendix
