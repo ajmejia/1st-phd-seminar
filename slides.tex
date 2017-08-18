@@ -58,7 +58,7 @@ El concepto de probabilidad ha venido a responder una pregunta fundamental para 
 áreas del conocimiento en general: ¿cuál es el grado de certidumbre que poseemos sobre un evento,
 dado conocimiento relevante de fondo?. En este sentido, una vez nuestro grado de certidumbre sobre
 un evento queda por sentado también así queda nuestro grado de intertidumbre. Por ejemplo, si
-sabemos que existe un \(74\%\) de probabilidad de que llueva, sabemos que existe un \(26\%\) de que
+sabemos que existe un $74\%$ de probabilidad de que llueva, sabemos que existe un $26\%$ de que
 no. Es en esta \emph{completitud} en la que yace la mayor fortaleza del concepto de probabilidad y
 que es y debe ser particularmente apreciado en las ramas del conocimiento científico.
 
@@ -75,24 +75,24 @@ matemáticamente se resumen en dos ecuaciones:
 \end{align}
 \end{subequations}
 %
-\definition{\(\pro{\theta}{I}\)}{es nuestro grado de conocimiento sobre una hipótesis o premisa
-\(\theta\) condicionado sobre \(I\). En el sentido más general \(\theta\) puede representar un
-vector, \(\hip\), en el espacio de hipótesis, \(\Hip\).}
+\definition{$\pro{\theta}{I}$}{es nuestro grado de conocimiento sobre una hipótesis o premisa
+$\theta$ condicionado sobre $I$. En el sentido más general $\theta$ puede representar un
+vector, $\hip$, en el espacio de hipótesis, $\Hip$.}
 %
 En lenguaje cotidiano, la primera ecuación nos dice que dado nuestro grado de conocimiento
 (probabilidad) de conjunto exhaustivo y mutuamente excluyente de posibilidades, podemos asignar
 inmediatamente nuestro grado de desconocimiento (o ignorancia sobre el mismo conjunto). Ambas
 cantidades sumadas forman una \emph{certeza}; la segunda ecuación nos dice que dado nuestro grado de
-conocimiento de \(\theta_B\) y nuestro grado de conocimiento en \(\theta_A\) condicionado en
-\(\theta_B\), podemos admitir que sabemos nuestro grado de conocimiento de \(\theta_A\) y
-\(\theta_B\).
+conocimiento de $\theta_B$ y nuestro grado de conocimiento en $\theta_A$ condicionado en
+$\theta_B$, podemos admitir que sabemos nuestro grado de conocimiento de $\theta_A$ y
+$\theta_B$.
 
 %---------------------------------------------------------------------------------------------------
 
 \section{El teorema de Bayes}
 %
-\definition{\(\pos{\hip}{\dat,I}\)}{es la distribución de probabilidad posterior y representa
-nuestro grado de conocimiento de la hipótesis a la luz de los datos, \(\dat\).}
+\definition{$\pos{\hip}{\dat,I}$}{es la distribución de probabilidad posterior y representa
+nuestro grado de conocimiento de la hipótesis a la luz de los datos, $\dat$.}
 %
 El teorema de Bayes se desprende de estas dos simples relaciones y sostiene que
 %
@@ -104,13 +104,13 @@ El teorema de Bayes se desprende de estas dos simples relaciones y sostiene que
 %
 donde
 %
-\[\pro{\dat}{I} = \int_{\Hip}\pos{\hip}{\dat,I}d\hip.\]
+$$\pro{\dat}{I} = \int_{\Hip}\pos{\hip}{\dat,I}d\hip.$$
 %
-\definition{\(\pro{\dat}{I}\)}{se conoce como la evidencia y es la distribución posterior
+\definition{$\pro{\dat}{I}$}{se conoce como la evidencia y es la distribución posterior
 marginalizada sobre el espacio de parámetros.}
 %
 El poder del teorema de Bayes en sí yace en nuestra capacidad para asignar las distribuciones de
-probabilidad en el lado derecho de la igualdad, \(lik{\dat}{\hip,I}\) y \(\pri{\hip}{I}\), en la
+probabilidad en el lado derecho de la igualdad, $lik{\dat}{\hip,I}$ y $\pri{\hip}{I}$, en la
 Ec.~\eqref{ec:bayes}. Esto es usualmente cierto en el caso de la última distribución, pues esta
 refleja simplemente \emph{nuestro grado de conocimiento (ignorancia y/o prejuicios) sobre problema
 previo a la obtención de los datos}, la primera distribución de probabilidades por otra parte,
@@ -122,8 +122,8 @@ datos, pues representa la \emph{plausibilidad de la hipótesis asumida a la luz 
 \section{Inferencia bayesiana}
 %
 La inferencia bayesiana es la técnica que consiste en calcular la distribución de probabilidad
-posterior, \(\pos{\hip}{\dat,I}\) para hacer algún avance en nuestro grado de conocimiento sobre
-\(\hip\). El primer paso es construir la función que describe la probabilidad de haber hecho la
+posterior, $\pos{\hip}{\dat,I}$ para hacer algún avance en nuestro grado de conocimiento sobre
+$\hip$. El primer paso es construir la función que describe la probabilidad de haber hecho la
 observación suponiendo la hipótesis como correcta y la distribución prior que describe nuestro grado
 de conocimiento de la hipótesis antes de haber hecho la observación (véase el paréntesis A). Ambas
 distribuciones de probabilidad requieren de nuestro conocimiento del problema, pero en particular,
@@ -155,8 +155,8 @@ conocimiento sobre el modelo.
 %
 Ahora vamos a hacer el ejercicio más vulgar y silvestre y, aún así uno de los más útiles si se hace
 bien: ajustar una línea recta a un conjunto de datos. Supongamos que dicho conjunto de datos está
-descrito por un arreglo independiente (i.\,e., dado) \(\set{x_i}\) y un arreglo de medidas
-\(\set{y_i}\) cuyas desviaciones estándar están dadas también \(\set{\sigma_i}\).
+descrito por un arreglo independiente (i.\,e., dado) $\set{x_i}$ y un arreglo de medidas
+$\set{y_i}$ cuyas desviaciones estándar están dadas también $\set{\sigma_i}$.
 % el conjunto de datos pueden ser 10 puntos en el rango x=(1,10) y y=2*x^0.9+0.5
 % el error en y viene de una distribución que no es Gaussiana.
 % mostrar el conjunto de datos en un gráfico
@@ -164,21 +164,21 @@ La intuición nos dice que por allí podría pasar una línea recta. La forma m�
 el problema, desde el punto de vista probabilístico, consiste en construir un modelo generativo
 \citep{Hogg2010}: una descripción estadística que permite reproducir los datos observados. Esto es
 esencialmente, construir la distribución de verosimilitud. Bajo la suposición de que los errores en
-\(\set{y_i}\) son Gaussianos y no correlados, la verosimilitud es simplemente:
+$\set{y_i}$ son Gaussianos y no correlados, la verosimilitud es simplemente:
 %
-\[\lik{\set{y_i}}{\set{x_i},\set{\sigma_i},m,b} = \prod_{i=1}^N\frac{1}{\sqrt{2\pi\sigma_i^2}}\exp{\left[-\frac{\left(y_i-m\,x_i+b\right)^2}{2\sigma_i^2}\right]}.\]
+$$\lik{\set{y_i}}{\set{x_i},\set{\sigma_i},m,b} = \prod_{i=1}^N\frac{1}{\sqrt{2\pi\sigma_i^2}}\exp{\left[-\frac{\left(y_i-m\,x_i+b\right)^2}{2\sigma_i^2}\right]}.$$
 %
-En este punto el problema ya se ha convertido en un tecnicismo: ¿cómo encontrar los parámetros \(m\)
-y \(b\), tal que la verosimilitud es máxima? La respuesta fácil (y muchas veces conveniente) a esa
-pregunta es simplemente minimizar la función de mérito \(\chi^2\).
+En este punto el problema ya se ha convertido en un tecnicismo: ¿cómo encontrar los parámetros $m$
+y $b$, tal que la verosimilitud es máxima? La respuesta fácil (y muchas veces conveniente) a esa
+pregunta es simplemente minimizar la función de mérito $\chi^2$.
 % mostrar el ajuste lineal y los parámetros resultantes
 Uno podría, sin razón lógica aparente, simplemente ir directo a la inferencia Bayesiana y encontrar
-la distribución posterior \(\pos{m,b}{\set{y_i},\set{x_i},\set{\sigma_i}}\) usando distribuciones
+la distribución posterior $\pos{m,b}{\set{y_i},\set{x_i},\set{\sigma_i}}$ usando distribuciones
 \emph{prior} objetivas, por ejemplo.
 % mostrar la evolución de las posterior en m y b.
 Sin embargo, ¿qué pasa si realmente no estamos seguros de que
-\(\lik{\set{y_i}}{\set{x_i},\set{\sigma_i},m,b}\) realmente es un modelo generativo de todo el
-espacio de \(\set{y_i}\)? Y nos hacemos esta pregunta independientemente del la forma en que estén
+$\lik{\set{y_i}}{\set{x_i},\set{\sigma_i},m,b}$ realmente es un modelo generativo de todo el
+espacio de $\set{y_i}$? Y nos hacemos esta pregunta independientemente del la forma en que estén
 relacionados los parámetros de interés.
 % mostrar la distribución real de parámetros m y b.
 Una forma de resolver este tipo de problemas es usando inferencia Bayesiana.
@@ -200,17 +200,17 @@ distribuciones posteriores obtenidas usando un prior objetivo y uno subjetivo, c
 número de datos observados.
 
 \paragraph{\textit{\color{teal}Dependencia con la cantidad de los datos.}} Supongamos que la
-distribución \emph{likelihood} dado un conjunto de datos \(\dat\) es
+distribución \emph{likelihood} dado un conjunto de datos $\dat$ es
 %
-\[\lik{\dat}{\hip,I} = \prod_{i=1}^N\lik[i]{\mathcal{D}_i}{\hip,I},\]
+$$\lik{\dat}{\hip,I} = \prod_{i=1}^N\lik[i]{\mathcal{D}_i}{\hip,I},$$
 %
 entonces la log-posterior es simplemente
 %
-\[\log{\pos{\hip}{\dat,I}} = \sum_{i=1}^N\log{\lik[i]{\mathcal{D}_i}{\hip,I}} + \log{\pri{\hip}{I}} + K,\]
+$$\log{\pos{\hip}{\dat,I}} = \sum_{i=1}^N\log{\lik[i]{\mathcal{D}_i}{\hip,I}} + \log{\pri{\hip}{I}} + K,$$
 %
-donde \(K\) es una constante. Es claro entonces que la distribución posterior escala con \(N\), el
+donde $K$ es una constante. Es claro entonces que la distribución posterior escala con $N$, el
 número de datos. Esto tiene sentido intuitivamente hablando, porque es de esperarse que en el límite
-de \(N\to\infty\) los datos sean lo suficientemente informativos a través de la verosimilitud como
+de $N\to\infty$ los datos sean lo suficientemente informativos a través de la verosimilitud como
 para anular la contribución de la distribución previa.
 % Mostrar ejemplo de la actualización de la distribución posterior al añadir observaciones.
 
@@ -235,10 +235,44 @@ excluyente de posibilidades, si no hay razones para pensar que una posibilidad e
 otra, entonces lo más justo es asignar la misma probabilidad a todas. Pero ¿qué pasa si en efecto
 poseemos razones suficientes para pensar que la distribución no es objetiva?
 
-\paragraph{\textit{\color{teal}Información y entropía.}}
+\paragraph{\textit{\color{teal}Información y entropía.}} La probabilidad de ocurrencia de un evento
+necesariamente implica que tenemos conocimiento de la naturaleza de este y el conocimiento es
+información. Pero ¿cuál es la relación entre la información y la probabilidad? Supongamos que
+sabemos la probabilidad $P_i$ de que un evento $e_i$ ocurra, ¿cuánta información obtenemos si
+observamos que el evento ocurre? Bueno, exploremos las reglas que debe cumplir la función de
+información $I(P_i)$.
+%
+\begin{description}
+%
+\item[Rango:] La información debe ser una cantidad tal que $I\geq0$.
+%
+\item[Monotonía y continuidad:] El dominio de $I$ viene representado por el rango $P_i=[0,1]$. Si se
+tiene la certeza de que un evento ocurre, entonces la información obtenida por tras su observación
+es $I(1)=0$. Entonces $I(P_i)$ es una función monótona decreciente en su dominio.
+%
+\item[Aditividad:] Si dos eventos independientes tienen probabilidad $P_1$ y $P_2$ de ocurrir,
+entonces su probabilidad conjunta es $P_1\times P_2$ y la información provista por la observación de
+ambos eventos es $I(P_1\times P_2) = I(P_1) + I(P_2)$.
+%
+\end{description}
+
+La última regla o axioma restringe considerablemente las posibilidades para $I$, de manera que la
+forma de representar dicha información de manera estándar es simplemente:
+%
+$$I(P_i) \equiv -\log{P_i}.$$
+%
+Ahora supongamos que tenemos un conjunto exahustivo de eventos mutuamente excluyentes cuyas
+probabilidades previas forman una distribución de probabilidad $Pr$, la información esperada debida
+a la observación de alguno de tales eventos es:
+%
+$$H(Pr) \equiv -\sum_i P_i\log{P_i}.$$
+%
+Esta cantidad es la denominada entropía de una distribución de probabilidad y es una medida de la
+impredictibilidad de los eventos que representa dicha distribución. Pero ¿qué propiedades posee la
+entropía?
 
 \paragraph{\textit{\color{teal}Método de Máxima Entropía.}} Supongamos que tenemos información
-contrastable sobre una hipótesis \(\hip\) y queremos asignar una distribución de probabilidad que
+contrastable sobre una hipótesis $\hip$ y queremos asignar una distribución de probabilidad que
 cumpla con esa condición ¿cuál es la forma más \emph{justa} de asignar dicha distribución de
 probabilidad?
 
@@ -260,16 +294,18 @@ posterior predictiva, esto es:
 \end{equation}
 %
 donde el primer factor dentro de la integral es la probabilidad de haber observado
-\(\dat^\text{pre}\) dada la hipótesis. La premisa es que si el modelo (o mejor dicho la
+$\dat^\text{pre}$ dada la hipótesis. La premisa es que si el modelo (o mejor dicho la
 verosimilitud) comprende el espacio de observaciones en su completitud, entonces una muestra tomada
-de la distribución
-\(\pro{\dat^\text{pre}}{\hip,I}\sim\mathcal{N}(\set{\mu_i(\hip)},\set{\sigma_i})\) debería ser
-indistinguible de las observaciones reales.
+de la distribución $\mathcal{N}(\set{\mu_i(\hip)},\set{\sigma_i})$ debería ser indistinguible de
+las observaciones reales.
 
 
 %---------------------------------------------------------------------------------------------------
 
 \section{Ejemplo: Función Inicial de Masa}
+
+En este ejemplo vamos a reconstruir la FIM usando el método de máxima entropía. Como información
+verificable
 
 %---------------------------------------------------------------------------------------------------
 
