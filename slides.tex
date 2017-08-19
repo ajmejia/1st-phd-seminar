@@ -238,43 +238,65 @@ poseemos razones suficientes para pensar que la distribución no es objetiva?
 \paragraph{\textit{\color{teal}Información y entropía.}} La probabilidad de ocurrencia de un evento
 necesariamente implica que tenemos conocimiento de la naturaleza de este y el conocimiento es
 información. Pero ¿cuál es la relación entre la información y la probabilidad? Supongamos que
-sabemos la probabilidad $P_i$ de que un evento $e_i$ ocurra, ¿cuánta información obtenemos si
-observamos que el evento ocurre? Bueno, exploremos las reglas que debe cumplir la función de
-información $I(P_i)$.
+sabemos la probabilidad $Pr(\theta)$ de que un evento $\theta$ ocurra, ¿cuánta información obtenemos
+si observamos que el evento ocurre? Bueno, exploremos las reglas que debe cumplir la función de
+información $I[Pr(\theta)]$.
 %
 \begin{description}
 %
-\item[Rango:] La información debe ser una cantidad tal que $I\geq0$.
+\item[Rango:] Por conveniencia se impondrá la restricción de que la información debe ser una
+cantidad tal que $I\geq0$.
 %
-\item[Monotonía y continuidad:] El dominio de $I$ viene representado por el rango $P_i=[0,1]$. Si se
+\item[Monotonía y continuidad:] El dominio de $I$ viene representado por el rango $Pr=[0,1]$. Si se
 tiene la certeza de que un evento ocurre, entonces la información obtenida por tras su observación
-es $I(1)=0$. Entonces $I(P_i)$ es una función monótona decreciente en su dominio.
+es $I(1)=0$. Mientras menor es la probabilidad de observar un evento, la información obtenida tras
+su observación es mayor. Por lo tanto $I$ debe ser una función decreciente en $Pr$.
 %
-\item[Aditividad:] Si dos eventos independientes tienen probabilidad $P_1$ y $P_2$ de ocurrir,
-entonces su probabilidad conjunta es $P_1\times P_2$ y la información provista por la observación de
-ambos eventos es $I(P_1\times P_2) = I(P_1) + I(P_2)$.
+\item[Aditividad:] Si dos eventos independientes tienen probabilidad $Pr(\theta_1)$ y $Pr(\theta_2)$
+de ocurrir, entonces su probabilidad conjunta es el producto de sus probabilidades individuales y la
+información provista por la observación de ambos eventos es $I_{\theta_1,\theta_2} =
+I(Pr(\theta_1)) + I(Pr(\theta_2))$.
 %
 \end{description}
 
 La última regla o axioma restringe considerablemente las posibilidades para $I$, de manera que la
 forma de representar dicha información de manera estándar es simplemente:
 %
-$$I(P_i) \equiv -\log{P_i}.$$
+$$I(Pr) \equiv -\log{Pr}.$$
 %
 Ahora supongamos que tenemos un conjunto exahustivo de eventos mutuamente excluyentes cuyas
 probabilidades previas forman una distribución de probabilidad $Pr$, la información esperada debida
 a la observación de alguno de tales eventos es:
 %
-$$H(Pr) \equiv -\sum_i P_i\log{P_i}.$$
+$$H(Pr) \equiv -\int Pr\log{Pr}\,\text{d}\theta.$$
 %
 Esta cantidad es la denominada entropía de una distribución de probabilidad y es una medida de la
 impredictibilidad de los eventos que representa dicha distribución. Pero ¿qué propiedades posee la
-entropía?
+entropía? Uno puede demostrar fácilmente que la entropía tiene un máximo usando la desigualdad de
+Gibbs:
+%
+$$\int Pr\,\log{\left[\frac{1/(\theta_\text{max}-\theta_\text{min})}{Pr}\right]}\text{d}\theta\leq0,$$
+%
+con la igualdad si y solo si $Pr=1/(\theta_\text{max}-\theta_\text{min})$.
 
-\paragraph{\textit{\color{teal}Método de Máxima Entropía.}} Supongamos que tenemos información
-contrastable sobre una hipótesis $\hip$ y queremos asignar una distribución de probabilidad que
-cumpla con esa condición ¿cuál es la forma más \emph{justa} de asignar dicha distribución de
-probabilidad?
+\paragraph{\textit{\color{teal}Método de Máxima Entropía.}} En el apartado anterior vimos que dada
+la probabilidad previa de ocurrencia de un evento se puede cuantificar la información que se obtiene
+tras su observación simplemente usando la probabilidad asignada. Además, la entropía es la
+información que se espera obtener dada una distribución de probabilidad. En este sentido, parece
+coherente que una forma justa de asignar la distribución previa, $\pri{\theta}{I}$ consista en
+maximizar la entropía, esto es, maximizar la información que se obtiene una vez se ha hecho una
+observación.
+
+Supongamos que tenemos información contrastable sobre una hipótesis $\theta$ y queremos asignar una
+distribución de probabilidad que cumpla con esa condición. El método de máxima entropía consiste en
+maximizar la función:
+%
+$$L(Pr;\theta,I) = \int\pro{\theta}{I}\,\log{\left[1/\pro{\theta}{I}\right]}\,\text{d}\theta - \lambda_0\left[\int\pro{\theta}{I}\,\text{d}\theta-1\right] - \sum_{i=1}^N \lambda_i\,g_i(Pr;\theta,I),$$
+%
+donde el primer término es la entropía, el segundo es la condición de normalización y es una
+restricción necesaria y la sumatoria representa las restricciones impuestas por la información
+contrastable encapsulada en las funciones $g_i(Pr;\theta,I)$, normalizadas por los multiplicadores
+de Lagrange $\lambda_i$.
 
 %---------------------------------------------------------------------------------------------------
 
