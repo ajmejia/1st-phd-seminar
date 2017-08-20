@@ -4,7 +4,7 @@
 \usepackage[spanish]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{pxfonts}
+\usepackage[light]{kpfonts}
 \usepackage{eulervm}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{xspace}
@@ -19,7 +19,7 @@
 
 \newcommand{\Hip}{\ensuremath{\mathbold{\Theta}}\xspace}
 \newcommand{\hip}{\ensuremath{\mathbold{\theta}}\xspace}
-\newcommand{\dat}{\ensuremath{\{\mathcal{D}_i\}}\xspace}
+\newcommand{\dat}[1][i]{\ensuremath{\{\mathcal{D}_{#1}\}}\xspace}
 \newcommand{\pos}[2]{\ensuremath{\pi_N\left(#1\,\middle|\, #2\right)}\xspace}
 \newcommand{\pri}[2]{\ensuremath{\pi_0\left(#1\,\middle|\, #2\right)}\xspace}
 \newcommand{\lik}[3][]{\ensuremath{\mathcal{L}_{#1}\left(#2\,\middle|\, #3\right)}\xspace}
@@ -37,22 +37,23 @@
 \begin{abstract}
 %
 La estadística representa un conjunto de reglas diseñadas para expresar nuestro grado de
-conocimiento dados cierta evidencia y/o conocimiento previo, o al menos eso es para lo que ha sido
-concebida. Sin embargo, nuestra línea de razonamiento científico se ve forzada a desviarse un poco
-de este esquema, y la pregunta de interés científico real: ¿cuál es el grado de conocimiento sobre
-un evento, dados un conjunto de observaciones y conocimiento previo o prejuicios? se transforma en
-un \emph{surrogate} en el que se supone que la hipótesis planteada es cierta: dado que tenemos
-conocimiento absoluto del estado del problema (e.g., el modelo con el cual describimos los datos con
-sus estadísticas correspondientes), ¿cuál es la verosimilitud de los datos?. La estadística
-Bayesiana presenta un esquema que permite responder naturalmente a la pregunta de interés
-científico, al mismo tiempo de la manera más objetiva posible. En este seminario les presentaré el
-esquema general de la inferencia bayesiana y algunas de sus aplicaciones.
+conocimiento dados cierta evidencia y/o conocimiento previo y para avanzar dicho conocimiento a la
+luz de nuevas observaciones. Sin embargo, nuestra línea de razonamiento científico se ve forzada a
+desviarse un poco de este esquema, que es la forma natural, y la pregunta de interés científico
+real: ¿cuál es nuestro grado de conocimiento sobre un evento, dados un conjunto de observaciones y
+conocimiento previo o prejuicios? se transforma en otra cosa en la que se supone que la hipótesis
+planteada es cierta: dado que tenemos conocimiento absoluto del estado del problema (e.g., el modelo
+con el cual describimos los datos con sus estadísticas correspondientes), ¿cuál es la verosimilitud
+de los datos bajo cierta hipótesis?. La estadística Bayesiana presenta un esquema que permite
+responder naturalmente a la pregunta de interés científico y al mismo tiempo de la manera más
+objetiva posible. En este seminario les presentaré el esquema general de la inferencia bayesiana y
+algunas de sus aplicaciones.
 %
 \end{abstract}
 
 %---------------------------------------------------------------------------------------------------
 
-\section{Introducción: estadística básica}
+\section*{Introducción: estadística básica}
 
 El concepto de probabilidad ha venido a responder una pregunta fundamental para el ciencia y otras
 áreas del conocimiento en general: ¿cuál es el grado de certidumbre que poseemos sobre un evento,
@@ -89,7 +90,7 @@ $\theta_B$.
 
 %---------------------------------------------------------------------------------------------------
 
-\section{El teorema de Bayes}
+\section*{El teorema de Bayes}
 %
 \definition{$\pos{\hip}{\dat,I}$}{es la distribución de probabilidad posterior y representa
 nuestro grado de conocimiento de la hipótesis a la luz de los datos, $\dat$.}
@@ -110,7 +111,7 @@ $$\pro{\dat}{I} = \int_{\Hip}\pos{\hip}{\dat,I}d\hip.$$
 marginalizada sobre el espacio de parámetros.}
 %
 El poder del teorema de Bayes en sí yace en nuestra capacidad para asignar las distribuciones de
-probabilidad en el lado derecho de la igualdad, $lik{\dat}{\hip,I}$ y $\pri{\hip}{I}$, en la
+probabilidad en el lado derecho de la igualdad, $\lik{\dat}{\hip,I}$ y $\pri{\hip}{I}$, en la
 Ec.~\eqref{ec:bayes}. Esto es usualmente cierto en el caso de la última distribución, pues esta
 refleja simplemente \emph{nuestro grado de conocimiento (ignorancia y/o prejuicios) sobre problema
 previo a la obtención de los datos}, la primera distribución de probabilidades por otra parte,
@@ -119,7 +120,7 @@ datos, pues representa la \emph{plausibilidad de la hipótesis asumida a la luz 
 
 %---------------------------------------------------------------------------------------------------
 
-\section{Inferencia bayesiana}
+\section*{Inferencia bayesiana}
 %
 La inferencia bayesiana es la técnica que consiste en calcular la distribución de probabilidad
 posterior, $\pos{\hip}{\dat,I}$ para hacer algún avance en nuestro grado de conocimiento sobre
@@ -151,12 +152,11 @@ conocimiento sobre el modelo.
 
 %---------------------------------------------------------------------------------------------------
 
-\section{Ejemplo: regresión lineal}
-%
-Ahora vamos a hacer el ejercicio más vulgar y silvestre y, aún así uno de los más útiles si se hace
-bien: ajustar una línea recta a un conjunto de datos. Supongamos que dicho conjunto de datos está
-descrito por un arreglo independiente (i.\,e., dado) $\set{x_i}$ y un arreglo de medidas
-$\set{y_i}$ cuyas desviaciones estándar están dadas también $\set{\sigma_i}$.
+\paragraph{\textsc{\color{Blue}Ejemplo: regresión lineal.}} Ahora vamos a hacer el ejercicio más
+vulgar y silvestre y, aún así uno de los más útiles si se hace bien: ajustar una línea recta a un
+conjunto de datos. Supongamos que dicho conjunto de datos está descrito por un arreglo independiente
+(i.\,e., dado) $\set{x_i}$ y un arreglo de medidas $\set{y_i}$ cuyas desviaciones estándar están
+dadas también $\set{\sigma_i}$.
 % el conjunto de datos pueden ser 10 puntos en el rango x=(1,10) y y=2*x^0.9+0.5
 % el error en y viene de una distribución que no es Gaussiana.
 % mostrar el conjunto de datos en un gráfico
@@ -190,7 +190,7 @@ incertidumbres (de acuerdo con la definición de probabilidad). Podemos usar est
 
 %---------------------------------------------------------------------------------------------------
 
-\section{Efecto del prior}
+\section*{El efecto del prior}
 %
 En esta sección veremos como la elección de la distribución prior puede afectar significativamente
 nuestra inferencia y como depende dicho efecto en la cantidad de los datos y en la forma del prior.
@@ -221,63 +221,75 @@ comprometida, más aún en caso de una distribución previa sea no objetiva.
 
 %---------------------------------------------------------------------------------------------------
 
-\section{¿Cómo elegir priors de manera apropiada?}
+\section*{¿Cómo elegir \pri{\hip}{I}?}
 %
-Por supuesto la elección de la distribución de probabilidad prior depende del problema en particular
-que se quiera resolver, pero sobre todo del conocimiento que se posea en el espacio de la hipótesis.
-Por ejemplo, si nos sentimos muy seguros sobre nuestros prejuicios podríamos sentirnos tentados
-también a introducir un prior informativo, mientras que si por el contrario tenemos poco
-conocimiento sobre el problema lo mejor sería asumir una distribución previa objetiva. Pero ¿cómo
-representar lo que sabemos o ignoramos en forma de distribución de probabilidad de la forma más
-objetiva posible? Bueno, en el caso de una distribución previa objetiva es obvio: usamos el
-``principio de razón insuficiente'', el cual supone que dado un conjunto exhaustivo y mutuamente
+Por supuesto la elección de la distribución de probabilidad previa depende del problema en
+particular que se quiera resolver, pero sobre todo del conocimiento que se posea en el espacio de la
+hipótesis. Por ejemplo, si nos sentimos muy seguros sobre nuestros prejuicios podríamos sentirnos
+tentados a asumir una distribución previa informativa,
+% Mostrar un ejemplo de una distribución informativa
+mientras que si por el contrario tenemos poco conocimiento sobre el problema lo mejor sería asumir
+una distribución previa objetiva.
+% Mostrar un ejemplo de una distribución objetiva
+Pero ¿cómo representar lo que sabemos o ignoramos en forma de distribución de probabilidad de la
+forma más objetiva posible? Bueno, en el caso de una distribución previa objetiva es obvio: usamos
+el ``principio de razón insuficiente'', el cual supone que dado un conjunto exhaustivo y mutuamente
 excluyente de posibilidades, si no hay razones para pensar que una posibilidad es más probable que
 otra, entonces lo más justo es asignar la misma probabilidad a todas. Pero ¿qué pasa si en efecto
-poseemos razones suficientes para pensar que la distribución no es objetiva?
+poseemos razones suficientes para pensar que la distribución no es plana?
 
-\paragraph{\textit{\color{teal}Información y entropía.}} La probabilidad de ocurrencia de un evento
-necesariamente implica que tenemos conocimiento de la naturaleza de este y el conocimiento es
-información. Pero ¿cuál es la relación entre la información y la probabilidad? Supongamos que
-sabemos la probabilidad $Pr(\theta)$ de que un evento $\theta$ ocurra, ¿cuánta información obtenemos
-si observamos que el evento ocurre? Bueno, exploremos las reglas que debe cumplir la función de
-información $I[Pr(\theta)]$.
+\paragraph{\textit{\color{teal}Información y entropía.}} En la ciencia la observación de un evento
+casi siempre proporciona información que eventualmente nos permite actualizar nuestro grado de
+conocimiento sobre ese evento. Cuando uno diseña un experimiento, uno de los pasos es plantear una
+hipótesis que refleje nuestro conocimiento previo a la observación del evento. Estadísticamente
+hablando esta hipótesis es descrita por la probabilidad de ocurrencia de dicho evento. Pero ¿cuál es
+la relación entre la información adquirida tras la observación y la probabilidad previa de
+ocurrencia?
+
+Supongamos que la probabilidad previa de un evento $\theta$ es $\pro{\theta}{I}$, ¿cuánta
+información obtenemos si observamos que el evento ocurre? Bueno, Shannon (quien diseñó la teoría de
+información) planteó un conjunto de reglas simples que debe cumplir la función de información
+$I[\pro{\theta}{I}]$ suponiendo que esta solo dependa de la probabilidad previa.
 %
 \begin{description}
 %
-\item[Rango:] Por conveniencia se impondrá la restricción de que la información debe ser una
-cantidad tal que $I\geq0$.
-%
-\item[Monotonía y continuidad:] El dominio de $I$ viene representado por el rango $Pr=[0,1]$. Si se
-tiene la certeza de que un evento ocurre, entonces la información obtenida por tras su observación
-es $I(1)=0$. Mientras menor es la probabilidad de observar un evento, la información obtenida tras
-su observación es mayor. Por lo tanto $I$ debe ser una función decreciente en $Pr$.
-%
-\item[Aditividad:] Si dos eventos independientes tienen probabilidad $Pr(\theta_1)$ y $Pr(\theta_2)$
-de ocurrir, entonces su probabilidad conjunta es el producto de sus probabilidades individuales y la
-información provista por la observación de ambos eventos es $I_{\theta_1,\theta_2} =
-I(Pr(\theta_1)) + I(Pr(\theta_2))$.
-%
+\item[Dominio:] La información depende de $\pro{\theta}{I}$ únicamente, de manera que su dominio es
+$[0,1]$.
+% Ilustrar el dominio.
+\item[Rango:] La información debe ser positiva ($I\geq0$). Si se tiene la certeza de que un evento
+ocurre, entonces la información obtenida tras su observación es $I(1)=0$. Mientras menor es la
+probabilidad previa de observar un evento, la información obtenida tras su observación es mayor.
+% Ilustrar el rango.
+\item[Monotonía y continuidad:] La información debe ser monótona y continua, esto es, pequeños
+cambios en $\pro{\theta}{I}$ deben reflejar pequeños cambios en $I$ y \emph{vice versa}.
+% Ilustrar varias funciones que cumplen con estas premisas.
+\item[Aditividad:] Si dos eventos independientes tienen probabilidad $\pro{\theta_A}{I}$ y
+$\pro{\theta_B}{I}$ de ocurrir, entonces su probabilidad conjunta es el producto de sus
+probabilidades individuales y la información provista por la observación de ambos eventos es
+$I_{\theta_A,\theta_B} = I[\pro{\theta_A}{I}] + I[\pro{\theta_B}{I}]$.
+% Resaltar la función que cumple con todas las premisas.
 \end{description}
 
-La última regla o axioma restringe considerablemente las posibilidades para $I$, de manera que la
-forma de representar dicha información de manera estándar es simplemente:
+La última regla restringe considerablemente las posibilidades para $I$, de manera que la forma de
+representar dicha información (demostrada por Shannon) es simplemente:
 %
-$$I(Pr) \equiv -\log{Pr}.$$
+$$I[\pro{\theta}{I}] \equiv -\log{\pro{\theta}{I}}.$$
 %
 Ahora supongamos que tenemos un conjunto exahustivo de eventos mutuamente excluyentes cuyas
-probabilidades previas forman una distribución de probabilidad $Pr$, la información esperada debida
-a la observación de alguno de tales eventos es:
+probabilidades previas forman una distribución de probabilidad $\pro{\theta}{I}$, la información
+esperada debida a la observación de alguno de tales eventos es:
 %
-$$H(Pr) \equiv -\int Pr\log{Pr}\,\text{d}\theta.$$
-%
+$$H[\pro{\theta}{I}] \equiv -\int \pro{\theta}{I}\,\log{\pro{\theta}{I}}\,\text{d}\theta.$$
+% Motrar un ejemplo con una Gaussiana y con una distribución plana
 Esta cantidad es la denominada entropía de una distribución de probabilidad y es una medida de la
 impredictibilidad de los eventos que representa dicha distribución. Pero ¿qué propiedades posee la
-entropía? Uno puede demostrar fácilmente que la entropía tiene un máximo usando la desigualdad de
-Gibbs:
+entropía? y, en particular ¿la entropía posee un máximo? (ya veremos por qué nos interesa
+precisamente el máximo) Uno puede demostrar fácilmente que la entropía tiene un máximo usando la
+desigualdad de Gibbs:
 %
-$$\int Pr\,\log{\left[\frac{1/(\theta_\text{max}-\theta_\text{min})}{Pr}\right]}\text{d}\theta\leq0,$$
-%
-con la igualdad si y solo si $Pr=1/(\theta_\text{max}-\theta_\text{min})$.
+$$\int \pro{\theta}{I}\,\log{\left[\frac{1/(\theta_\text{max}-\theta_\text{min})}{\pro{\theta}{I}}\right]}\,\text{d}\theta\leq0,$$
+% Motrar curvas y=log(x) y y=x - 1 y el punto donde son iguales
+con la igualdad si y solo si $\pro{\theta}{I}=1/(\theta_\text{max}-\theta_\text{min})$.
 
 \paragraph{\textit{\color{teal}Método de Máxima Entropía.}} En el apartado anterior vimos que dada
 la probabilidad previa de ocurrencia de un evento se puede cuantificar la información que se obtiene
@@ -287,20 +299,24 @@ coherente que una forma justa de asignar la distribución previa, $\pri{\theta}{
 maximizar la entropía, esto es, maximizar la información que se obtiene una vez se ha hecho una
 observación.
 
-Supongamos que tenemos información contrastable sobre una hipótesis $\theta$ y queremos asignar una
-distribución de probabilidad que cumpla con esa condición. El método de máxima entropía consiste en
-maximizar la función:
+Supongamos que tenemos información contrastable sobre un conjunto exhaustivo de eventos mutuamente
+excluyentes $\hip$ y queremos asignar una distribución de probabilidad que cumpla con esa condición
+y que a la vez garantice que posterior a la observación tendremos la máxima información posible. El
+método de máxima entropía consiste en optimizar la función:
 %
 $$L(Pr;\theta,I) = \int\pro{\theta}{I}\,\log{\left[1/\pro{\theta}{I}\right]}\,\text{d}\theta - \lambda_0\left[\int\pro{\theta}{I}\,\text{d}\theta-1\right] - \sum_{i=1}^N \lambda_i\,g_i(Pr;\theta,I),$$
 %
 donde el primer término es la entropía, el segundo es la condición de normalización y es una
 restricción necesaria y la sumatoria representa las restricciones impuestas por la información
-contrastable encapsulada en las funciones $g_i(Pr;\theta,I)$, normalizadas por los multiplicadores
-de Lagrange $\lambda_i$.
+contrastable encapsulada en las funciones $g_i(Pr;\theta,I)$. Los factores $\lambda_i$ son los
+multiplicadores de Lagrange $\lambda_i$.
+
+\paragraph{\textsc{\color{Blue}Ejemplo: función inicial de masa.}} En este ejemplo vamos a
+reconstruir la FIM usando el método de máxima entropía. Como información verificable
 
 %---------------------------------------------------------------------------------------------------
 
-\section{¿Es el modelo adoptado el correcto?}
+\section*{¿Qué tan bueno es el modelo?}
 
 La distribución posterior proporciona estimaciones de los parámetros y de sus incertidumbres,
 incluyendo la propagación de las incertidumbres observacionales, de manera consistente y confiable,
@@ -308,53 +324,36 @@ siempre y cuando la distribución previa comprenda todas las posibilidades en el
 hipótesis. Sin embargo, por sí misma la distribución posterior no contiene información sobre si el
 modelo adoptado es bueno o malo.
 
-Una forma de averiguar la plausibilidad del modelo adoptado consiste en muestrear la distribución
+Una forma de cuantificar la plausibilidad del modelo adoptado consiste en muestrear la distribución
 posterior predictiva, esto es:
 %
 \begin{equation}
-\pro{\dat^\text{pre}}{\dat,I} = \int\pro{\dat^\text{pre}}{\hip,I}\times\pos{\hip}{\dat,I}\text{d}\hip,
+\pro{\dat[j]^\text{pre}}{\dat,I} = \int\pro{\dat[j]^\text{pre}}{\hip,I}\times\pos{\hip}{\dat,I}\text{d}\hip,
 \end{equation}
 %
 donde el primer factor dentro de la integral es la probabilidad de haber observado
-$\dat^\text{pre}$ dada la hipótesis. La premisa es que si el modelo (o mejor dicho la
-verosimilitud) comprende el espacio de observaciones en su completitud, entonces una muestra tomada
-de la distribución $\mathcal{N}(\set{\mu_i(\hip)},\set{\sigma_i})$ debería ser indistinguible de
-las observaciones reales.
-
-
-%---------------------------------------------------------------------------------------------------
-
-\section{Ejemplo: Función Inicial de Masa}
-
-En este ejemplo vamos a reconstruir la FIM usando el método de máxima entropía. Como información
-verificable
-
-%---------------------------------------------------------------------------------------------------
-
-\section{Lecciones}
-
-%===================================================================================================
-\appendix
-
-\section{Distribuciones conjugadas}\label{sc:conjugate-pdf}
+$\dat[j]^\text{pre}$ dada la hipótesis. La premisa es que si el modelo es descriptivo de las
+observaciones en su completitud, entonces una muestra tomada de la distribución
+$\pro{\dat[j]^\text{pre}}{\hip,I}$ debería ser indistinguible de las observaciones reales. Para
+verificar que esto es así, se ejecutan los siguientes pasos:
+%
+\begin{description}
+%
+\item[Conjunto $\set{\hip_j}^{\rm pre}$.] Necesitamos un conjunto actualizado (posterior) de
+parámetros en el espacio de hipótesis. Así que muestreamos la distribución posterior.
+%
+\item[Conjunto $\dat^{\rm pre}$.] Usando el conjunto $\hip^\text{pre}$ del paso anterior, se
+construye un conjunto de observaciones predichas, muestreando la distribución
+$\mathcal{P}\left(\mu\,\middle|\,\hip^\text{pre},I\right)$. Por supuesto
+$\pro{\dat[j]^\text{pre}}{\hip,I}$ y $\mathcal{P}$ deben ser consistentes: si la probabilidad del
+evento $\mathcal{D}_i$ se distribuye alrededor de un promedio $\mu_i$ con desviación estándar
+$\sigma_i$, entonces la elección sensible para $\mathcal{P}$ sería una distribución Gaussiana y la
+verosimilitud sería muy parecida a la del problema de ajustar una línea recta que vimos antes.
+%
+\end{description}
 
 %---------------------------------------------------------------------------------------------------
 
-\section{Muestreo de la posterior}
-
-Existen varias formas de muestrar la posterior y la eficiencia de la técnica adoptada dependerá
-exclusivamente de la naturaleza del problema reflejada en la forma de la distribución posterior. Por
-ejemplo, si la distribución posterior se puede escribir analíticamente, no será necesario recurrir a
-métodos numéricos como los algoritmos de Monte Carlo Markov Chain (MCMC). Si en cambio la
-distribución posterior tiene una forma extraña que no se puede representar simplemente de manera
-analítica, los métodos de muestreo aleatorio serán necesarios. Nótese que esto también aplica a las
-distribuciones prior, que también deben ser muestreadas aleatoriamente durante el proceso de
-obtención de la distribución posterior en estos casos (me refiero a los casos de muestreo numérico).
-
-Comencemos por los casos simples, en los que la posterior es simplemente representada por una
-ecuación matemática. Definamos el concepto de distribución conjugada. Se llama distribución
-conjugada a cualquier distribución perteneciente a la misma familia. Por ejemplo, en el contexto de
-la estadística bayesiana, si la distribución prior y la distribución posterior son familias, se dice
-que el prior es el conjudado de la posterior y viceversa.
+\section*{Resumen}
 
 \end{document}
