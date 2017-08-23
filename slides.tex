@@ -4,15 +4,17 @@
 \usepackage[spanish]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[light]{kpfonts}
+\usepackage{times}
 \usepackage{eulervm}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{xspace}
 \usepackage{natbib}
-
+\usepackage{sectsty}
 \usepackage{marginnote}
 \usepackage[top=1.5cm,bottom=1.5cm,outer=6cm,inner=4cm,heightrounded,marginparwidth=4cm,%
             marginparsep=1.2cm]{geometry}
+
+\allsectionsfont{\mdseries\scshape}
 
 \newcommand{\note}[1]{\color{OrangeRed}(#1)\xspace}
 \newcommand{\definition}[2]{\marginnote{{\color{teal}#1:} #2}}
@@ -150,8 +152,6 @@ anterior a la obtención de los datos actuales o incluso, pudo ser la posterior 
 distinto. En estos casos decimos que la distribución prior está introduciendo dominio de
 conocimiento sobre el modelo.
 
-%---------------------------------------------------------------------------------------------------
-
 \paragraph{\textsc{\color{Blue}Ejemplo: regresión lineal.}} Ahora vamos a hacer el ejercicio más
 vulgar y silvestre y, aún así uno de los más útiles si se hace bien: ajustar una línea recta a un
 conjunto de datos. Supongamos que dicho conjunto de datos está descrito por un arreglo independiente
@@ -168,24 +168,68 @@ $\set{y_i}$ son Gaussianos y no correlados, la verosimilitud es simplemente:
 %
 $$\lik{\set{y_i}}{\set{x_i},\set{\sigma_i},m,b} = \prod_{i=1}^N\frac{1}{\sqrt{2\pi\sigma_i^2}}\exp{\left[-\frac{\left(y_i-m\,x_i+b\right)^2}{2\sigma_i^2}\right]}.$$
 %
-En este punto el problema ya se ha convertido en un tecnicismo: ¿cómo encontrar los parámetros $m$
-y $b$, tal que la verosimilitud es máxima? La respuesta fácil (y muchas veces conveniente) a esa
-pregunta es simplemente minimizar la función de mérito $\chi^2$.
+Una vez hemos llegado a esta realización, la pregunta: ¿cómo encontrar los parámetros $m$ y $b$, que
+mejor ajustan a los datos? tiene una respuesta trivial: maximizar la verosimilitud o,
+equivalentemente, minimizar la función de mérito $\chi^2$. En este caso, la respuesta a nuestra
+pregunta se reduce simplemente a:
+% mostrar el resultado en el espacio de parámetros
+Y en el mejor de los casos a:
+% mostrar el resultado con barras de error
+En cuyo caso el ajuste es:
 % mostrar el ajuste lineal y los parámetros resultantes
-Uno podría, sin razón lógica aparente, simplemente ir directo a la inferencia Bayesiana y encontrar
-la distribución posterior $\pos{m,b}{\set{y_i},\set{x_i},\set{\sigma_i}}$ usando distribuciones
-\emph{prior} objetivas, por ejemplo.
-% mostrar la evolución de las posterior en m y b.
-Sin embargo, ¿qué pasa si realmente no estamos seguros de que
-$\lik{\set{y_i}}{\set{x_i},\set{\sigma_i},m,b}$ realmente es un modelo generativo de todo el
-espacio de $\set{y_i}$? Y nos hacemos esta pregunta independientemente del la forma en que estén
-relacionados los parámetros de interés.
-% mostrar la distribución real de parámetros m y b.
-Una forma de resolver este tipo de problemas es usando inferencia Bayesiana.
+Uno podría simplemente ir directo a la inferencia Bayesiana y encontrar la distribución posterior
+$\pos{m,b}{\set{y_i},\set{x_i},\set{\sigma_i}}$ usando distribuciones \emph{prior} objetivas, por
+ejemplo.
+% mostrar la evolución de la posterior en m y b.
+Claramente en este caso, como la distribución previa no es informativa, la distribución posterior es
+igual a la verosimilitud. Pero ¿representan lo mismo? bueno, evidentemente el teorema de Bayes dice
+que no es así. Vamos a ver por qué desde el punto de vista de la información que se poseen. La
+función de verosimilitud representa una distribución de frecuencias en el espacio de observaciones
+dado un conjunto de parámetros que presumiblemente lo describen, lo que quiere decir que solo en el
+límite de infinitas observaciones estamos seguros de si esto es así o no.
+% mostrar la distribución del universo de observaciones en el espacio y vs [m,b].
+% mostrar las observaciones también.
 
-Bajo el esquema Bayesiano, las distribuciones \emph{prior} no solo se usan para introducir
-conocimiento previo a la obtención de los datos, sino que al mismo tiempo se introducen
-incertidumbres (de acuerdo con la definición de probabilidad). Podemos usar esto a nuestro favor.
+Independientemente del método que se elija para obtener los parámetros que garantizan el mejor
+ajuste a los datos, siempre es bueno acompañarlos con incertidumbres.
+
+\paragraph{Incertidumbres en MV.} En el método de Máxima Verosimilitud, ¡la matriz de covarianza
+para los parámetros del mejor ajuste es independiente de la bondad del ajuste! De manera que la
+mejor estimación de la incertidumbre en este caso únicamente refleja el hecho de que las
+incertidumbres en las observaciones son Gaussianas y ni siquiera eso está garantizado en la mayoría
+de los casos. En general deben cumplirse tres condiciones para que la matriz de covarianza sea
+representativa de los errores en los parámetros estimados:
+%
+\begin{description}
+%
+\item[Las $\sigma_i$:] las incertidumbres en las observaciones deben estar bien determinadas y
+representadas por $\sigma_i$, i.\,e., estas deben considerar no solo efectos instrumentales, sino
+también las variaciones intrínsecas del fenómeno observado.
+%
+\item[Gaussianidad:] el proceso (fenómeno y observación) debe ser completamente Gaussiano.
+%
+\item[Modelo perfecto:] el modelo asumido debe ser representativo de los datos, i.\,e., en ausencia
+de incertidumbres, la desviación del modelo debe ser nula.
+%
+\end{description}
+%
+En la práctica rara vez se cumplen estas condiciones. Además casi nunca se cuenta con una muestra de
+la verosimilitud, de manera que no es trivial calcular las incertidumbres en el resultado.
+
+\paragraph{Incertidumbres en Inferencia Bayesiana.} En la estadística Bayesiana, las incertidumbres
+en los parámetros depende de manera consistente del modelo asumido a través de la verosimilitud y
+del conocimiento inicial sobre los parámetros a través de la distribución previa. La inferencia
+Bayesiana viene acompañada de una muestra de la distribución posterior y, en ciertos casos muy
+especiales, de una forma analítica de esta, de manera que es relativamente sencillo calcular
+incertidumbres en los parámetros estimados.
+
+En este sentido, si realmente no estamos seguros de que el modelo asumido (independientemente de si
+es lineal o no) realmente es un modelo generativo de todo el espacio de observaciones $\set{y_i}$,
+una forma de resolver este tipo de problemas es usando inferencia Bayesiana.
+
+Bajo el esquema Bayesiano, la distribución previa no solo se usa para introducir conocimiento
+a la obtención de los datos, sino que al mismo tiempo se introducen incertidumbres (de acuerdo con
+la definición de probabilidad). Podemos usar esto a nuestro favor.
 % probar ajustar el mismo modelo usando un prior parecido a la verdadera distribución de errores.
 
 %---------------------------------------------------------------------------------------------------
