@@ -330,22 +330,25 @@ cuestión de unos pocos giga años.
 \begin{description}
 %
 \item[\textsc{Formación estelar.}] Formación estelar es probablemente el fenómeno físico más
-fundamental en la astrofísica. Parte de lo que lo hace interesante es que aún no están resueltas las
-condiciones físicas bajo las cuales tiene lugar, pues las propiedades físicas del MIE (donde la
-formación estelar tiene lugar) son extremadamente complejas: primero el MIE está compuesto por gas
-en distintas fases coexistiendo en un amplio rango de densidades y temperaturas. Desde el punto de
-vista de las simulaciones \emph{ab initio} a gran escala (e.\,g. simulaciones cosmológicas) estas
-condiciones físicas aún están lejos de ser resueltas. Sin embargo, la existencia de relaciones
-`globales' o que se manifiestan de forma global en poblaciones de galaxias nos ha permitido hacer
-avances en nuestro entendimiento teórico de los procesos físicos involucrados en la formación
-estelar. En este sentido, las simulaciones \emph{ab initio} y las semi-analíticas han desarrollado
-recetas con la sola meta de predecir dichas relaciones, es decir, con la sola meta de predecir de
-manera acertada dichas relaciones.
-% mostrar una lista de las condiciones del MIE donde ocurre la formación estelar
+fundamental en la astrofísica. Aunque es ampliamente estudiado, existen aspectos relacionados con
+las condiciones físicas bajo las cuales tiene lugar que aún no tienen respuesta. Por ejemplo se ha
+observado que la formación estelar ocurre en regiones densas y de alta extinción difíciles de
+resolver con telescopios ópticos. Desde el un punto de vista teórico se entiende que las propiedades
+físicas del MIE (donde la formación estelar tiene lugar) son extremadamente complejas: primero el
+MIE está compuesto por gas en distintas fases coexistiendo en un amplio rango de densidades y
+temperaturas, se desconoce el impacto de los tiempos típicos de formación de ciertas especies
+moleculares, de los campos magnéticos, etc.
+
+Aunque las simulaciones \emph{ab initio} pueden, en principio, restringir la magnitud del problema
+simplemente probando distintas condiciones físicamente plausibles y comparándolas con las
+observaciones, en el presente no es posible hacer simulaciones a gran escala (e.\,g. simulaciones
+cosmológicas) pues las escalas temporal y espacial aún están lejos de ser resueltas. La formación
+estelar en el marco cosmológico es el \emph{conundrum} por excelencia en nuestro camino a entender
+los procesos de formación y evolución de galaxias.
 
 En una visión bastante esquemática, el proceso de formación estelar, partiendo del acentamiento del
 gas frío en una estructura soportada por momento angular, se puede resumir como sigue:
-%
+% mostrar una lista de las condiciones del MIE donde ocurre la formación estelar
 \begin{itemize}
 \item Formación de gas atómico frío,
 \item formación de nubes de gas auto-gravitantes,
@@ -361,43 +364,52 @@ del MIE en nubes de formación estelar dificultan la resolución de los fenómen
 estudios observacionales. En particular, la formación de gas atómico, gas molecular y la formación
 subsiguiente de nubes moleculares, e incluso su rol en la formación estelar, son aún muy incertas.
 Multiples mecanismos siendo candidatos plausibles para la activación de la formación estelar una vez
-el gas se ha acentado en el disco. Desde el punto de vista teórico, en las simulaciones de formación
-de galaxias es común parametrizar la tasa de formación estelar,
-% mostrar la relación de Schmidt y la de Kennicutt-Schmidt
+el gas se ha acentado en el disco.
+
+Desde el punto de vista de la formación de las galaxias resulta sumamente favorable la existencia de
+relaciones `globales' o que se manifiestan de forma global en poblaciones de galaxias
+\citep[e.\,g.][]{Schmidt1959, Kennicutt1998, Kennicutt2012}.
+% mostrar Fig. 11 Kennicutt+2012
 $$
-\dot{\rho}_\star = \epsilon_\star\,\frac{\rho_\text{gas}}{t_\star}\propto{\rho_\text{gas}}^{1.5},
+\dot{\Sigma}_\star = \epsilon_\star\,\frac{\Sigma_\text{gas}}{t_\star}\propto\Sigma_\text{gas}^N,
 $$
 %
-e imponer un conjunto de reglas (condiciones) físicas para su activación. Una de estas reglas, es la
-escala de tiempo, $t_\star$, en que la formación estelar ocurre localmente. Esta escala temporal
-depende de las propiedades físicas del gas y puede ser función de la escala dinámica, la escala
-térmica y/o de la escala para la formación de ciertas especies moleculares (e.\,g. H$_2$).
-Ciertamente, aún no está claro si alguno de los procesos físicos que involucra adoptar una escala
-temporal u otra, es preponderante en la formación estelar y bajo qué circunstancias lo es.
+Esto nos ha permitido hacer avances en nuestro entendimiento teórico de los procesos físicos
+involucrados en la formación estelar \citep{Krumholz2014} y además incluir los fenómenos relevantes
+en las simulaciones de galaxias de manera consistente con las observaciones, usando recetas
+físicamente plausibles. El problema sigue siendo, sin embargo, el amplio abanico de fenómenos
+físicos y sus escalas típicas. Esto se traduce en que asignar $t_\star$ no sea trivial, pudiendo ser
+e.\,g.: tiempo de caída libre del gas en una nube, el tiempo de paso de una nube, el tiempo de caída
+libre de una capa de gas en el disco o el tiempo dinámico del disco y de los tránsitos de los brazos
+espirales. Esta incertidumbre es capturada en el parámetro $\epsilon_\star$, comunmente definido
+como \citep{Krumholz2014}:
+% mostrar Fig. 4 Krumholz+2014
+$$
+\epsilon_\star \equiv \frac{t_\text{cl}}{t_\star}.
+$$
 
-Uno puede acotar la física que interviene en la formación estelar suponiendo dos esquemas: uno en el
-que los efectos locales dominan los mecanismos de formación estelar y otro en el que los efectos
-globales lo hacen. En el primer esquema se asume que la formación estelar es controlada en el
-corazón de nubes moleculares, en particular, por su estructura y abundancia; una afirmación que es
-respaldada por evidencia observacional que conduce a una correlación entre la TFE y la cantidad de
-gas denso en nubes moleculares \citep[e.\,g.][]{Lada2010}. \citet{Lada2010} encontraron que existe
-una fuerte correlación entre la abundancia de gas molecular en regiones de alta densidad con el
-número de objetos estelares jóvenes (directamente proporcional a la TFE). Bajo este esquema, la
-relación entre la TFE y la densidad del gas se explica por un decremento en la escala temporal o por
-un incremento de la fracción de gas por encima de cierto umbral, suponiendo $t_\star=f\times
-t_\text{cl}$.
+Todos estos fenómenos se pueden encapsular en dos tendencias principales: una en la que los efectos
+locales dominan los mecanismos de formación estelar y otra en la que los efectos globales lo hacen.
+El esquema local predice tres modos (eficiencias) de formación estelar asociados con dos umbrales:
+la transformación de gas atómico en gas molecular y el regimen de formación estelar eficiente
+asociado con la formación de aglomeraciones (\emph{clumps}), de manera que la TFE queda determinada
+completamente por la cantidad de gas molecular y su estructura. La ley global de potencia de Schmidt
+se explica por un decremento en la escala de tiempo característica o por un incremento de la
+fracción de gas en el regimen de gas denso (i.\,e. en algomeraciones), suponiendo $t_\star=f\times
+t_\text{cl}$. Observacionalmente este hecho es respaldado por \citet{Lada2010}, quienes encontraron
+que existe una fuerte correlación entre la abundancia de gas molecular en regiones de alta densidad
+con el número de objetos estelares jóvenes (directamente proporcional a la TFE).
 % mostrar el gráfico 4 de Lada+2010.
 Bajo el segundo esquema, la formación estelar es dominada globalmente por fenómenos dinámicos, en
-lugar de los mecanismos de enfriamiento y la formación de gas molecular. Independientemente de la
-fase del gas, atómico o molecular, la densidad superficial de este es lo que controla la TFE. En
-lugar de suponer umbrales relacionados con el enfriamiento y la formación de gas molecular, este
-esquema supone que la transición entre los distintos regímenes de formación estelar está relacionada
-con inestabilidades dinámicas en el disco. En este sentido, la relación entre la TFE y la densidad
-del gas surge por escalas temporales acortadas en regiones de alta densidad o escalas dinámicas más
-cortas \citep[e.\,g.][]{Ostriker2010}.
+lugar de los mecanismos de enfriamiento y la formación de gas molecular. En lugar de suponer
+umbrales relacionados con el enfriamiento y la formación de gas molecular, este esquema supone que
+la transición entre los distintos regímenes de formación estelar está relacionada con
+inestabilidades dinámicas en el disco. En este sentido, la relación entre la TFE y la densidad del
+gas viene de escalas temporales de autogravitación acortadas en regiones de alta densidad o escalas
+dinámicas más cortas \citep[e.\,g.][]{Ostriker2010}.
 %
-El esquema local explica naturalmente las relaciones locales entre las propiedades del gas molecular
-y la TFE. Sin embargo no explica por qué una galaxia o parte de ella se encuentra en distintos
+El esquema local explica naturalmente la relación entre la densidad de gas molecular y la densidad
+de TFE, sin embargo, no explica por qué una galaxia o parte de ella se encuentra en distintos
 regímenes de formación estelar. El esquema global, por otro lado, sugiere que los modos de formación
 estelar relacionados con regiones de baja densidad pueden explicarse por inestabilidades dinámicas,
 una afirmación que es aún incierta. A altas densidades las altas TFE se explican por el
