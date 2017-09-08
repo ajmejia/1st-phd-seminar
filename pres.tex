@@ -9,6 +9,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[orientation=portrait,size=custom,width=32,height=18]{beamerposter}
 
+\usepackage{amsmath}
+%\usepackage{eulervm}
+\usepackage{units}
 \usepackage{multirow}
 \usepackage{graphicx}
 \usepackage{tikz}
@@ -105,75 +108,203 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 \end{frame}
 
 %Motivación
-\begin{frame}[allowframebreaks]{\textsc{Motivación}}
-%
-Los estudios del contenido estelar en las galaxias distantes ($z\sim3$) solo tienen sentido en el
-límite de un número significativo de observaciones, pues debido a la gran variedad de fenómenos
-físicos que tienen lugar en estos sistemas (muchos aún en discusión) y distintas a las escalas
-temporales y espaciales en que estos ocurren, no es posible resolver las propiedades físicas de
-galaxias individuales de manera robusta. Por supuesto, las incertidumbres en los ingredientes de los
-modelos también juegan un papel importante. Aunque en principio en el universo local las galaxias se
-pueden resolver como imágenes extendidas en una exposición astronómica usando la técnica de la
-fotometría, la resolución espectral provista por esta clase de sondeos aunada al caracter degenerado
-del problema limitan considerablemente la información que se puede extraer de estos sondeos.
-
-Hoy en día existen sondeos espectroscópicos que proporcionan información espectral mucho más
-detallada y que permiten resolver espacialmente a las galaxias en el universo local. La
-disponibilidad de estos datos en efecto nos ha permitido estudiar en un nivel de detalle sin
-precedentes las escalas temporales y espaciales de los fenómenos físicos que ocurren en las galaxias
-a lo largo de la secuencia de Hubble. En este seminario les hablaré en particular de la relación
-entre la masa estelar, la tasa de formación estelar y la metalicidad estelar (esencialmente el ciclo
-de la materia bariónica en las galaxias) en la era dorada de sondeos con unidades de campo integral.
-%
+\begin{frame}{\textsc{Motivación}}
+% Los estudios del contenido estelar en las galaxias distantes ($z\sim3$) solo tienen sentido en el
+% límite de un número significativo de observaciones, pues debido a la gran variedad de fenómenos
+% físicos que tienen lugar en estos sistemas (muchos aún en discusión) y distintas a las escalas
+% temporales y espaciales en que estos ocurren, no es posible resolver las propiedades físicas de
+% galaxias individuales de manera robusta. Por supuesto, las incertidumbres en los ingredientes de los
+% modelos también juegan un papel importante. Aunque en principio en el universo local las galaxias se
+% pueden resolver como imágenes extendidas en una exposición astronómica usando la técnica de la
+% fotometría, la resolución espectral provista por esta clase de sondeos aunada al caracter degenerado
+% del problema limitan considerablemente la información que se puede extraer de estos sondeos.
+\begin{columns}
+\column{0.5\textwidth}
+rangos dinámicos:
+\begin{subequations}
+\begin{align}
+\text{tiempo}  &\sim \unit[10]{dex} \nonumber\\
+\text{espacio} &\sim \unit[35]{dex} \nonumber\\
+\text{masa}    &\sim \unit[30]{dex} \nonumber
+\end{align}
+\end{subequations}
+\column{0.5\textwidth}
+% 1: imagen de un campo de galaxias
+% 2: zoom hacia una galaxia eliptica
+% 3: mostrar estructura 3D y sus proyecciones en 2D
+% 4: mostrar imagen 2D CALIFA
+% 5: mostrar ejes x,y,lambda
+\end{columns}
 \end{frame}
 
-\begin{frame}[allowframebreaks]{\textsc{Expectativas teóricas}}
-%
-Simplemente considerando el tiempo de vida de aquellas estrellas que contribuyen al enriquecimiento
-del medio interestelar, en el cual se formará la siguiente generación de estrellas, uno puede tener
-una idea de la escala típica de enriquecimiento químico en una galaxia.
-% Fig. 1 Yates+2013. Marcar los tiempos de AGB, de SNe Ia y SNe II
+\begin{frame}{\textsc{consideraciones teóricas}}
 
+\begin{columns}
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=1]{img/yates2013-1}
+% Simplemente considerando el tiempo de vida de aquellas estrellas que contribuyen al enriquecimiento
+% del medio interestelar, en el cual se formará la siguiente generación de estrellas, uno puede tener
+% una idea de la escala típica de enriquecimiento químico en una galaxia.
+% Fig. 1 Yates+2013. Marcar los tiempos de AGB, de SNe Ia y SNe II
+\end{figure}
+\column{0.5\textwidth}
+$$ \Delta m_\star = m_{\star,0}\,\int\Phi(m)\,m_\text{eyectada}(m,Z_0)\,\text{d}m $$
+\end{columns}
+\end{frame}
+
+\begin{frame}{\textsc{consideraciones teóricas}}
+
+Los vientos estelares de estrellas en fase AGB retornan especies
+% Fig. 2 Yates+2013 (páneles inferiores).
+\begin{figure}
+\includegraphics[scale=1]{img/yates2013-2}
+\end{figure}
+\end{frame}
+
+\begin{frame}\textsc{consideraciones teóricas}
+
+\begin{columns}
+\column{0.5\textwidth}
 Una supernova tipo II retorna especies químicas más pesadas que el O (e.\,g. Mg, Ca, Ti y Si) en
 cuestión de unos $10^7\,$años.
-% Fig. 2 Yates+2013 (páneles inferiores).
+\column{0.5\textwidth}
 % Fig. 4 Yates+2013 (páneles inferiores). Mostrar líneas horizontales con la masa eyectada por SN Ia
-Las supernovas tipo Ia enriquecen el medio en una escala que puede ir desde $10^7\,$años hasta
-$\sim10^9\,$años.
+\begin{figure}
+\includegraphics[scale=1]{img/yates2013-4}
+\end{figure}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\textsc{consideraciones teóricas}}
+
+Las supernovas tipo Ia enriquecen el medio con especies más pesadas que el Fe en una escala que
+puede ir desde $10^7\,$años hasta $\sim10^9\,$años.
 % Fig. 3 Yates+2013.
+\begin{figure}
+\includegraphics[scale=1]{img/yates2013-3}
+\end{figure}
+\end{frame}
+
+\begin{frame}{\textsc{consideraciones observacionales}}
+
 En las estrellas de baja masa, que pueden vivir por $>3\times10^9\,$años muestran evidencia de esta
 evolución química en sus distribuciones espectrales de energía.
 % Fig. 1 Conroy+2014. Resaltar rasgos usados por Worthey+1994 y Gallazzi+2005
-En galaxias tempranas estas son las estrellas que dominan su distribución espectral de energía, por
-lo tanto no es sorprendente que la primera evidencia de una relación entre la edad y la metalicidad
-de una galaxia se encontrara en estos sistemas.
+\begin{figure}
+\includegraphics[scale=1]{img/conroy2014-1}
+% En galaxias tempranas estas son las estrellas que dominan su distribución espectral de energía, por
+% lo tanto no es sorprendente que la primera evidencia de una relación entre la edad y la metalicidad
+% de una galaxia se encontrara en estos sistemas.
+\end{figure}
+\end{frame}
+
+\begin{frame}{\textsc{consideraciones observacionales}}
 
 En galaxias tardías, los rasgos de metalicidad \emph{estelar} en el óptico son débiles, mientras que
 la emisión del MIE difuso permite estimar la metalicidad en fase de gas.
 % Espectro del SDSS con sus líneas de emisión identificadas. Fig. 2 Calabro+2017
-En estas galaxias es relativamente fácil estimar la TFE mediante la emisión de H$\alpha$, por
-ejemplo, de manera que se puede estudiar la primera relación fundamental del ciclo de masa
-bariónica.
-
+\begin{figure}
+\includegraphics[scale=1]{img/calabro2017-2}
+% En estas galaxias es relativamente fácil estimar la TFE mediante la emisión de H$\alpha$, por
+% ejemplo, de manera que se puede estudiar la primera relación fundamental del ciclo de masa
+% bariónica.
+\end{figure}
 \end{frame}
 
-\begin{frame}{Relaciones clásicas}
+\begin{frame}{\textsc{esquema del ciclo de masa}}
+% mostrar los 3 reservorios, como se conectan
+\begin{figure}
+\includegraphics[scale=1]{img/placeholder}
+% \includegraphics[scale=1]{img/reservoir-diagram} %************************************************
+\end{figure}
+\end{frame}
+
+\begin{frame}{\textsc{relaciones clásicas --- $M_\star\,$--$\,\Psi$}}
+
+\begin{columns}
+\column{0.5\textwidth}
+\column{0.5\textwidth}
+% Fig. 17 Brinchmann+2004. La dispersión a alta masa es probablemente debida a la dominancia de PaGs
+\begin{figure}
+\includegraphics[scale=1]{img/brinchmann2004-17}
+% La relación entre la masa y la tasa de formación estelar (TFE) es probablemente la relación más
+% estudiada del ciclo de masa bariónica \citep[e.\,g.][]{Schmidt1959, Kennicutt1998}. Por ejemplo
+% \citet{Brinchmann2004} estimó la TFE de las galaxias con formación estelar reciente del universo
+% local muestreado por el SDSS. Ellos encuentran una correlación directa entre la masa estelar y la
+% TFE.
+\end{figure}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\textsc{relaciones clásicas --- $M_\star\,$--$\,\Psi$}}
+% Fig. 24 Brinchmann+2004
+\begin{figure}
+\includegraphics[scale=1]{img/brinchmann2004-24}
+\end{figure}
+\end{frame}
+
+\begin{frame}{\textsc{relaciones clásicas --- $M_\star\,$--$\,\Psi$}}
+% Fig. 25 Brinchmann+2004
+\begin{figure}
+\includegraphics[scale=1]{img/brinchmann2004-25}
+% Ahora la masa por sí sola dice simplemente cuánto material bariónico existe en estrellas, pero no
+% dice nada de como está distribuido el material que es, según la ley de Kennicutt-Schmidt, la
+% relación fundamental entre la masa y la TFE. En este sentido, es interesante ver que la relación
+% entre la TFE específica y la masa no es tan estrecha como la relación entre la TFE específica y la
+% densidad superficial de masa. Un resultado que apunta a una relación con fenomenos del tipo local.
+\end{figure}
+\end{frame}
+
+\begin{frame}{\textsc{relaciones clásicas --- $M_\star\,$--$\,\Psi$}}
+
+\begin{figure}
+\includegraphics[scale=1]{img/whitaker2014-1}
+\end{figure}
+\end{frame}
+
+\begin{frame}{\textsc{relaciones clásicas --- $M_\star\,$--$\,\Psi$}}
+
+\begin{figure}
+\includegraphics[scale=1]{img/whitaker2014-2}
+\end{figure}
+\end{frame}
+
+\begin{frame}{\textsc{relaciones clásicas --- $t_\star\,$--$\,Z_\star$}}
+
+La relación entre la edad y la metalicidad se ha estudiado de manera extensiva en la literatura
+reciente. Fue primero observada en galaxias tempranas, aunque la degeneración entre la ambas
+propiedades físicas, dificulta la interpretación de esta relación \citep{Worthey1994}. La mayor
+parte de los estudios posteriores se concentró en sistemas tempranos, incluyendo bulbos de galaxias
+tardías \citep{Proctor2002, Terlevich2002}, probablemente debido a que ambos, los modelos de
+síntesis de poblaciones y los índices espectrales usados para estimar la edad y la metalicidad,
+favorecían particularmente el estudio de estos sistemas.
+%
+Sin embargo, poco después \citet{Gallazzi2005} presentó un análisis de la relación edad-metalicidad
+que incluía galaxias tardías. Sus resultados se pueden resumir como sigue: ambos, la edad y la
+metalicidad están correlacionados con la masa estelar, aunque la fuerza de dicha correlación depende
+fuertemente del rango de masa. En general, las galaxias menos masivas están dominadas por
+poblaciones más jóvenes y menos ricas en metales pero con una dispersión estadística más grande,
+mientras que las más masivas están dominadas por poblaciones más viejas y más ricas en metales con
+dispersión estadística menor, esto último en acuerdo con los estudios previos de galaxias tempranas.
+% Gráfico de la Tabla 2 Gallazzi+2005.
+En el caso de las galaxias más masivas, la relación edad-metalicidad sugiere que estas se forman en
+escalas de tiempo más cortas ($\sim1\,$Gaño) que sus homólogas menos masivas.
+% Fig. 12 Gallazzi+2005
+Las galaxias menos masivas, por otro lado, se distribuyen en el plano edad-metalicidad dependiendo
+del tipo: dominadas por disco o dominadas por esferoides. Esto evidencia que la HFE presente podría
+depender de parámetros estructurales y/o fenómenos locales en estos sistemas.
+% Fig. 11 Gallazzi+2005
+Es importante notar, sin embargo, para las galaxias con formación estelar reciente, determinar la
+metalicidad es particularmente complicado, pues los trazadores de metalicidad en poblaciones jóvenes
+suelen ser débiles en el rango óptico debido al efecto del \emph{outshining}
+\citep[e.\,g.,][]{Conroy2013a}.
+% Graficar la diferencia de espectros de 10Gaños para distintas Zs y una banda que represente la SNR típica.
+\end{frame}
+
+\begin{frame}{\textsc{relaciones clásicas --- $M_\star\,$--$\,Z$}}
 
 \begin{description}
-%
-\item[\textsc{Relación Masa-TFE.}] La relación entre la masa y la TFE es probablemente la relación
-más estudiada del ciclo de masa bariónica \citep[e.\,g.][]{Schmidt1959, Kennicutt1998}. Por ejemplo
-\citet{Brinchmann2004} estimó la TFE de las galaxias con formación estelar reciente del universo
-local muestreado por el SDSS. Ellos encuentran una correlación directa entre la masa estelar y la
-TFE.
-% Fig. 17 Brinchmann+2004. La dispersión a alta masa es probablemente debida a la dominancia de PaGs
-Ahora la masa por sí sola dice simplemente cuánto material bariónico existe en estrellas, pero no
-dice nada de como está distribuido el material que es, según la ley de Kennicutt-Schmidt, la
-relación fundamental entre la masa y la TFE. En este sentido, es interesante ver que la relación
-entre la TFE específica y la masa no es tan estrecha como la relación entre la TFE específica y la
-densidad superficial de masa. Un resultado que apunta a una relación con fenomenos del tipo local.
-% Figs. 24 y 25 Brinchmann+2004
-
 \item[\textsc{Relación Masa-Metalicidad.}] En los sistemas con formación estelar reciente, es
 particularmente sencillo estimar la metalicidad del MIE en fase de gas debido a la presencia de la
 emisión del gas. \citet{Tremonti2004} estimaron la relación masa-metalicidad en una muestra de
@@ -229,39 +360,13 @@ relación entre la metalicidad estelar y la metalicidad del gas en el MIE:
 El hecho de que se ha observado que el medio intergaláctico está enriquecido y que las galaxias
 \emph{star-burst} sufren fuertes vientos galácticos que superan la velocidad de escape, soportan
 esta hipótesis para explicar esta relación de escala.
-
-\item[\textsc{Relación Edad-Metalicidad.}] La relación entre la edad y la metalicidad se ha
-estudiado de manera extensiva en la literatura reciente. Fue primero observada en galaxias
-tempranas, aunque la degeneración entre la ambas propiedades físicas, dificulta la interpretación de
-esta relación \citep{Worthey1994}. La mayor parte de los estudios posteriores se concentró en
-sistemas tempranos, incluyendo bulbos de galaxias tardías \citep{Proctor2002, Terlevich2002},
-probablemente debido a que ambos, los modelos de síntesis de poblaciones y los índices espectrales
-usados para estimar la edad y la metalicidad, favorecían particularmente el estudio de estos
-sistemas.
-%
-Sin embargo, poco después \citet{Gallazzi2005} presentó un análisis de la relación edad-metalicidad
-que incluía galaxias tardías. Sus resultados se pueden resumir como sigue: ambos, la edad y la
-metalicidad están correlacionados con la masa estelar, aunque la fuerza de dicha correlación depende
-fuertemente del rango de masa. En general, las galaxias menos masivas están dominadas por
-poblaciones más jóvenes y menos ricas en metales pero con una dispersión estadística más grande,
-mientras que las más masivas están dominadas por poblaciones más viejas y más ricas en metales con
-dispersión estadística menor, esto último en acuerdo con los estudios previos de galaxias tempranas.
-% Gráfico de la Tabla 2 Gallazzi+2005.
-En el caso de las galaxias más masivas, la relación edad-metalicidad sugiere que estas se forman en
-escalas de tiempo más cortas ($\sim1\,$Gaño) que sus homólogas menos masivas.
-% Fig. 12 Gallazzi+2005
-Las galaxias menos masivas, por otro lado, se distribuyen en el plano edad-metalicidad dependiendo
-del tipo: dominadas por disco o dominadas por esferoides. Esto evidencia que la HFE presente podría
-depender de parámetros estructurales y/o fenómenos locales en estos sistemas.
-% Fig. 11 Gallazzi+2005
-Es importante notar, sin embargo, para las galaxias con formación estelar reciente, determinar la
-metalicidad es particularmente complicado, pues los trazadores de metalicidad en poblaciones jóvenes
-suelen ser débiles en el rango óptico debido al efecto del \emph{outshining}
-\citep[e.\,g.,][]{Conroy2013a}.
-% Graficar la diferencia de espectros de 10Gaños para distintas Zs y una banda que represente la SNR típica.
 %
 \end{description}
+\end{frame}
 
+\begin{frame}{\textsc{relaciones clásicas --- resumen}}
+% describir de manera resumida los hallazgos importantes usando espectroscopía tradicional
+% Brinchmann+2004, Whitaker+2014, Calabro+2017
 Algunos aspectos de estas dos escalas quedaban sin explicarse completamente y/o estaban plagadas de
 incertidumbres que limitaban una clara interpretación. Las fuentes de incertidumbres más importantes
 eran:
