@@ -1,0 +1,615 @@
+\documentclass{article}
+
+
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{eulervm}
+
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+
+\PassOptionsToPackage{%
+%backend=biber, % Instead of bibtex
+backend=bibtex8,bibencoding=ascii,%
+language=auto,%
+%style=numeric-comp,%
+style=authoryear-comp, % Author 1999, 2010
+bibstyle=authoryear,dashed=false, % dashed: substitute rep. author with ---
+sorting=ynt, % year, name, title
+maxbibnames=3, % default: 3, et al.
+backref=false,%
+natbib=true, % natbib compatibility mode (\citep and \citet still work)
+url=false, %
+doi=false, %
+eprint=false %
+}{biblatex}
+\usepackage{biblatex}
+
+\addbibresource{library.bib}
+
+\usepackage{hyperref}
+\hypersetup{
+% Uncomment the line below to remove all links (to references, figures, tables, etc), useful for b/w printouts
+%draft,
+colorlinks=true, linktocpage=true, pdfstartpage=3, pdfstartview=FitV,
+% Uncomment the line below if you want to have black links (e.g. for printing black and white)
+%colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=3, pdfstartview=FitV,
+breaklinks=true, pdfpagemode=UseNone, pageanchor=true, pdfpagemode=UseOutlines,%
+plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,%
+hypertexnames=true, pdfhighlight=/O,%nesting=true,%frenchlinks,%
+urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
+%urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,%
+}
+
+\begin{document}
+\title{El ciclo de materia bariónica en las galaxias}
+\author{Alfredo J. Mej\'ia$^{1,2}$}
+\date{\today}
+\maketitle
+
+%Motivación
+\section{\textsc{Motivación}}
+%
+Los estudios del contenido estelar en las galaxias distantes ($z\sim3$) solo tienen sentido en el
+límite de un número significativo de observaciones, pues debido a la gran variedad de fenómenos
+físicos que tienen lugar en estos sistemas (muchos aún en discusión) y distintas a las escalas
+temporales y espaciales en que estos ocurren, no es posible resolver las propiedades físicas de
+galaxias individuales de manera robusta. Por supuesto, las incertidumbres en los ingredientes de los
+modelos también juegan un papel importante. Aunque en principio en el universo local las galaxias se
+pueden resolver como imágenes extendidas en una exposición astronómica usando la técnica de la
+fotometría, la resolución espectral provista por esta clase de sondeos aunada al caracter degenerado
+del problema limitan considerablemente la información que se puede extraer de estos sondeos.
+% rangos dinámicos:
+% tiempo: ~10dex
+% espacio: ~35dex
+% masa: ~30dex
+
+Hoy en día existen sondeos espectroscópicos que proporcionan información espectral mucho más
+detallada y que permiten resolver espacialmente a las galaxias en el universo local. La
+disponibilidad de estos datos en efecto nos ha permitido estudiar en un nivel de detalle sin
+precedentes las escalas temporales y espaciales de los fenómenos físicos que ocurren en las galaxias
+a lo largo de la secuencia de Hubble. En este seminario les hablaré en particular de la relación
+entre la masa estelar, la tasa de formación estelar y la metalicidad estelar (esencialmente el ciclo
+de la materia bariónica en las galaxias) en la era dorada de sondeos con unidades de campo integral.
+%
+
+
+\section{\textsc{Consideraciones teóricas}}
+%
+Simplemente considerando el tiempo de vida de aquellas estrellas que contribuyen al enriquecimiento
+del medio interestelar, en el cual se formará la siguiente generación de estrellas, uno puede tener
+una idea de la escala típica de enriquecimiento químico en una galaxia.
+% Fig. 1 Yates+2013. Marcar los tiempos de AGB, de SNe Ia y SNe II
+
+Una supernova tipo II retorna especies químicas más pesadas que el O (e.\,g. Mg, Ca, Ti y Si) en
+cuestión de unos $10^7\,$años.
+% Fig. 2 Yates+2013 (páneles inferiores).
+% Fig. 4 Yates+2013 (páneles inferiores). Mostrar líneas horizontales con la masa eyectada por SN Ia
+Las supernovas tipo Ia enriquecen el medio en una escala que puede ir desde $10^7\,$años hasta
+$\sim10^9\,$años.
+% Fig. 3 Yates+2013.
+En las estrellas de baja masa, que pueden vivir por $>3\times10^9\,$años muestran evidencia de esta
+evolución química en sus distribuciones espectrales de energía.
+% Fig. 1 Conroy+2014. Resaltar rasgos usados por Worthey+1994 y Gallazzi+2005
+En galaxias tempranas estas son las estrellas que dominan su distribución espectral de energía, por
+lo tanto no es sorprendente que la primera evidencia de una relación entre la edad y la metalicidad
+de una galaxia se encontrara en estos sistemas.
+
+En galaxias tardías, los rasgos de metalicidad \emph{estelar} en el óptico son débiles, mientras que
+la emisión del MIE difuso permite estimar la metalicidad en fase de gas.
+% Espectro del SDSS con sus líneas de emisión identificadas. Fig. 2 Calabro+2017
+En estas galaxias es relativamente fácil estimar la TFE mediante la emisión de H$\alpha$, por
+ejemplo, de manera que se puede estudiar la primera relación fundamental del ciclo de masa
+bariónica.
+
+
+
+\section{Relaciones clásicas}
+
+\begin{description}
+%
+\item[\textsc{Relación Masa-TFE.}] La relación entre la masa y la TFE es probablemente la relación
+más estudiada del ciclo de masa bariónica \citep[e.\,g.][]{Schmidt1959, Kennicutt1998}. Por ejemplo
+\citet{Brinchmann2004} estimó la TFE de las galaxias con formación estelar reciente del universo
+local muestreado por el SDSS. Ellos encuentran una correlación directa entre la masa estelar y la
+TFE.
+% Fig. 17 Brinchmann+2004. La dispersión a alta masa es probablemente debida a la dominancia de PaGs
+Ahora la masa por sí sola dice simplemente cuánto material bariónico existe en estrellas, pero no
+dice nada de como está distribuido el material que es, según la ley de Kennicutt-Schmidt, la
+relación fundamental entre la masa y la TFE. En este sentido, es interesante ver que la relación
+entre la TFE específica y la masa no es tan estrecha como la relación entre la TFE específica y la
+densidad superficial de masa. Un resultado que apunta a una relación con fenomenos del tipo local.
+% Figs. 24 y 25 Brinchmann+2004
+
+\item[\textsc{Relación Masa-Metalicidad.}] En los sistemas con formación estelar reciente, es
+particularmente sencillo estimar la metalicidad del MIE en fase de gas debido a la presencia de la
+emisión del gas. \citet{Tremonti2004} estimaron la relación masa-metalicidad en una muestra de
+galaxias con formación estelar, usando como trazador de la metalicidad la abundancia de oxigeno.
+Encontraron una estrecha relación entre la metalicidad y la masa estelar, donde las galaxias menos
+masivas eran también menos ricas en metales, mientras que las más masivas eran más ricas en metales,
+un resultado en acuerdo con estudios previos.
+% Fig. 6 Tremonti+2004
+\citeauthor{Tremonti2004} discutió dos hipótesis para explicar el origen físico de la relación
+masa-metalicidad. Si es que las galaxias más masivas forman una fracción de estrellas mayor que sus
+contrapartes menos masivas en un tiempo de Hubble, entonces la relación indica una secuencia de
+astración, i.\,e. en las galaxias más masivas se forman más estrellas que enriquecen el medio
+rápidamente, mientras que las galaxias menos masivas se forman menos estrellas masivas de manera que
+los metales son encapsulados por más tiempo en las estrellas.
+% Diagrama de región de formación estelar cada vez más eficiente formando metales como función de la masa estelar
+Si es que la eficiencia de la tasa de formación estelar es irrespectiva de la masa estelar, entonces
+las galaxias menos masivas de alguna forma han perdido de manera selectiva los metales, tal vez
+mediante vientos galácticos.
+% Diagrama de galaxias en la secuencia de Hubble cada vez más eficientes perdiendo sus metales
+Evidencia de que la fracción másica de gas decrece con la masa estelar existe \citep{Bell2000} y
+podría explicar la relación masa-metalicidad en términos de que las galaxias menos masivas son menos
+eficientes formando estrellas masivas. Por otra parte, existe evidencia también de que las galaxias
+\emph{star-burst} sufren de fuertes vientos galácticos, que el medio intracúmulo y el medio
+intergaláctico están está enriquecidos en metales.
+%
+De acuerdo con las expectativas de un modelo de caja cerrada, la metalicidad está directamente
+relacionada con el \emph{yield} estelar de la siguiente manera:
+%
+$$
+Z = y\ln{\left[{\mu_\text{gas}}^{-1}\right]},
+$$
+%
+donde $y$ es el \emph{yield} y $\mu_\text{gas}$ es la fracción de masa en gas. Suponiendo que $y$ es
+constante (i.\,e. la TFE decrece \emph{continuamente} en el tiempo). Dada una fracción de metales
+$Z$ y una fracción de masa en gas $\mu_\text{gas}$, usando esta relación se puede calcular el
+\emph{yield efectivo}, i.\,e. el \emph{yield} producido por las extrellas para observar \emph{al
+menos} la metalicidad $Z$. Si el modelo de caja cerrada efectivamente describe a las galaxias
+tardías como las de la muestra de \citeauthor{Tremonti2004}, entonces $y_\text{efectivo}=y$
+independientemente de la masa bariónica. Sin embargo, lo que se observa es que $y_\text{efectivo}$
+decrece con la masa bariónica.
+% Fig. 8 Tremonti+2004
+Este hallazgo se interpreta como que la relación masa-metalicidad tiene un origen no solo en el
+fenómeno de formación estelar y en la subsiguiente evolución química, sino también en fenómenos
+reguladores en el MIE. Tal vez la evidencia más clara de que esto es así se puede apreciar en la
+relación entre la metalicidad estelar y la metalicidad del gas en el MIE:
+% Fig. 9 Gallazzi+2005:
+% La metalicidad estelar es sistemáticamente menor que la metalicidad del gas en el MIE.
+% Esto es evidencia clara de que los fenómenos reguladores están jugando un papel:
+% - Enfriamiento del gas.
+% - El feedback estelar.
+% - Acreción de gas pristino del MIG.
+% Además todos estos fenómenos están probablemente relacionados entre sí de una forma que no sabemos.
+El hecho de que se ha observado que el medio intergaláctico está enriquecido y que las galaxias
+\emph{star-burst} sufren fuertes vientos galácticos que superan la velocidad de escape, soportan
+esta hipótesis para explicar esta relación de escala.
+
+\item[\textsc{Relación Edad-Metalicidad.}] La relación entre la edad y la metalicidad se ha
+estudiado de manera extensiva en la literatura reciente. Fue primero observada en galaxias
+tempranas, aunque la degeneración entre la ambas propiedades físicas, dificulta la interpretación de
+esta relación \citep{Worthey1994}. La mayor parte de los estudios posteriores se concentró en
+sistemas tempranos, incluyendo bulbos de galaxias tardías \citep{Proctor2002, Terlevich2002},
+probablemente debido a que ambos, los modelos de síntesis de poblaciones y los índices espectrales
+usados para estimar la edad y la metalicidad, favorecían particularmente el estudio de estos
+sistemas.
+%
+Sin embargo, poco después \citet{Gallazzi2005} presentó un análisis de la relación edad-metalicidad
+que incluía galaxias tardías. Sus resultados se pueden resumir como sigue: ambos, la edad y la
+metalicidad están correlacionados con la masa estelar, aunque la fuerza de dicha correlación depende
+fuertemente del rango de masa. En general, las galaxias menos masivas están dominadas por
+poblaciones más jóvenes y menos ricas en metales pero con una dispersión estadística más grande,
+mientras que las más masivas están dominadas por poblaciones más viejas y más ricas en metales con
+dispersión estadística menor, esto último en acuerdo con los estudios previos de galaxias tempranas.
+% Gráfico de la Tabla 2 Gallazzi+2005.
+En el caso de las galaxias más masivas, la relación edad-metalicidad sugiere que estas se forman en
+escalas de tiempo más cortas ($\sim1\,$Gaño) que sus homólogas menos masivas.
+% Fig. 12 Gallazzi+2005
+Las galaxias menos masivas, por otro lado, se distribuyen en el plano edad-metalicidad dependiendo
+del tipo: dominadas por disco o dominadas por esferoides. Esto evidencia que la HFE presente podría
+depender de parámetros estructurales y/o fenómenos locales en estos sistemas.
+% Fig. 11 Gallazzi+2005
+Es importante notar, sin embargo, para las galaxias con formación estelar reciente, determinar la
+metalicidad es particularmente complicado, pues los trazadores de metalicidad en poblaciones jóvenes
+suelen ser débiles en el rango óptico debido al efecto del \emph{outshining}
+\citep[e.\,g.,][]{Conroy2013a}.
+% Graficar la diferencia de espectros de 10Gaños para distintas Zs y una banda que represente la SNR típica.
+%
+\end{description}
+
+Algunos aspectos de estas dos escalas quedaban sin explicarse completamente y/o estaban plagadas de
+incertidumbres que limitaban una clara interpretación. Las fuentes de incertidumbres más importantes
+eran:
+
+\begin{description}
+%
+\item[\textbf{Incertidumbres observacionales.}] Probablemente el efecto sistemático más importante
+en estos estudios es el efecto de apertura. Es bien sabido que existen gradientes radiales en las
+propiedades de las galaxias, por lo tanto, estudiar las relaciones entre las propiedades físicas
+`integradas', supone aproximaciones que deben tomarse en cuenta durante la interpretación de dichas
+relaciones.
+% Fig. 1 Iglesias-Paramo+2013
+Más cuidado aún se debe tener cuando se comparan propiedades integradas con diferentes aperturas. En
+este sentido las galaxias tempranas han ofrecido mejores posibilidades, pues exhiben gradientes
+menos en su contenido estelar como función de su radio. Las galaxias tardías por otro lado, no solo
+muestran gradientes más pronunciados en su contenido estelar, también tienen brillos superficiales
+típicamente menores y por lo tanto requieren tiempos de exposición más prolongados para alcanzar
+determinada $S/N$. Una alta $S/N$ es deseable en estos sistemas para determinar de manera confiable
+la metalicidad estelar usando rasgos espectrales como en \citet{Gallazzi2005}, generalmente más
+débiles que en galaxias tempranas. Resolución espacial es deseable para estudios de galaxias tardías
+para interpretar de manera adecuada las relaciones de escala, i.\,e. tomando en cuenta los efectos
+de gradientes radiales y de ángulo de inclinación.
+
+\item[\textbf{Incertidumbres en los modelos.}] Las galaxias tempranas de nuevo han sido favorecidas
+en el sentido de los modelos que usamos para interpretar su contenido estelar. Una población estelar
+simple por lo general es buena aproximación en estos sistemas, pues la relación masa luminosidad (en
+el óptico) evoluciona poco en poblaciones más viejas que unos pocos Gaños evolucionando pasivamente.
+% Fig. 9 Conroy+2014
+Las galaxias tardías, por otro lado suponen retos que dificultan la interpretación de sus
+propiedades integradas como ya vimos en el punto anterior. Adicionalmente modelos de HFE más
+complejos deben adoptarse para interpretar de manera adecuada su emisión en el espectro óptico,
+considerando otras componentes además de la estelar, como por ejemplo el contenido de polvo y de
+gas. Es costumbre estudiar estas componentes por separado, probablemente debido a la ausencia de
+modelos de poblaciones estelares que incluyan de manera consistente la emisión del gas, la
+absorción. El efecto del \emph{outshining} aunado al efecto de apertura atenta contra la
+interpretación de la masa estelar (usualmente menor que la masa real integrada de la galaxia) y de
+la metalicidad estelar. Varios intentos se han hecho por superar ambas limitaciones usando la
+resolución espacial provista por observaciones fotométricas \citep{Sorba2015} y sondeos en el
+cercano infrarrojo, donde el dicho efecto se espera sea menor \citep{Eminian2008}. Sin embargo, las
+incertidumbres en el modelado de la emisión de las estrellas en la fase TP-AGB en el cercano
+infrarrojo de nuevo dificultan la interpretación \citep{Zibetti2013}.
+%
+\end{description}
+
+
+\section{\textsc{Relaciones vistas por CALIFA}}
+%
+La madurez alcanzada por los sondeos con IFU en la última década ha permitido la construcción de
+muestras de galaxias de todas las clases espectrales. La culminación del sondeo CALIFA
+\citep{Sanchez2012, Sanchez2016} ha significado un hito en este sentido, pues con el tercer
+\emph{public data release} se ha puesto a la disposición de la comunidad astronómica
+$\sim600\times1000$ espectros en el rango $\sim3000\,$---$\,7000\,$\AA{} para $\sim600$ galaxias en
+el universo local.
+% Fig. 20 Husemann+2013.
+Ante las incertidumbres y las preguntas que quedaban abiertas respecto a la relación entre la edad,
+la masa y la metalicidad, sobre todo en sistemas con formación estelar, CALIFA presenta una
+oportunidad inigualable. Los estudios que buscaban desentrañar el caracter local de las relaciones
+de escala no tardaron en aparecer:
+%
+\begin{description}
+%
+\item[\textsc{Relación Masa-Metalicidad.}] \citet{Rosales2012} estudia por primera vez la relación
+entre la masa, la metalicidad y la tasa de TFE específica en $\sim2\,$k regiones H\textsc{ii}
+segregadas en una muestra de galaxias tardías sondeadas por CALIFA.
+% Fig. 1 Rosales-Ortega+2012:
+% La similitud con la MMR global (Tremonti+2004) es sorprendente.
+% Aún considerando unas pocas galaxias, el espacio de parámetros está bien muestreado.
+% Pareciera haber una segunda correlación con el ancho equivalente de H$\alpha$.
+% Esto sugiere que la MMR puede tener un origen local.
+Encontraron que la densidad superficial de masa y la metalicidad en las regiones H\textsc{ii} están
+directamente correlacionadas y ambas propiedades inversamente correlacionadas con la TFE específica.
+% Fig. 3 Rosales-Ortega+2012. Intepretada como evidencia de downsizing local.
+\citeauthor{Rosales2012} demostraron que la relación masa-metalicidad encontrada en estudios usando
+datos integrados (con efectos de apertura incluidos) puede explicarse como la suma de dos efectos:
+% Dada la anticorrelación entre la TFE y la densidad superficial de masa.
+un crecimiento tipo \emph{inside-out}, en el que la región central de las galaxias se forma primero
+y luego la formación estelar se extiende sobre el disco; y un efecto de \emph{downsizing} local,
+donde las regiones más masivas forman estrellas más rápido y por lo tanto en una escala temporal más
+corta. Ambos fenómenos a su vez explican los gradientes radiales observados en galaxias con discos.
+% Fig. 17 Gonzalez+2015:
+% Los perfiles de densidad superficial de masa, de edad y de metalicidad decrecen con el radio
+% Esto es consistente con los resultados de Rosales-Ortega+2012 y soportan el crecimiento inside-out
+Es interesante notar también que el hecho de que la relación masa-metalicidad tenga un origen local
+sugiere que esta es en realidad una secuencia en astración, i.\,e., en las zonas de mayor formación
+estelar el enriquecimiento químico ocurre en una escala temporal más corta, mientras que en las de
+menor formación estelar los metales quedan atrapados en el interior de las estrellas de baja masa
+por más tiempo.
+
+\item[\textsc{Fenómenos locales \emph{versus} globales.}] Comparar el rol de los fenómenos locales y
+globales resulta entonces muy interesante de cara aun mejor entendimiento del ciclo de masa
+bariónica. \citet{Gonzalez2014b} estudió el rol de los efectos locales en la relación
+masa-metalicidad estelar. Ellos lograron recuperar las mismas tendencias en la relación
+masa-metalicidad (en fase de gas y estelar). Mostraron que la metalicidad en fase de gas, es
+trazador de la metalicidad en las poblaciones jóvenes, como es de esperarse en sistemas con
+formación estelar reciente donde el reciclaje ocurre en una escala de tiempo muy corta.
+% Fig. 1 Gonzalez+2014b
+La relación masa-metalicidad como función de la distancia al centro de las galaxias mostraba una
+dispersión en metalicidad que era claramente modulada por los efectos globales medidos por la masa
+estelar integrada de las galaxias. En las regiones menos densas (externas), por otro lado la
+densidad superficial de masa estelar correlaciona con la metalicidad estelar, como encontró
+\citet{Sanchez2013}. Más interesante aún, la relación masa-metalicidad depende del radio dentro de
+la galaxia donde, en acuerdo con los resultados en \citet{Gonzalez2014a}, la densidad de masa regula
+la metalicidad estelar, mientras que en las regiones más internas y por lo tanto más densas, la masa
+global regula la metalicidad.
+% Fig. 3 Gonzalez+2014b
+
+\item[\textsc{Relación Masa-Metalicidad-TFE.}] Esta relación, también llamada relación fundamental
+(o plano fundamental) de masa-metalicidad ya había sido estudiada \citep{Lara-Lopez2010,
+Mannucci2010} y tiene la siguiente forma: a una masa fija, las galaxias con mayor TFE tienen menor
+metalicidad y para galaxias de baja masa esta dependencia con la TFE es más fuerte. Existen varios
+fenómenos que pueden alterar la abundancia química presente en una galaxia: el enriquecimiento es
+producido en primer lugar por la formación y la evolución estelar, la acreción de material pristino
+del medio intergaláctico que diluye y disminuye la metalicidad, y las corrientes de salida que
+eyectan material enriquecido al medio intergaláctico.
+% Fig. 1 Mannucci+2010.
+% La dispersión estadística en la relación masa-metalicidad se disminuye considerablemente si se introduce la TFE
+% En galaxias menos masivas la dependencia entre la metalicidad y la TFE es fuerte
+% En galaxias más masivas la dependencia es prácticamente inexistente
+Sin embargo, \citet{Sanchez2013} mostró que la correlación entre la TFE y la metalicidad (local e
+integrada) es producto de ambos, el sesgo de apertura introducido por los sondeos espectroscópicos
+tradicionales y porque la relación entre la metalicidad y la TFE es inducida a través de la relación
+de estas dos propiedades con la masa estelar. Las relaciones masa-TFE y masa-metalicidad han sido
+conocidas desde hace mucho tiempo y a estas alturas ya no se discuten. La primera es entendida en el
+marco del fenómeno de acreción de gas del medio intergaláctico, mientras que la segunda es entendida
+en la capacidad de las galaxias por retener los metales que producen.
+
+Los resultados de \citeauthor{Sanchez2013} de nuevo ponen en el tapete la necesidad de introducir
+fenómenos reguladores para explicar de manera convincente la ausencia de una relación
+TFE-metalicidad.
+%
+\end{description}
+
+
+\section{Una visión teórica del ciclo de masa}
+%
+\begin{description}
+%
+\item[\textsc{Fenómenos relevantes y sus escalas.}] Los fenómenos dinámicos son los más
+fundamentales, así que la masa estelar (como aproximación de la masa bariónica) y su densidad
+superficial serán consideradas cantidades importantes en el ciclo de masa. La masa sola contiene
+información global sobre la dinámica de la galaxia, mientras que la densidad superficial contiene
+información local.
+
+La capacidad del material bariónico en fase de gas para radiar su energía interna, define la escala
+temporal termodinámica en el que material del reservorio caliente se mueve al frío.
+% Ecuación del tiempo de enfriamiento
+La formación estelar define la escala típica en que el material del reservorio frío se mueve al
+reservorio estelar.
+% Ecuación tau_* = M_* / TFE
+
+Ahora, dos preguntas interesantes después de haber visto lo que las observaciones indican y en el
+marco de estos procesos físicos son:
+%
+¿en qué escala temporal ocurre el enriquecimiento químico?
+%
+y más importante aún ¿por qué este parece ser independiente de la TFE?
+%
+En la siguiente figura
+% Fig. 3 Cole+2000
+está representado esquemáticamente el ciclo de masa bariónica en una galaxia. Tres reservorios son
+importantes: el estelar y los de gas caliente y frío. Por supuesto entre los tres habrá intercambio
+de materia debido a los procesos de enfríamiento del gas caliente, la formación estelar y el
+\emph{feedback} debido a vientos estelares y explosiones de supernova. Dependiendo de las
+propiedades dinámicas de la galaxias, una fracción del material expulsado por las estrellas puede ir
+directo al reservorio de gas caliente.
+
+Debido a la evolución estelar, parte del material devuelto al MIE está enriquecido químicamente, de
+manera que las siguientes generaciones de estrellas tendrán una metalicidad cada vez más alta.
+Suponiendo conservación de la masa, el transporte de material de un reservorio a otro puede
+describirse mediante las ecuaciones de continuidad:
+%
+\begin{subequations}
+\begin{align}
+\dot{M}_\star         &= (1-R)\psi \\
+\dot{M}_\text{hot}    &= -\dot{M}_\text{cool} + \beta\psi \\
+\dot{M}_\text{cold}   &= \dot{M}_\text{cool} - (1-R+\beta)\psi \\
+\dot{M}_\star^Z       &= (1-R)Z_\text{cold}\psi \\
+\dot{M}_\text{hot}^Z  &= -\dot{M}_\text{cool}Z_\text{hot} + (pe+\beta Z_\text{cold})\psi \\
+\dot{M}_\text{cold}^Z &= \dot{M}_\text{cool}Z_\text{hot} + [p(1-e)-(1+\beta-R)Z_\text{cold}]\psi
+\end{align}
+\end{subequations}
+%
+Ahora, estamos particularmente interesados en calcular la TEQ estelar y en fase de gas (frío),
+porque son las que podemos estimar a partir de las observaciones con relativa facilidad. Usando la
+relación $Z\equiv M^Z/M$ y las ecuaciones del ciclo de masa tenemos que:
+%
+\begin{subequations}
+\begin{align}
+\dot{Z}_\star       &= (1-R)\frac{\psi}{M_\star}(Z_\text{cold}-Z_\star) \\
+\dot{Z}_\text{cold} &= (Z_\text{hot}-Z_\text{cold})\frac{\dot{M}_\text{cool}}{M_\text{cold}} + p(1-e)\frac{\psi}{M_\text{cold}}
+\end{align}
+\end{subequations}
+%
+Es interesante notar que el enriquecimiento químico estelar ocurre en la misma escala temporal en
+que ocurre la formación estelar. En este caso, la dependencia con la densidad de masa se puede
+justificar directamente de la ley de KS, que supone que:
+%
+\begin{equation}
+\tau_\star \equiv \frac{\Sigma_\text{cold}}{\Sigma_\psi} = (4\pm1)\times10^9\,\text{años}\left(\frac{\Sigma_\text{cold}}{1\,\text{M}_\odot\,\text{pc}^{-2}}\right)^{-(0.4\pm0.15)}
+\end{equation}
+%
+De manera que las conclusiones de \citet{Gonzalez2014b} cobran sentido en el terreno teórico: el
+enriquecimiento químico estelar depende de ambos, fenómenos locales
+($\mu_\star\sim\Sigma_\text{cold}$) que regulan la evolución química y globales ($M_\star$) que
+modulan la amplitud de esta.
+
+La TEQ del gas en el reservorio frío depende de la tasa de enfríamiento y de la TFE. Intuitivamente
+se espera que la escala temporal dinámica sea más corta que la escala térmica. Sin embargo, bajo
+ciertas circunstancias (densidad, temperatura y metalicidad) la escala temporal de enfriamiento
+puede ser más corta.
+% Fig. 3b Wiersma+2009
+De hecho la dependencia de la escala temporal de enfriamiento con la densidad, la temperatura y la
+metalicidad del gas caliente es:
+%
+\begin{equation}
+\tau_\text{cool}\approx10\times10^9\,\text{años}\left(\frac{T_\text{hot}}{10^7\,\text{K}}\right)\left(\frac{10^{-3}\,\text{cm}^{-3}}{\rho_\text{hot}}\right)\left(\frac{10^{-23}\,\text{erg\,cm}^{3}\,\text{s}^{-1}}{\Lambda(T_\text{hot},Z_\text{hot})}\right)
+\end{equation}
+%
+Si comparamos ambas escalas temporales tenemos:
+%
+\begin{equation*}
+\frac{\tau_\star}{\tau_\text{cool}} \approx 0.4\left(\frac{\Sigma_\text{cold}}{1\,\text{M}_\odot\,\text{pc}^{-2}}\right)^{-0.4}\left(\frac{10^7}{T_\text{hot}}\right)\left(\frac{\rho_\text{hot}}{10^{-3}\,\text{cm}^{-3}}\right)\left(\frac{\Lambda(T_\text{hot},Z_\text{hot})}{10^{-23}\,\text{erg\,cm}^{3}\,\text{s}^{-1}}\right)
+\end{equation*}
+%
+En la figura se muestra el comportamiento de esta fracción variando los cuatro parámetros que
+interesan uno a la vez. Es claro que en la mayoría de los casos la escala temporal de formación
+estelar es más corta que la escala temporal de enfriamiento. La temperatura del reservorio caliente
+es el parámetro más sensible y que puede disminuir drásticamente la escala temporal de enfriamiento
+en el rango de plausibilidad. Es seguido por la metalicidad en el reservorio caliente y valores
+extremos de la densidad.
+
+Las observaciones de que el gas está enriquecido en galaxias con formación estelar en un amplio
+rango de masa estelar ($10^{10}\,$---$\,10^{12}\,\text{M}_\odot$)
+% Fig. 1 Gonzalez+2014
+mientras que las estrellas son comparativamente pobres en metales, respalda la hipótesis de que la
+formación estelar ocurre en una escala temporal larga en comparación con el enfriamiento de gas. Sin
+embargo resulta curioso que aunque en estas galaxias la formación estelar no es tan eficiente, el
+gas luzca tan enriquecido. Por ejemplo, una galaxia de $M_\star=10^{10}\,\text{M}_\odot$ forma una
+masa solar por año, mientras que galaxias más masivas pueden formar hasta diez masas solares por año
+\citep{Sanchez2013}. ¿Cómo llegó a enriquecerse el gas? Uno puede especular que estas galaxias
+sufrieron eventos de formación estelar importante en el pasado que pudo enriquecer el medio
+relativamente rápido, en cuyo caso ¿por qué la formación estelar ya no es tan eficiente ahora? Esta
+línea de razonamiento necesariamente conduce a que, aunque el enriquecimiento químico es catalizador
+para el enfríamiento del gas, no necesariamente promueve la formación de estrellas, especialmente de
+estrellas masivas capaces de enriquecer el MIE.
+
+Uno puede irse por caminos más exóticos, especulando que estas galaxias obtienen el gas enriquecido
+del MIG y no por formación estelar. Lo cual está soportado por observaciones de gas enriquecido en
+el medio intracúmulo, sin embargo estas galaxias parecen haber formado sus estrellas pasivamente en
+una escala temporal que puede ser tan larga como la edad del universo. De manera que el
+enriquecimiento probablemente ha ocurrido \emph{in situ}.
+%
+\item[\textsc{¿Caja cerrada?}] Durante la mayor parte de la discusión anterior se asumió
+implicitamente que las galaxias se comportan como cajas cerradas. Sin embargo el hecho de que el MIG
+se encuentre enriquecido en algunos casos definitivamente refuta esa hipótesis. La pregunta se
+reduce entonces a ¿es el fenómeno de \emph{feedback} suficiente para remover efectivamente material
+enriquecido del MIE?
+
+Intuitivamente uno espera que el enriquecimiento químico del MIG ocurra en una escala temporal más
+larga que la del enriquecimiento del MIE. Por lo tanto, el material acretado por los halos
+galácticos debe ser pobre en metales en comparación con el gas presente en el MIE. En este sentido,
+el material acretado actúa como un disolvente de la metalicidad en fase de gas, pero al mismo
+tiempo, de acuerdo con la discusión anterior, potencia la formación de estrellas contaminantes. En
+este escenario entonces, la tasa de enriquecimiento químico efectiva dependerá de la capacidad de
+las galaxias para retener el material enriquecido durante etapas de \emph{feedback} estelar
+importantes. De nuevo, esto ocurre en una escala dinámica, esta vez global, probablemente
+relacionada con la masa estelar total.
+
+Las galaxias de baja masa muestran una caída abrupta en la metalicidad en fase de gas en función de
+la masa, aún así esta es sistemáticamente mayor que la metalicidad estelar. Ya que para enriquecer
+el MIE, estas debieron haber formado estrellas contaminantes en algún momento, las cuales son además
+las únicas capaces de barrer material enriquecido fuera del halo, la única forma de que estas
+galaxias sean sistemáticamente pobres en metales es que nunca hayan formado este tipo de estrellas.
+%
+\end{description}
+
+
+%Unidad de campo integrado (en el futuro)
+\section{Prólogo --- expectativas para el futuro}
+%
+Los procesos locales responsables de regular la formación estelar y el enriquecimiento químico, son
+probablemente los tópicos más relevantes en la literatura extragaláctica en la actualidad. Mucho se
+ha avanzado desde el punto de vista observacional con los sondeos de IFS. En este sentido, CALIFA ha
+marcado un hito, pues ha puesto a la disposición de la comunidad científica espectroscopía de campo
+integrado de una muestra de $\sim600$ galaxias distribuidas a lo largo de la clasificación de
+Hubble. Ahora podemos decir con seguridad que ambos, los efectos globales y los locales determinan
+la HFE en las galaxias y que el paradigma de caja cerrada comunmente adoptado para decir algo
+respecto al enriquecimiento químico, no tiene cabida de manera universal, no entre galaxias ni
+dentro de una misma galaxia. Quedan aún incertidumbres sobre el rol relativo que juegan la TFE, los
+vientos galácticos y el acrecimiento de material enriquecido presente en el medio intergaláctico. El
+\emph{feedback} estelar se ha invocado para explicar la ausencia de metales en el medio interestelar
+\citep{Tremonti2004, Kobayashi2007}. Las variaciones en la función inicial de masa se han invocado
+como un mecanismo adicional para explicar la ausencia de metales en las galaxias menos masivas
+\citep{Koppen2007}. Todos estos mecanismos se ha medido tanto en observaciones como en simulaciones
+en estudios independientes, mas aún no son mutuamente excluyentes. Determinar cual(es) y bajo que
+circunstancias actúan para regular la HFE en las galaxias, será tópico de investigación por los
+próximos años.
+%
+
+
+% Apéndice =========================================================================================
+
+%Historia
+\section{\textsc{Antecedentes de sondeos con IFU}}
+%
+El problema de adquisición de imágenes astronómicas es, en el sentido general, un problema de dos
+dimensiones espaciales y una dimensión espectral $(x,y;\lambda)$. Desafortunadamente, debido a
+limitaciones de ingeniería, la mayoría de los esfuerzos que ofrecen una resolución espectral
+$R\sim1000$, están limitados a una dimensión espacial, i.\,e. $(x;\lambda)$. El uso del formato
+\emph{long-slit} (rendija) resuelve parcialmente el problema de la dimensión perdida por
+espectrógrafos convencionales: si la dispersión de la luz proveniente de las fuentes se hace
+perpendicular al largo de la rendija, es posible en principio obtener espectros de distintas
+regiones de un mismo objeto extendido (e.\,g. una galaxia en el Universo local) o de varios objetos
+adyacentes en su proyección en el cielo. Existen sin embargo varias limitaciones que complican la
+adquisición efectiva de la segunda dimensión usando este formato, todas relacionadas con el hecho de
+que las componentes espaciales y la espectral están correlacionadas.
+
+%mostrar una imagen con el diseño óptico del IFU.
+Las unidades de campo integrado \citep[IFU en inglés][]{Vanderriest1980} aparecieron en escena para
+resolver las limitaciones de resolución espacial de los previos intentos por registrar espectros de
+los objetos celestes. \citeauthor{Vanderriest1980} presentó un primer prototipo de IFU que consistía
+en un arreglo de fibras ópticas con forma hexagonal capaz de resolver espacialmente objetos en un
+campo de unas pocas decenas de segundos de arco ($\sim20''$) y bajo brillo superficial. Tal
+disposivo permitiría estudios de objetos cercanos siempre que la resolución espectral no fuera un
+factor importante para su desarrollo.
+
+A mediado de los $90$s aparecieron los primeros resultados obtenidos a partir del análisis de datos
+de IFU como fuera concebida por \citet{Courtes1982} \citep[véase][para un resumen de los hallazgos
+con el dispositivo TIGER]{Bacon1995}.
+
+\begin{itemize}
+%
+\item Primera medida de campos de velocidad estelar en la región central de galaxias cercanas
+\citep{Bacon1995}.
+%
+\item Prueba de que las componentes de la cruz de Einstein (2237+0305) son en realidad imágenes
+multiples del mismo objeto \citep{Fitte1994}.
+%
+\item Se logró resolver y mapear fuentes de emisión y continuo en NGC 1275 \citep{Ferruit1994}.
+%
+\item etc.
+%
+\end{itemize}
+%
+Las principales limitaciones eran el campo de visión, que seguía siendo demasiado pequeño para un
+estudio de la sitemático de una fuente extendida y la resolución espectral.
+
+En los últimos $20$ años las IFU han alcanzado madurez y han permitido estudios sistemáticos de
+muestras completas de galaxias en el universo local, abarcando en la mayoría de los casos la
+todalidad de la imagen proyectada de los objetos. En buena parte de lo que resta de este seminario
+hablaré de los resultados más importantes que estos sondeos han permitido y en qué sentido han
+cambiado los paradigmas en el contexto de la formación y la evolución de las galaxias.
+
+
+
+%Unidad de campo integrado (actual)
+\section{\textsc{Sondeos con IFU en la actualidad}}
+%
+Las IFU de la actualidad ($<2012$) presentan las siguientes ventajas frente a la primera generación
+de IFUs:
+%
+\begin{itemize}
+%
+\item Tienen grandes campos de visión, usualmente permitiendo abarcar la imagen
+proyectada de galaxias a $z\sim0.05$
+%
+\item Tienen una mejor función de respuesta que permite integrar espectros de fuentes más débiles en
+exposiciones cortas $\sim30\,$min.
+%
+\end{itemize}.
+%
+Aún así, dos principales desventajas permanecen: la limitada resolución espectral y solo una fuente
+por exposición puede observarse.
+%
+
+
+%Datos producidos
+\section{\textsc{Características de los datos}}
+%
+Los datos que se obtienen viven en el espacio $(x,y,\lambda)$, por lo tanto la información que
+permitiría construir mapas de determinada información espectral, a una resolución espacial fija,
+depende del rango y de la resolución espectral. Desde el punto de vista poblacional, probablemente
+los estudios más atractivos tienen que ver con la dependencia ambiental de las propiedades físicas
+de las galaxias, i.\,e., cómo cambian los promedios en la edad, la composición química, las
+propiedades del polvo, tasa de formación estelar (TFE), como función de la densidad bariónica, por
+ejemplo y a su vez como cambian estas propiedades de una galaxia a otra.
+
+Por supuesto, como mostré en el seminario anterior, los resultados de sondeos con IFU han permitido
+el refinamiento de los modelos dinámicos de galaxias y una clasificación morfológica basada en las
+propiedades físicas de las galaxias.
+
+El seminario anterior fue intencionalmente sesgado a galaxias tempranas porque la mayoría de los
+esfuerzos de los sondeos con IFU están también sesgados de la misma manera. Construir muestras de
+galaxias que permitan estudios cinemáticos sistemáticos necesariamente improndrá un sesgo hacia
+galaxias tempranas. Ahora mostraré los resultados de los estudios poblacionales, en los que la
+secuencia de Hubble se abarca en completitud. Por lo tanto los resultados que mostraré estarán
+claramente sesgados hacia los de CALIFA, que ya ha completado el sondeo de la muestra
+
+\printbibliography
+
+\end{document}
