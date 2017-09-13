@@ -10,11 +10,14 @@
 \usepackage[orientation=portrait,size=custom,width=32,height=18]{beamerposter}
 
 \usepackage{amsmath}
-%\usepackage{eulervm}
+\usepackage{helvet}
+%\usepackage[helvet]{sfmath}
+\usepackage{eulervm}
 \usepackage{units}
 \usepackage{multirow}
 \usepackage{graphicx}
 \usepackage{tikz}
+\usepackage{varwidth}
 
 \usecolortheme[named=Black]{structure}
 
@@ -59,7 +62,7 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 %\usepackage{cmbright}
 
 % Iwona light
-\usepackage[light,math]{iwona}
+%\usepackage[light,math]{iwona}
 
 % LX fonts
 %\usepackage{lxfonts}
@@ -92,23 +95,21 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 \item[]}{\end{list}}
 
 \begin{document}
-\tikzstyle{every picture}+=[remember picture]
-\tikzstyle{na} = [baseline=-.5ex]
+\tikzstyle{every picture}+= [remember picture]
+\tikzstyle{every node} += [inner sep=0]
+\tikzstyle{nt} = [inner sep=2mm]
+\tikzstyle{background grid}=[draw,black!50,step=1cm]
 
 \begin{frame}
 \title{El ciclo de materia bariónica en las galaxias}
-\author{Alfredo J. Mej\'ia$^{1,2}$}
-
+\author{Alfredo J. Mej\'ia}
 \date{\today}
-
-\institute{$^{1}$Posgrado de F\'isica Fundamental\\ Universidad de Los Andes \and %
-           $^{2}$Centro de Investigaciones de Astronom\'ia}
 
 \maketitle
 \end{frame}
 
 %Motivación
-\begin{frame}{\textsc{Motivación}}
+\begin{frame}{\textsc{motivación}}
 % Los estudios del contenido estelar en las galaxias distantes ($z\sim3$) solo tienen sentido en el
 % límite de un número significativo de observaciones, pues debido a la gran variedad de fenómenos
 % físicos que tienen lugar en estos sistemas (muchos aún en discusión) y distintas a las escalas
@@ -118,29 +119,66 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 % pueden resolver como imágenes extendidas en una exposición astronómica usando la técnica de la
 % fotometría, la resolución espectral provista por esta clase de sondeos aunada al caracter degenerado
 % del problema limitan considerablemente la información que se puede extraer de estos sondeos.
-\begin{columns}
-\column{0.7\textwidth}
-\begin{figure}
-\includegraphics<1>[scale=0.3]{img/hudf}
-\includegraphics<2>[scale=0.3]{img/hudf-inset}
-\includegraphics<3>[scale=0.3]{img/hudf-proj}
-\end{figure}
-\column{0.3\textwidth}
-rangos dinámicos:
 
-\begin{subequations}
-\begin{align}
-\text{tiempo}  &\sim \unit[10]{dex} \nonumber\\
-\text{espacio} &\sim \unit[35]{dex} \nonumber\\
-\text{masa}    &\sim \unit[30]{dex} \nonumber
-\end{align}
-\end{subequations}
-\end{columns}
-% 1: imagen de un campo de galaxias
-% 2: zoom hacia una galaxia eliptica
-% 3: mostrar estructura 3D y sus proyecciones en 2D
-% 4: mostrar imagen 2D CALIFA
-% 5: mostrar ejes x,y,lambda
+\begin{tikzpicture}[overlay,font=\footnotesize]
+% \draw[help lines] (0,-\textheight) grid (\textwidth,\textheight);
+\node<-3> (hudf) at (7.5,-1) {\includegraphics[height=15cm]{img/hudf}};
+\node<2-3>[circle,draw=black!50,very thick,inner sep=2mm] (pag) at (7.5+4.08,0.79-1) {};
+\node<3-3>[circle,draw=black!50,very thick,inner sep=2mm] (sfg) at (7.5+4.43,4.43-1) {};
+
+\node<2-3> (pag-inset) at (20,-5) {\includegraphics[width=0.2\textwidth]{img/hudf-pag-inset}};
+\node<3-3> (sfg-inset) at (20,+3) {\includegraphics[width=0.2\textwidth]{img/hudf-sfg-inset}};
+\path<2-3>[draw=black!50,very thick] (pag.east) -- (pag-inset.west);
+\path<3-3>[draw=black!50,very thick] (sfg.east) -- (sfg-inset.west);
+
+\node<2-5>[nt,right=of pag-inset]       (pag-text) {\textsc{galaxia temprana}};
+\path<2-5>[-|,draw=black!50,very thick] (pag-inset.east) -- (pag-text.west);
+
+\node<3->[nt,right=of sfg-inset]       (sfg-text) {\textsc{galaxia tardía}};
+\path<3->[-|,draw=black!50,very thick] (sfg-inset.east) -- (sfg-text.west);
+
+\node<4-5> (pag-mock) at (20,-5) {\includegraphics[width=0.2\textwidth]{img/pag-mock}};
+\node<4->  (sfg-mock) at (20,+3) {\includegraphics[width=0.2\textwidth]{img/sfg-mock}};
+
+\node<5>[nt,left=2cm of pag-mock] (pag-desc) {\textsc{
+\begin{varwidth}{0.3\textwidth}
+\begin{itemize}
+\item[] dinámica estable
+\item[] evolución pasiva
+\item[] población vieja
+\item[] MIE difuso
+\end{itemize}
+\end{varwidth}}};
+\node<5>[nt,left=2cm of sfg-mock] (sfg-desc) {\textsc{
+\begin{varwidth}{0.3\textwidth}
+\begin{itemize}
+\item[] dinámica inestable
+\item[] formación estelar
+\item[] población mixta
+\item[] MIE multi-fase
+\end{itemize}
+\end{varwidth}}};
+
+\node<7->[left=2cm of sfg-mock]                           (sf-region) {\includegraphics[width=0.2\textwidth]{img/sf-region}};
+\node<7->[nt,left=of sf-region,text width=0.25\textwidth] (sf-region-text) {\textsc{región de formación estelar}};
+\path<7->[draw=black!50,very thick]    (sfg-mock)       -- (sf-region);
+\path<7->[-|,draw=black!50,very thick] (sf-region.west) -- (sf-region-text.east);
+
+\node<8->[nt,below=4cm of sf-region,label=90:\textsc{moléculas}]   (molecule)    {\includegraphics[scale=0.5]{img/molecule}};
+\node<8->[nt,left=2cm of molecule,label=90:\textsc{polvo}]         (dust)        {\includegraphics[scale=0.5]{img/dust}};
+\node<8->[nt,left=2cm of dust,label=90:\textsc{estrellas jóvenes}] (stars)       {\includegraphics[scale=0.5]{img/stars}};
+\node<8->[nt,right=2cm of molecule,label=90:\textsc{H\,i y H}$_2$] (h-molecular) {\includegraphics[scale=0.5]{img/h-molecular}};
+\node<8->[nt,right=2cm of h-molecular,label=90:\textsc{iones}]     (ions)        {\includegraphics[scale=0.5]{img/ions}};
+\path<8->[draw=black!50,very thick] (sf-region.south) -- (molecule.north);
+\path<8->[draw=black!50,very thick] (sf-region.south) -- (dust.north);
+\path<8->[draw=black!50,very thick] (sf-region.south) -- (stars.north);
+\path<8->[draw=black!50,very thick] (sf-region.south) -- (h-molecular.north);
+\path<8->[draw=black!50,very thick] (sf-region.south) -- (ions.north);
+
+\node<9>[nt,text width=10cm] (pag-desc) at (25,-5) {\alert{Procesos físicos relevantes ocurren en un rango dinámico de $\sim10^{30}\,$m.}};
+
+\end{tikzpicture}
+
 \end{frame}
 
 \begin{frame}{\textsc{consideraciones teóricas}}
@@ -150,9 +188,9 @@ rangos dinámicos:
 % una idea de la escala típica de enriquecimiento químico en una galaxia.
 \begin{columns}
 \column{0.5\textwidth}
+% Fig. 1 Yates+2013. Marcar los tiempos de AGB, de SNe Ia y SNe II
 \begin{figure}
 \includegraphics[scale=0.8]{img/yates2013-1}
-% Fig. 1 Yates+2013. Marcar los tiempos de AGB, de SNe Ia y SNe II
 \end{figure}
 \column{0.5\textwidth}
 %
@@ -222,14 +260,6 @@ evolución química en sus distribuciones espectrales de energía \citep{Conroy2
 % En estas galaxias es relativamente fácil estimar la TFE mediante la emisión de H$\alpha$, por
 % ejemplo, de manera que se puede estudiar la primera relación fundamental del ciclo de masa
 % bariónica.
-\end{frame}
-
-\begin{frame}{\textsc{esquema del ciclo de masa}}
-% mostrar los 3 reservorios, como se conectan
-\begin{figure}
-\includegraphics[scale=1]{img/placeholder}
-% \includegraphics[scale=1]{img/reservoir-diagram} %************************************************
-\end{figure}
 \end{frame}
 
 \begin{frame}{\textsc{relaciones clásicas --- $M_\star\,$--$\,\Psi$}}
