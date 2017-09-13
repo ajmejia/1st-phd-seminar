@@ -95,6 +95,7 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 \item[]}{\end{list}}
 
 \begin{document}
+\footnotesize
 \tikzstyle{every picture}+= [remember picture]
 \tikzstyle{every node} += [inner sep=1mm,font=\footnotesize]
 \tikzstyle{nt} = [inner sep=2mm,font={\scshape\footnotesize}]
@@ -214,53 +215,44 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 % Simplemente considerando el tiempo de vida de aquellas estrellas que contribuyen al enriquecimiento
 % del medio interestelar, en el cual se formará la siguiente generación de estrellas, uno puede tener
 % una idea de la escala típica de enriquecimiento químico en una galaxia.
+
 \begin{columns}
-\column{0.5\textwidth}
+\column{0.3\textwidth}
 % Fig. 1 Yates+2013. Marcar los tiempos de AGB, de SNe Ia y SNe II
 \begin{figure}
-\includegraphics[scale=0.5]{img/yates2013-1}
+\includegraphics[scale=0.416]{img/yates2013-1}
 \end{figure}
-\column{0.5\textwidth}
-%
+
+% Las supernovas tipo Ia enriquecen el medio con especies más pesadas que el Fe en una escala que
+% puede ir desde $10^7\,$años hasta $\sim10^9\,$años.
+% Fig. 3 Yates+2013.
+\begin{figure}
+\includegraphics[scale=0.39]{img/yates2013-3}
+\end{figure}
+
 % La masa eyectada por una población estelar entre $t_\text{ini}$ y $t_\text{fin}$ es
 % \citep{Wiersma2009b}:
 %
 % $$ \Delta m_\star = m_{\star,0}\,\int_{m_\text{ini}}^{m_\text{fin}}\Phi(m)\,m_\text{e}(m,Z_0)\,\text{d}m $$
 %
 % donde $\int m\Phi(m)\,\text{d}m=1$.
-\end{columns}
-\end{frame}
-
-\begin{frame}{\textsc{consideraciones teóricas}}
+\column{0.5\textwidth}
 
 % Los vientos estelares de estrellas en fase AGB retornan especies
 % Fig. 2 Yates+2013 (páneles inferiores).
 \begin{figure}
-\includegraphics[scale=1]{img/yates2013-2}
+\includegraphics[scale=0.5]{img/yates2013-2}
 \end{figure}
-\end{frame}
-
-\begin{frame}{\textsc{consideraciones teóricas}}
 
 % Una supernova tipo II retorna especies químicas más pesadas que el O (e.\,g. Mg, Ca, Ti y Si) en
 % cuestión de unos $10^7\,$años.
 % Fig. 4 Yates+2013 (páneles inferiores). Mostrar líneas horizontales con la masa eyectada por SN Ia
 \begin{figure}
-\includegraphics[scale=1]{img/yates2013-4}
+\includegraphics[scale=0.5]{img/yates2013-4}
 \end{figure}
-\end{frame}
 
-\begin{frame}{\textsc{consideraciones teóricas}}
+\column{0.2\textwidth}
 
-\begin{columns}
-\column{0.5\textwidth}
-% Fig. 3 Yates+2013.
-\begin{figure}
-\includegraphics[scale=0.8]{img/yates2013-3}
-\end{figure}
-\column{0.4\textwidth}
-Las supernovas tipo Ia enriquecen el medio con especies más pesadas que el Fe en una escala que
-puede ir desde $10^7\,$años hasta $\sim10^9\,$años.
 \end{columns}
 \end{frame}
 
