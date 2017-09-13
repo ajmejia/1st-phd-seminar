@@ -21,7 +21,7 @@
 
 \usecolortheme[named=Black]{structure}
 
-\usetikzlibrary{arrows,shapes,positioning,backgrounds}
+\usetikzlibrary{arrows,shapes,positioning,backgrounds,decorations.pathreplacing}
 
 \PassOptionsToPackage{%
 %backend=biber, % Instead of bibtex
@@ -96,9 +96,9 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 
 \begin{document}
 \tikzstyle{every picture}+= [remember picture]
-\tikzstyle{every node} += [inner sep=0]
-\tikzstyle{nt} = [inner sep=2mm]
-\tikzstyle{background grid}=[draw,black!50,step=1cm]
+\tikzstyle{every node} += [inner sep=1mm,font=\footnotesize]
+\tikzstyle{nt} = [inner sep=2mm,font={\scshape\footnotesize}]
+\tikzstyle{dr} = [draw=black!50,very thick]
 
 \begin{frame}
 \title{El ciclo de materia bariónica en las galaxias}
@@ -120,26 +120,27 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 % fotometría, la resolución espectral provista por esta clase de sondeos aunada al caracter degenerado
 % del problema limitan considerablemente la información que se puede extraer de estos sondeos.
 
-\begin{tikzpicture}[overlay,font=\footnotesize]
+\begin{tikzpicture}[overlay]
 % \draw[help lines] (0,-\textheight) grid (\textwidth,\textheight);
+
 \node<-3> (hudf) at (7.5,-1) {\includegraphics[height=15cm]{img/hudf}};
-\node<2-3>[circle,draw=black!50,very thick,inner sep=2mm] (pag) at (7.5+4.08,0.79-1) {};
-\node<3-3>[circle,draw=black!50,very thick,inner sep=2mm] (sfg) at (7.5+4.43,4.43-1) {};
+\node<2-3>[dr,circle,inner sep=2mm] (pag) at (7.5+4.08,0.79-1) {};
+\node<3-3>[dr,circle,inner sep=2mm] (sfg) at (7.5+4.43,4.43-1) {};
 
 \node<2-3> (pag-inset) at (20,-5) {\includegraphics[width=0.2\textwidth]{img/hudf-pag-inset}};
 \node<3-3> (sfg-inset) at (20,+3) {\includegraphics[width=0.2\textwidth]{img/hudf-sfg-inset}};
-\path<2-3>[draw=black!50,very thick] (pag.east) -- (pag-inset.west);
-\path<3-3>[draw=black!50,very thick] (sfg.east) -- (sfg-inset.west);
+\path<2-3>[dr] (pag.east) -- (pag-inset.west);
+\path<3-3>[dr] (sfg.east) -- (sfg-inset.west);
 
-\node<2-5>[nt,right=of pag-inset] (pag-text) {\textsc{galaxia temprana}};
-\node<3->[nt,right=of sfg-inset]  (sfg-text) {\textsc{galaxia tardía}};
-\path<2-5>[-|,draw=black!50,very thick] (pag-inset.east) -- (pag-text.west);
-\path<3->[-|,draw=black!50,very thick]  (sfg-inset.east) -- (sfg-text.west);
+\node<2-5>[nt,right=of pag-inset] (pag-text) {galaxia temprana};
+\node<3->[nt,right=of sfg-inset]  (sfg-text) {galaxia tardía};
+\path<2-5>[-|,dr] (pag-inset.east) -- (pag-text.west);
+\path<3-> [-|,dr] (sfg-inset.east) -- (sfg-text.west);
 
 \node<4-5> (pag-mock) at (20,-5) {\includegraphics[width=0.2\textwidth]{img/pag-mock}};
 \node<4->  (sfg-mock) at (20,+3) {\includegraphics[width=0.2\textwidth]{img/sfg-mock}};
 
-\node<5>[nt,left=2cm of pag-mock] (pag-desc) {\textsc{
+\node<5>[nt,left=2cm of pag-mock] (pag-desc) {
 \begin{varwidth}{0.3\textwidth}
 \begin{itemize}
 \item[] dinámica estable
@@ -147,8 +148,8 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 \item[] población vieja
 \item[] MIE difuso
 \end{itemize}
-\end{varwidth}}};
-\node<5>[nt,left=2cm of sfg-mock] (sfg-desc) {\textsc{
+\end{varwidth}};
+\node<5>[nt,left=2cm of sfg-mock] (sfg-desc) {
 \begin{varwidth}{0.3\textwidth}
 \begin{itemize}
 \item[] dinámica inestable
@@ -156,35 +157,56 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 \item[] población mixta
 \item[] MIE multi-fase
 \end{itemize}
-\end{varwidth}}};
+\end{varwidth}};
 
 \node<7->[left=2cm of sfg-mock]                           (sf-region) {\includegraphics[width=0.2\textwidth]{img/sf-region}};
-\node<7->[nt,left=of sf-region,text width=0.25\textwidth] (sf-region-text) {\textsc{región de formación estelar}};
-\path<7->[draw=black!50,very thick]    (sfg-mock)       -- (sf-region);
-\path<7->[-|,draw=black!50,very thick] (sf-region.west) -- (sf-region-text.east);
+\node<7->[nt,left=of sf-region,text width=0.25\textwidth] (sf-region-text) {región de formación estelar};
+\path<7->[dr]    (sfg-mock)       -- (sf-region);
+\path<7->[-|,dr] (sf-region.west) -- (sf-region-text.east);
 
-\node<8->[below=4cm of sf-region,label=90:\textsc{moléculas}]   (molecule)    {\includegraphics[scale=0.5]{img/molecule}};
-\node<8->[left=2cm of molecule,label=90:\textsc{polvo}]         (dust)        {\includegraphics[scale=0.5]{img/dust}};
-\node<8->[left=2cm of dust,label=90:\textsc{estrellas jóvenes}] (stars)       {\includegraphics[scale=0.5]{img/stars}};
-\node<8->[right=2cm of molecule,label=90:\textsc{H\,i y H}$_2$] (h-molecular) {\includegraphics[scale=0.5]{img/h-molecular}};
-\node<8->[right=2cm of h-molecular,label=90:\textsc{iones}]     (ions)        {\includegraphics[scale=0.5]{img/ions}};
-\path<8->[draw=black!50,very thick] (sf-region.south) -- (molecule.north);
-\path<8->[draw=black!50,very thick] (sf-region.south) -- (dust.north);
-\path<8->[draw=black!50,very thick] (sf-region.south) -- (stars.north);
-\path<8->[draw=black!50,very thick] (sf-region.south) -- (h-molecular.north);
-\path<8->[draw=black!50,very thick] (sf-region.south) -- (ions.north);
+\node<8->[below=4cm of sf-region,label={[nt,name=molecule-label]90:moléculas}]      (molecule)    {\includegraphics[scale=0.5]{img/molecule}};
+\node<8->[left=1cm of molecule,label={[nt,name=dust-label]90:polvo}]                (dust)        {\includegraphics[scale=0.5]{img/dust}};
+\node<8->[left=1cm of dust,label={[nt,name=stars-label]90:estrellas}]               (stars)       {\includegraphics[scale=0.5]{img/stars}};
+\node<8->[right=1cm of molecule,label={[nt,name=h-molecular-label]90:H\,i y H$_2$}] (h-molecular) {\includegraphics[scale=0.5]{img/h-molecular}};
+\node<8->[right=1cm of h-molecular,label={[nt,name=ions-label]90:iones}]            (ions)        {\includegraphics[scale=0.5]{img/ions}};
+\path<8->[dr] (sf-region.south) -- (molecule-label.north);
+\path<8->[dr] (sf-region.south) -- (dust-label.north);
+\path<8->[dr] (sf-region.south) -- (stars-label.north);
+\path<8->[dr] (sf-region.south) -- (h-molecular-label.north);
+\path<8->[dr] (sf-region.south) -- (ions-label.north);
 
 \node<9->[nt,above=3mm of sfg-mock]    {$\sim\unit[10]{kpc}$};
 \node<9->[nt,above=3mm of sf-region]   {$\sim10\,$--$\,\unit[100]{kpc}$};
 \node<9->[nt,below=3mm of stars]       {$\sim\unit[1]{UA}$};
 \node<9->[nt,below=3mm of dust]        {$\sim\unit[1]{cm}$};
-\node<9->[nt,below=3mm of h-molecular] {$\sim\unit[10]{\AA}$};
+\node<9->[nt,below=3mm of h-molecular] {$\sim1\,$--$\,\unit[10]{\AA}$};
+\draw<9->[decorate,decoration={brace,mirror,amplitude=2mm}] (molecule.south) -- (ions.south);
 
 \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{\textsc{motivación}}
-% mostrar ciclo de masa
+\begin{tikzpicture}[overlay,node distance=5cm]
+\tikzset{
+  nr/.style={draw,very thick,inner sep=7mm,text width=3cm,text centered,font={\footnotesize\scshape\bfseries}},
+  ar/.style={->,shorten >=1pt,draw,very thick},
+  lb/.style={text width=2cm,text centered,font={\tiny\itshape}}
+}
+% \draw[help lines] (0,-\textheight) grid (\textwidth,\textheight);
+
+\node[nr,circle] (cold-gas) at (0.5\textwidth,4cm) {gas frío};
+\node[nr,circle,right=of cold-gas] (hot-gas)       {gas caliente};
+\node[nr,circle,below=of cold-gas] (mig-gas)       {MIG};
+\node[nr,circle,below right=of cold-gas] (stars)   {estrellas};
+
+\path[ar] (cold-gas) edge [bend right=10] node[lb,above] {formación estelar} (stars);
+\path[ar] (stars)    edge [bend right=10] node[lb,below] {reciclaje}         (cold-gas);
+\path[ar] (hot-gas)  edge [bend right=10] node[lb,above] {enfriamiento}      (cold-gas);
+\path[ar] (cold-gas) edge [bend right=10] node[lb,below] {re-calentamiento}  (hot-gas);
+\path[ar] (cold-gas) edge                 node[lb,above] {eyección}          (mig-gas);
+\path[ar] (mig-gas)  -|                   node[lb,left]  {re-incorporación}  (hot-gas);
+
+\end{tikzpicture}
 \end{frame}
 
 \begin{frame}{\textsc{consideraciones teóricas}}
