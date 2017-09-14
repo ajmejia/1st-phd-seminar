@@ -1,4 +1,4 @@
-\documentclass[xcolor=dvipsnames,4pt,hyperref={colorlinks,citecolor=black,linkcolor=black,urlcolor=black}]{beamer}
+\documentclass[xcolor=dvipsnames,fleqn,hyperref={colorlinks,citecolor=black,linkcolor=black,urlcolor=black}]{beamer}
 
 
 \setbeamertemplate{navigation symbols}{}
@@ -96,10 +96,10 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 
 \begin{document}
 \footnotesize
-\tikzstyle{every picture}+= [remember picture]
-\tikzstyle{every node} += [inner sep=1mm,font=\footnotesize]
-\tikzstyle{nt} = [inner sep=2mm,font={\scshape\footnotesize}]
-\tikzstyle{dr} = [draw=black!50,very thick]
+\tikzstyle{every picture} += [remember picture]
+\tikzstyle{every node}    += [inner sep=1mm,font=\footnotesize]
+\tikzstyle{nt}            += [inner sep=2mm,font={\scshape}]
+\tikzstyle{dr}             = [draw=black!30,very thick]
 
 \begin{frame}
 \title{El ciclo de materia bariónica en las galaxias}
@@ -181,33 +181,67 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 \node<9->[nt,below=3mm of stars]       {$\sim\unit[1]{UA}$};
 \node<9->[nt,below=3mm of dust]        {$\sim\unit[1]{cm}$};
 \node<9->[nt,below=3mm of h-molecular] {$\sim1\,$--$\,\unit[10]{\AA}$};
-\draw<9->[decorate,decoration={brace,mirror,amplitude=2mm}] (molecule.south) -- (ions.south);
+\draw<9->[dr,decorate,decoration={brace,mirror,amplitude=3mm}] (molecule.south west) -- (ions.south east);
 
 \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{\textsc{motivación}}
+
+\begin{columns}
+\column{0.5\textwidth}
+
+\begingroup
+\small
+\addtolength{\jot}{1em}
+\uncover<2->{Procesos fundamentales:}
+\begin{align*}
+\uncover<2->{\tau_\text{enf} &\propto 1/\Lambda(\rho_\text{cal},T_\text{cal},Z_\text{cal})}\\
+\uncover<3->{\tau_\star      &\propto M_\text{frío}/\Psi}
+\end{align*}
+\endgroup
+
+\begingroup
+\small
+\addtolength{\jot}{1em}
+\uncover<4->{Ciclo de masa:}
+\begin{align*}
+\uncover<4->{\dot{M}_\star       &= (1-R)\Psi}\\
+\uncover<5->{\dot{M}_\text{cal}  &= -\dot{M}_\text{enf} + \beta\Psi}\\
+\uncover<5->{\dot{M}_\text{frío} &= \dot{M}_\text{enf} - (1-R-\beta)\Psi}
+\end{align*}
+\endgroup
+
+\uncover<6->{\small\alert{
+¿Y la evolución química?
+\begin{equation*}
+\tau_\text{enf},\tau_\star\longleftrightarrow\tau_Z
+\end{equation*}
+}}
+
+\column{0.5\textwidth}
 \begin{tikzpicture}[overlay,node distance=5cm]
 \tikzset{
-  nr/.style={draw,very thick,inner sep=7mm,text width=3cm,text centered,font={\footnotesize\scshape\bfseries}},
-  ar/.style={->,shorten >=1pt,draw,very thick},
-  lb/.style={text width=2cm,text centered,font={\tiny\itshape}}
+nr/.style={draw,very thick,inner sep=7mm,text width=3cm,text centered,font={\footnotesize\scshape\bfseries}},
+ar/.style={->,shorten >=2mm,shorten <=2mm,draw,very thick},
+lb/.style={text width=2cm,text centered,font={\tiny\itshape}}
 }
-% \draw[help lines] (0,-\textheight) grid (\textwidth,\textheight);
+% \draw[help lines,black!20] (0,-\textheight) grid (\textwidth,\textheight);
 
-\node[nr,circle] (cold-gas) at (0.5\textwidth,4cm) {gas frío};
-\node[nr,circle,right=of cold-gas] (hot-gas)       {gas caliente};
-\node[nr,circle,below=of cold-gas] (mig-gas)       {MIG};
-\node[nr,circle,below right=of cold-gas] (stars)   {estrellas};
+\node<1->[nr,circle] (cold-gas) at (0,4) {gas frío};
+\node<1->[nr,circle,right=of cold-gas] (hot-gas)        {gas caliente};
+\node<1->[nr,circle,below right=of cold-gas] (stars)    {estrellas};
+\node<0>[nr,circle,below=of cold-gas] (mig-gas)         {MIG};
 
-\path[ar] (cold-gas) edge [bend right=10] node[lb,above] {formación estelar} (stars);
-\path[ar] (stars)    edge [bend right=10] node[lb,below] {reciclaje}         (cold-gas);
-\path[ar] (hot-gas)  edge [bend right=10] node[lb,above] {enfriamiento}      (cold-gas);
-\path[ar] (cold-gas) edge [bend right=10] node[lb,below] {re-calentamiento}  (hot-gas);
-\path[ar] (cold-gas) edge                 node[lb,above] {eyección}          (mig-gas);
-\path[ar] (mig-gas)  -|                   node[lb,left]  {re-incorporación}  (hot-gas);
+\path<2->[ar] (hot-gas)  edge [bend right=10] node[lb,above]                           {enfriamiento}      (cold-gas);
+\path<3->[ar] (cold-gas) edge [bend right=10] node[lb,left=3mm]                        {formación estelar} (stars);
+\path<4->[ar] (stars)    edge [bend right=10] node[lb,right]                           {reciclaje}         (cold-gas);
+\path<5->[ar] (cold-gas) edge [bend right=10] node[lb,below,text width=4cm]            {re-calentamiento}  (hot-gas);
+\path<0>[ar] (cold-gas) edge                  node[lb,left]                            {eyección}          (mig-gas);
+\path<0>[ar] (mig-gas)  -|                    node[lb,near start,below,text width=4cm] {re-incorporación}  (hot-gas);
 
 \end{tikzpicture}
+\end{columns}
 \end{frame}
 
 \begin{frame}{\textsc{consideraciones teóricas}}
@@ -219,17 +253,19 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 \begin{columns}
 \column{0.3\textwidth}
 % Fig. 1 Yates+2013. Marcar los tiempos de AGB, de SNe Ia y SNe II
+\uncover<1->{
 \begin{figure}
 \includegraphics[scale=0.416]{img/yates2013-1}
 \end{figure}
-
+}
 % Las supernovas tipo Ia enriquecen el medio con especies más pesadas que el Fe en una escala que
 % puede ir desde $10^7\,$años hasta $\sim10^9\,$años.
 % Fig. 3 Yates+2013.
+\uncover<3->{
 \begin{figure}
 \includegraphics[scale=0.39]{img/yates2013-3}
 \end{figure}
-
+}
 % La masa eyectada por una población estelar entre $t_\text{ini}$ y $t_\text{fin}$ es
 % \citep{Wiersma2009b}:
 %
@@ -240,18 +276,31 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 
 % Los vientos estelares de estrellas en fase AGB retornan especies
 % Fig. 2 Yates+2013 (páneles inferiores).
+\uncover<2->{
 \begin{figure}
-\includegraphics[scale=0.5]{img/yates2013-2}
+\includegraphics<2->[scale=0.5]{img/yates2013-2}
 \end{figure}
-
+}
 % Una supernova tipo II retorna especies químicas más pesadas que el O (e.\,g. Mg, Ca, Ti y Si) en
 % cuestión de unos $10^7\,$años.
 % Fig. 4 Yates+2013 (páneles inferiores). Mostrar líneas horizontales con la masa eyectada por SN Ia
+\uncover<4->{
 \begin{figure}
 \includegraphics[scale=0.5]{img/yates2013-4}
 \end{figure}
+}
 
-\column{0.2\textwidth}
+\column{0.3\textwidth}
+\uncover<5->{
+\begingroup
+\addtolength{\jot}{1em}
+\begin{align*}
+\tau_Z^\text{AGB}    &\gtrsim \unit[5]{Maños}\\
+\tau_Z^\text{SN\,Ia} &\gtrsim \unit[10]{Maños}\\
+\tau_Z^\text{SN\,II} &\lesssim \unit[10]{Maños}
+\end{align*}
+\endgroup
+}
 
 \end{columns}
 \end{frame}
@@ -267,20 +316,10 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 % lo tanto no es sorprendente que la primera evidencia de una relación entre la edad y la metalicidad
 % de una galaxia se encontrara en estos sistemas.
 
-% En galaxias tardías, los rasgos de metalicidad \emph{estelar} en el óptico son débiles, mientras que
-% la emisión del MIE difuso permite estimar la metalicidad en fase de gas.
-
 % Fig. 1 Conroy+2014. Resaltar rasgos usados por Worthey+1994 y Gallazzi+2005
-% Espectro del SDSS con sus líneas de emisión identificadas. Fig. 2 Calabro+2017
 \begin{figure}
-\includegraphics[scale=0.32]{img/conroy2014-1}
+\includegraphics[scale=0.33]{img/conroy2014-1}
 \end{figure}
-\begin{figure}
-\includegraphics[scale=0.64]{img/hayes2016-2}
-\end{figure}
-% En estas galaxias es relativamente fácil estimar la TFE mediante la emisión de H$\alpha$, por
-% ejemplo, de manera que se puede estudiar la primera relación fundamental del ciclo de masa
-% bariónica.
 
 \column{0.5\textwidth}
 % El continuo estelar permite calcular: masa estelar, edad estelar, metalicidad estelar, TFE
@@ -288,7 +327,21 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 \begin{figure}
 \includegraphics[scale=0.5]{img/placeholder}
 \end{figure}
+\end{columns}
 
+\begin{columns}
+\column{0.6\textwidth}
+% En galaxias tardías, los rasgos de metalicidad \emph{estelar} en el óptico son débiles, mientras que
+% la emisión del MIE difuso permite estimar la metalicidad en fase de gas.
+% Espectro del SDSS con sus líneas de emisión identificadas. Fig. 2 Calabro+2017
+\begin{figure}
+\includegraphics[scale=0.61]{img/hayes2016-2}
+\end{figure}
+% En estas galaxias es relativamente fácil estimar la TFE mediante la emisión de H$\alpha$, por
+% ejemplo, de manera que se puede estudiar la primera relación fundamental del ciclo de masa
+% bariónica.
+
+\column{0.5\textwidth}
 % En los sistemas con formación estelar reciente, es particularmente sencillo estimar la metalicidad
 % del MIE en fase de gas debido a la presencia de la emisión del gas. mostrar diagrama explicando la
 % ionización del gas en el MIE
@@ -297,7 +350,6 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 \begin{figure}
 \includegraphics[scale=0.5]{img/placeholder}
 \end{figure}
-
 \end{columns}
 
 \end{frame}
