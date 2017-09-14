@@ -1,4 +1,4 @@
-\documentclass[xcolor=dvipsnames,fleqn,hyperref={colorlinks,citecolor=black,linkcolor=black,urlcolor=black}]{beamer}
+\documentclass[xcolor=dvipsnames,4pt,fleqn,hyperref={colorlinks,citecolor=black,linkcolor=black,urlcolor=black}]{beamer}
 
 
 \setbeamertemplate{navigation symbols}{}
@@ -93,6 +93,8 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
     \setlength{\parsep}{\parskip}%
   }%
 \item[]}{\end{list}}
+
+% \renewcommand{\baselinestretch}{1.2}
 
 \begin{document}
 \footnotesize
@@ -308,7 +310,7 @@ lb/.style={text width=2cm,text centered,font={\tiny\itshape}}
 \begin{frame}{\textsc{consideraciones observacionales}}
 
 \begin{columns}
-\column{0.6\textwidth}
+\column{0.5\textwidth}
 % En las estrellas de baja masa, que pueden vivir por $>3\times10^9\,$años muestran evidencia de esta
 % evolución química en sus distribuciones espectrales de energía \citep{Conroy2014}.
 
@@ -321,16 +323,21 @@ lb/.style={text width=2cm,text centered,font={\tiny\itshape}}
 \includegraphics[scale=0.33]{img/conroy2014-1}
 \end{figure}
 
-\column{0.5\textwidth}
+\column{0.6\textwidth}
 % El continuo estelar permite calcular: masa estelar, edad estelar, metalicidad estelar, TFE
 % diagrama de interior estelar mostrando porducción de fotones. Algunos escapan y otros no
-\begin{figure}
-\includegraphics[scale=0.5]{img/placeholder}
-\end{figure}
+\begin{equation*}
+\text{continuo estelar}\longrightarrow
+\begin{cases}
+M_\star & \text{masa estelar} \\
+\Psi    & \text{TFE}          \\
+Z_\star & \text{metalicidad}
+\end{cases}
+\end{equation*}
 \end{columns}
 
 \begin{columns}
-\column{0.6\textwidth}
+\column{0.5\textwidth}
 % En galaxias tardías, los rasgos de metalicidad \emph{estelar} en el óptico son débiles, mientras que
 % la emisión del MIE difuso permite estimar la metalicidad en fase de gas.
 % Espectro del SDSS con sus líneas de emisión identificadas. Fig. 2 Calabro+2017
@@ -341,15 +348,20 @@ lb/.style={text width=2cm,text centered,font={\tiny\itshape}}
 % ejemplo, de manera que se puede estudiar la primera relación fundamental del ciclo de masa
 % bariónica.
 
-\column{0.5\textwidth}
+\column{0.6\textwidth}
 % En los sistemas con formación estelar reciente, es particularmente sencillo estimar la metalicidad
 % del MIE en fase de gas debido a la presencia de la emisión del gas. mostrar diagrama explicando la
 % ionización del gas en el MIE
 % La emisión del MIE permite calcular: masa de gas, metalicidad en fase de gas, TFE
 % diagrama de emisión de líneas prohibidas
-\begin{figure}
-\includegraphics[scale=0.5]{img/placeholder}
-\end{figure}
+\begin{equation*}
+\text{emisión nebular}\longrightarrow
+\begin{cases}
+M_\text{frío} & \text{masa del gas} \\
+\Psi          & \text{TFE}          \\
+Z_\text{frío} & \text{metalicidad del gas}
+\end{cases}
+\end{equation*}
 \end{columns}
 
 \end{frame}
@@ -357,29 +369,56 @@ lb/.style={text width=2cm,text centered,font={\tiny\itshape}}
 \begin{frame}{\textsc{relaciones clásicas --- $M_\star\,$--$\,\Psi$}}
 
 \begin{columns}
-\column{0.3\textwidth}
+\column{0.4\textwidth}
 % La relación entre la masa y la tasa de formación estelar (TFE) es probablemente la relación más
 % estudiada del ciclo de masa bariónica \citep[e.\,g.][]{Schmidt1959, Kennicutt1998}. Por ejemplo
 % \citet{Brinchmann2004} estimó la TFE de las galaxias con formación estelar reciente del universo
 % local muestreado por el SDSS. Ellos encuentran una correlación directa entre la masa estelar y la
 % TFE.
-\column{0.7\textwidth}
+\citet{Brinchmann2004} encontró que:
+
+\begin{itemize}
+\setlength\itemsep{1em}
+\item $\log{\Psi}\propto\log{M_\star}$,
+\item punto de quiebre a $\log{M_\star/M_\odot}>\unit[10]{dex}$,
+\item dispersión $\sim\unit[2]{dex}$,
+\alert{\item ¿origen global o local? \citep{Schmidt1959,Kennicutt1998}}.
+\end{itemize}
+
+\column{0.6\textwidth}
 % Fig. 17 Brinchmann+2004. La dispersión a alta masa es probablemente debida a la dominancia de PaGs
 \begin{figure}
-\includegraphics[scale=0.9]{img/brinchmann2004-17}
+\includegraphics[scale=1]{img/brinchmann2004-17}
 \end{figure}
 \end{columns}
 \end{frame}
 
 \begin{frame}{\textsc{relaciones clásicas --- $M_\star\,$--$\,\Psi$}}
-% Fig. 24 Brinchmann+2004
 
 \begin{columns}
-\column{0.7\textwidth}
+\column{0.6\textwidth}
+% Fig. 24 Brinchmann+2004
 \begin{figure}
 \includegraphics[scale=0.7]{img/brinchmann2004-24}
 \end{figure}
 
+\column{0.4\textwidth}
+\begin{equation*}
+\begin{cases}
+\Psi/\left<\Psi\right> & \text{TFE relativa}   \\
+\Psi/M_\star           & \text{TFE específica} \\
+\mu_\star              & \text{densidad superficial}
+\end{cases}
+\end{equation*}
+
+\begin{equation*}
+\frac{\Psi}{\left<\Psi\right>} = \frac{\Psi}{M_\star}T(1-R)\quad\text{\citep{Brinchmann2004}}
+\end{equation*}
+
+\end{columns}
+
+\begin{columns}
+\column{0.6\textwidth}
 % Ahora la masa por sí sola dice simplemente cuánto material bariónico existe en estrellas, pero no
 % dice nada de como está distribuido el material que es, según la ley de Kennicutt-Schmidt, la
 % relación fundamental entre la masa y la TFE. En este sentido, es interesante ver que la relación
@@ -389,8 +428,14 @@ lb/.style={text width=2cm,text centered,font={\tiny\itshape}}
 \begin{figure}
 \includegraphics[scale=0.7]{img/brinchmann2004-25}
 \end{figure}
-\column{0.3\textwidth}
 
+\column{0.4\textwidth}
+\begin{itemize}
+\setlength\itemsep{1em}
+\item $\log{\Psi/M_\star}\propto-\log{M_\star},\log{\mu_\star}$,
+\item \emph{Downsizing} \citep{Cowie1996},
+\alert{\item ¿relación global o local?.}
+\end{itemize}
 \end{columns}
 \end{frame}
 
@@ -400,6 +445,12 @@ lb/.style={text width=2cm,text centered,font={\tiny\itshape}}
 \includegraphics[scale=0.6]{img/whitaker2014-1}
 \includegraphics[scale=0.6]{img/whitaker2014-2}
 \end{figure}
+
+\begin{itemize}
+\item Poca evolución en la pendiente de $M_\star\,$--$\,\Psi$ \citep{Whitaker2014},
+\item \emph{Downsizing} cosmológico,
+\alert{\item la formación estelar es probablemente un fenómeno local}.
+\end{itemize}
 
 \end{frame}
 
