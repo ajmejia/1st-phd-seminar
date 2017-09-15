@@ -2,6 +2,7 @@
 
 
 \setbeamertemplate{navigation symbols}{}
+\setbeamerfont{frametitle}{size=\large}
 \usefonttheme{professionalfonts}
 \useinnertheme{circles}
 \usepackage[spanish]{babel}
@@ -21,7 +22,7 @@
 
 \usecolortheme[named=Black]{structure}
 
-\usetikzlibrary{arrows,shapes,positioning,backgrounds,decorations.pathreplacing}
+\usetikzlibrary{arrows,shapes,positioning,backgrounds,decorations.pathreplacing,decorations.pathmorphing}
 
 \PassOptionsToPackage{%
 %backend=biber, % Instead of bibtex
@@ -399,6 +400,7 @@ Z_\text{frío} & \text{metalicidad del gas}
 \column{0.6\textwidth}
 % Fig. 24 Brinchmann+2004
 \begin{figure}
+\flushleft\citep{Brinchmann2004}
 \includegraphics[scale=0.7]{img/brinchmann2004-24}
 \end{figure}
 
@@ -412,7 +414,7 @@ Z_\text{frío} & \text{metalicidad del gas}
 \end{equation*}
 
 \begin{equation*}
-\frac{\Psi}{\left<\Psi\right>} = \frac{\Psi}{M_\star}T(1-R)\quad\text{\citep{Brinchmann2004}}
+\frac{\Psi}{\left<\Psi\right>} = \frac{\Psi}{M_\star}T(1-R)
 \end{equation*}
 
 \end{columns}
@@ -447,24 +449,36 @@ Z_\text{frío} & \text{metalicidad del gas}
 \end{figure}
 
 \begin{itemize}
-\item Poca evolución en la pendiente de $M_\star\,$--$\,\Psi$ \citep{Whitaker2014},
 \item \emph{Downsizing} cosmológico,
-\alert{\item la formación estelar es probablemente un fenómeno local}.
+\item poca evolución en la pendiente de $M_\star\,$--$\,\Psi$ \citep{Whitaker2014},
+\alert{\item la formación estelar es probablemente un fenómeno local.}
 \end{itemize}
 
 \end{frame}
 
-\begin{frame}{\textsc{relaciones clásicas --- $t_\star\,$--$\,Z_\star$}}
+\begin{frame}{\textsc{relaciones clásicas --- $\left<t_\star\right>\,$--$\,Z_\star$}}
 
 \begin{columns}
-\column{0.5\textwidth}
+\column{0.4\textwidth}
+De acuerdo con \citet{Ocvirk2006a}:
+\begin{equation*}
+\Lambda(t) = \frac{\Psi(t)}{\Delta\lambda}\,\int_{\lambda_\text{min}}^{\lambda_\text{max}}\,L_\lambda^\text{PES}(Z;t)\,\text{d}\lambda
+\Longrightarrow \alert{\left<t_\star\right>\sim\Psi}
+\end{equation*}
 % La relación entre la edad estelar y la metalicidad estelar no es trivial porque la formación estelar
 % es un proceso cíclico: las estrellas nacen, enriquecen el MIE, mueren y luego otra generación de
 % estrellas nace.
 % mostrar diagrama explicando este ciclo en un esquema y en los planos edad--metalicidad--color
-\begin{figure}
-\includegraphics[scale=1]{img/placeholder}
-\end{figure}
+\uncover<2->{
+\begin{tikzpicture}
+% \draw[help lines] (0,0) grid (\textwidth,10);%(10,10);
+\path[->,draw,very thick] (0,0) -- node[near end,below,sloped] {$\left<t_\star\right>$} (10,0);
+\path[->,draw,very thick] (0,0) -- node[near end,above,sloped] {color}                  (0,10);
+\path[->,draw,very thick] (0,0) -- node[near end,below,sloped] {$Z_\star$}              (7,7);
+
+\draw[decorate,decoration={coil,aspect=1,segment length=2cm,amplitude=1cm}] (0,0) -- (7,7);
+\end{tikzpicture}
+}
 % En principio no se espera que haya una correlación entre ambas propiedades si no es
 % por la degeneración entre ambas propiedades físicas. Sin embargo, considerando que la edad estimada
 % es un momento de la HFE de la población estelar \citep{ocvirk2006a},
@@ -472,8 +486,7 @@ Z_\text{frío} & \text{metalicidad del gas}
 % se puede intuir que una correlación existe entre ambas propiedades físicas en una galaxia, pero esta
 % probablemente no sería una correlación fundamental como la que se espera entre la metalicidad y la
 % TFE.
-
-\column{0.5\textwidth}
+\column{0.6\textwidth}
 
 % En efecto, la relación entre la edad y la metalicidad se ha estudiado de manera extensiva en la
 % literatura reciente. Fue primero observada en galaxias tempranas, aunque la degeneración entre la
@@ -491,39 +504,25 @@ Z_\text{frío} & \text{metalicidad del gas}
 % mientras que las más masivas están dominadas por poblaciones más viejas y más ricas en metales con
 % dispersión estadística menor, esto último en acuerdo con los estudios previos de galaxias tempranas.
 % Gráfico de la Tabla 2 Gallazzi+2005.
+\uncover<3->{
 \begin{figure}
-\includegraphics[scale=1]{img/placeholder}
+\flushright\citep{Gallazzi2005}
+\includegraphics[scale=0.45]{img/gallazzi2005-12}
+\includegraphics[scale=0.45]{img/gallazzi2005-11}
 \end{figure}
+
+\begin{itemize}
+\setlength\itemsep{0.5em}
+\item Las galaxias tempranas sufren de degeneración $t_\star\,$--$\,Z_\star$,
+\item su relación $t_\star\,$--$\,Z_\star$ es casi independiente de $M_\star$, y
+\item las galaxias tardías abarcan un amplio rango en $Z_\star$,
+\item muestran fuerte dependencia $M_\star\,$--$Z_\star$
+\end{itemize}
+}
 \end{columns}
-
-$$\Lambda(t) = \frac{\Psi(t)}{\Delta\lambda}\,\int_{\lambda_\text{min}}^{\lambda_\text{max}}\,L_\lambda^\text{PES}(Z;t)\,\text{d}\lambda$$
-
 \end{frame}
 
-\begin{frame}{\textsc{relaciones clásicas --- $t_\star\,$--$\,Z_\star$}}
-
-% En el caso de las galaxias más masivas, la relación edad-metalicidad sugiere que estas se forman en
-% escalas de tiempo más cortas ($\sim1\,$Gaño) que sus homólogas menos masivas.
-
-% Las galaxias menos masivas, por otro lado, se distribuyen en el plano edad-metalicidad dependiendo
-% del tipo: dominadas por disco o dominadas por esferoides. Esto evidencia que la HFE presente podría
-% depender de parámetros estructurales y/o fenómenos locales en estos sistemas.
-
-% Fig. 12 Gallazzi+2005
-% Fig. 11 Gallazzi+2005
-\begin{figure}
-\includegraphics[scale=0.7]{img/gallazzi2005-12}
-\includegraphics[scale=0.7]{img/gallazzi2005-11}
-\end{figure}
-
-% Es importante notar, sin embargo, para las galaxias con formación estelar reciente, determinar la
-% metalicidad es particularmente complicado, pues los trazadores de metalicidad en poblaciones jóvenes
-% suelen ser débiles en el rango óptico debido al efecto del \emph{outshining}
-% \citep[e.\,g.,][]{Conroy2013a}.
-
-\end{frame}
-
-\begin{frame}{\textsc{relaciones clásicas --- $M_\star\,$--$\,Z$}}
+\begin{frame}{\textsc{relaciones clásicas --- $M_\star\,$--$\,Z_{\rm frío}$}}
 
 \begin{columns}
 \column{0.5\textwidth}
@@ -536,14 +535,15 @@ $$\Lambda(t) = \frac{\Psi(t)}{\Delta\lambda}\,\int_{\lambda_\text{min}}^{\lambda
 \begin{figure}
 \includegraphics[scale=0.7]{img/tremonti2004-6}
 \end{figure}
-\column{0.5\textwidth}
-\end{columns}
-\end{frame}
 
-\begin{frame}{\textsc{relaciones clásicas --- $M_\star\,$--$\,Z$}}
-
-\begin{columns}
 \column{0.5\textwidth}
+
+El O es una de las especies más abundantes en el MIE \alert{en fase de gas}:
+\begin{equation*}
+12+\log{\text{O}/\text{H}}\sim Z_\text{frío}
+\end{equation*}
+
+\begin{block}{}
 % \citeauthor{Tremonti2004} discutió dos hipótesis para explicar el origen físico de la relación
 % masa-metalicidad. Si es que las galaxias más masivas forman una fracción de estrellas mayor que sus
 % contrapartes menos masivas en un tiempo de Hubble, entonces la relación indica una secuencia de
@@ -551,30 +551,35 @@ $$\Lambda(t) = \frac{\Psi(t)}{\Delta\lambda}\,\int_{\lambda_\text{min}}^{\lambda
 % mientras que las galaxias menos masivas forman menos estrellas masivas de manera que los metales son
 % encapsulados por más tiempo en las estrellas.
 % Diagrama de región de formación estelar cada vez más eficiente formando metales como función de la masa estelar
-\begin{figure}
-\includegraphics[scale=0.7]{img/placeholder}
-\end{figure}
-
+Hipótesis discutidas por \citet{Tremonti2004}:
+\begin{equation*}
+\tau_Z\rightarrow M\longrightarrow
+\begin{cases}
+\text{Las galaxias más masivas}\\
+\text{forman más metales en $\tau_\text{H}$}\\
+\text{que las de menor masa.}
+\end{cases}
+\end{equation*}
 % Si es que la eficiencia de la tasa de formación estelar es irrespectiva de la masa estelar, entonces
 % las galaxias menos masivas de alguna forma han perdido de manera selectiva los metales, tal vez
 % mediante vientos galácticos.
 % Diagrama de galaxias en la secuencia de Hubble cada vez más eficientes perdiendo sus metales
-\begin{figure}
-\includegraphics[scale=0.7]{img/placeholder}
-\end{figure}
-\column{0.5\textwidth}
+\begin{equation*}
+\tau_Z\nrightarrow M\longrightarrow
+\begin{cases}
+\text{Las galaxias menos masivas}\\
+\text{han perdido de manera}\\
+\text{selectiva sus metales.}
+\end{cases}
+\end{equation*}
+\end{block}
 
 \end{columns}
 \end{frame}
 
-\begin{frame}{\textsc{relaciones clásicas --- $M_\star\,$--$\,Z$}}
+\begin{frame}{\textsc{relaciones clásicas --- $M_\star\,$--$\,Z_{\rm frío}$}}
 
 \begin{columns}
-\column{0.5\textwidth}
-% Fig. 8 Tremonti+2004
-\begin{figure}
-\includegraphics[scale=0.7]{img/tremonti2004-8}
-\end{figure}
 
 \column{0.5\textwidth}
 % Evidencia de que la fracción másica de gas decrece con la masa estelar existe \citep{Bell2000} y
@@ -586,7 +591,16 @@ $$\Lambda(t) = \frac{\Psi(t)}{\Delta\lambda}\,\int_{\lambda_\text{min}}^{\lambda
 % De acuerdo con las expectativas de un modelo de caja cerrada, la metalicidad está directamente
 % relacionada con el \emph{yield} estelar de la siguiente manera:
 %
-$$Z = y\ln{\left[{\mu_\text{gas}}^{-1}\right]},$$
+\begin{equation*}
+y_\text{ef} = \frac{y_0}{1+(M_0/M_\text{bar})^{0.57}}
+\end{equation*}
+
+\begin{align*}
+y_\text{ef}  &\qquad\text{\emph{yield} efectivo,}\\
+y_0          &\qquad\text{\emph{yield} en modelo de caja cerrada,}\\
+M_\text{bar} &\qquad\text{masa bariónica total,}\\
+M_0          &\qquad\text{masa bariónica a la cual $y_\text{ef}=y_0/2$.}
+\end{align*}
 %
 % donde $y$ es el \emph{yield} y $\mu_\text{gas}$ es la fracción de masa en gas. Suponiendo que $y$ es
 % constante (i.\,e. la TFE decrece continuamente en el tiempo). Dada una fracción de metales $Z$ y una
@@ -599,31 +613,90 @@ $$Z = y\ln{\left[{\mu_\text{gas}}^{-1}\right]},$$
 
 % Este hallazgo se interpreta como que la relación masa-metalicidad tiene un origen no solo en el
 % fenómeno de formación estelar y en la subsiguiente evolución química, sino también en fenómenos
-% reguladores en el MIE. Tal vez la evidencia más clara de que esto es así se puede apreciar en la
-% relación entre la metalicidad estelar y la metalicidad del gas en el MIE:
-% Fig. 9 Gallazzi+2005:
-\begin{figure}
-\includegraphics[scale=0.6]{img/gallazzi2005-9}
-\end{figure}
-% La metalicidad estelar es sistemáticamente menor que la metalicidad del gas en el MIE.
-% Esto es evidencia clara de que los fenómenos reguladores están jugando un papel:
-% - Enfriamiento del gas.
-% - El feedback estelar.
-% - Acreción de gas pristino del MIG.
-% Además todos estos fenómenos están probablemente relacionados entre sí de una forma que no sabemos.
+% reguladores en el MIE.
 % El hecho de que se ha observado que el medio intergaláctico está enriquecido y que las galaxias
 % \emph{star-burst} sufren fuertes vientos galácticos que superan la velocidad de escape, soportan
 % esta hipótesis para explicar esta relación entre la masa y la metalicidad.
+\begin{block}{}
+\begin{itemize}
+\setlength\itemsep{0.5em}
+\item Existe una correlación $M_\text{bar}\,$--$\,y_\text{ef}$,
+\item $y_0=0.0104$ y $M_0=\unit[3.67\times10^9]{M}_\odot\sim\unit[260]{km\,s}^{-1}\lesssim V_\text{esc}$,
+\alert{\item los fenómenos que regulan el ciclo de masa tienen un rol importante en la definición de $Z$.}
+\end{itemize}
+\end{block}
+
+\column{0.5\textwidth}
+% Fig. 8 Tremonti+2004
+\begin{figure}
+\flushright\citep{Tremonti2004}
+\includegraphics[scale=0.7]{img/tremonti2004-8}
+\end{figure}
 
 \end{columns}
 \end{frame}
 
 \begin{frame}{\textsc{relaciones clásicas --- resumen}}
-% describir de manera resumida los hallazgos importantes usando espectroscopía tradicional
+\begin{columns}
+\column{0.5\textwidth}
+\begin{itemize}
+\setlength\itemsep{0.5em}
+
+\item<2-4> Existe una relación $M_\star,\mu_\star\,$--$\,\Psi$, cuyo origen está probablemente
+relacionado con la ley de KS \citep{Kennicutt1998}:
+%
+\begin{equation*}
+\Sigma_\Psi \propto \Sigma_\text{frío}^n.
+\end{equation*}
+
+\item<3-4> Aunque las galaxias menos masivas forman menos estrellas por unidad de tiempo que las más
+masivas, la TFE específica sigue una relación $\Psi/M_\star\,$--$\,M_\star$ con pendiente negativa,
+evidencia del \emph{downsizing} \citep{Cowie1996}.
+
+\item<4-4> En las galaxias más masivas no hay una relación clara $t_\star,\Psi\,$--$Z_\star$. En
+cambio las galaxias se distribuyen de acuerdo a la degeneración edad-metalicidad.
+
+\end{itemize}
+
+\column{0.5\textwidth}
+\begin{tikzpicture}[overlay,node distance=5cm]
+\tikzset{
+nr/.style={draw,very thick,inner sep=7mm,text width=3cm,text centered,font={\footnotesize\scshape\bfseries}},
+ar/.style={->,shorten >=2mm,shorten <=2mm,draw,very thick},
+lb/.style={text width=2cm,text centered,font={\tiny\itshape}}
+}
+% \draw[help lines,black!20] (0,-\textheight) grid (\textwidth,\textheight);
+
+\node[nr,circle] (cold-gas) at (2,4)             {gas frío};
+\node[nr,circle,right=of cold-gas] (hot-gas)     {gas caliente};
+\node[nr,circle,below right=of cold-gas] (stars) {estrellas};
+\node<2->[nr,circle,below=of cold-gas] (mig-gas) {MIG};
+
+\path[ar] (hot-gas)  edge [bend right=10] node[lb,above]                           {enfriamiento}      (cold-gas);
+\path[ar] (cold-gas) edge [bend right=10] node[lb,left=3mm]                        {formación estelar} (stars);
+\path[ar] (stars)    edge [bend right=10] node[lb,right]                           {reciclaje}         (cold-gas);
+\path[ar] (cold-gas) edge [bend right=10] node[lb,below,text width=4cm]            {re-calentamiento}  (hot-gas);
+\path<2->[ar] (cold-gas) edge             node[lb,left]                            {eyección}          (mig-gas);
+\path<2->[ar] (mig-gas)  -|               node[lb,near start,below,text width=4cm] {re-incorporación}  (hot-gas);
+
+\end{tikzpicture}
+\end{columns}
 \end{frame}
 
 \begin{frame}{\textsc{relaciones clásicas --- resumen}}%{\textbf{Incertidumbres observacionales}}
 
+\begin{columns}
+\column{0.5\textwidth}
+\begin{itemize}
+\setlength\itemsep{0.5em}
+
+\item[] La falta de resolución espacial impide estudiar efectivamente la importancia relativa de los
+fenómenos locales y globales.
+
+\item[]
+
+\end{itemize}
+\column{0.5\textwidth}
 % Algunos aspectos de estas dos escalas quedaban sin explicarse completamente y/o estaban plagadas de
 % incertidumbres que limitaban una clara interpretación. Las fuentes de incertidumbres más importantes
 % eran:
@@ -634,7 +707,8 @@ $$Z = y\ln{\left[{\mu_\text{gas}}^{-1}\right]},$$
 % tomarse en cuenta durante la interpretación de dichas relaciones.
 % Fig. 1 Iglesias-Paramo+2013
 \begin{figure}
-\includegraphics[scale=1]{img/iglesias-paramo2013-1}
+\flushright\citep{Iglesias-Paramo2013}
+\includegraphics[scale=0.6]{img/iglesias-paramo2013-1}
 \end{figure}
 % Más cuidado aún se debe tener cuando se comparan propiedades integradas con diferentes aperturas. En
 % este sentido las galaxias tempranas han ofrecido mejores posibilidades, pues exhiben gradientes
@@ -646,7 +720,7 @@ $$Z = y\ln{\left[{\mu_\text{gas}}^{-1}\right]},$$
 % débiles que en galaxias tempranas. Resolución espacial es deseable para estudios de galaxias tardías
 % para interpretar de manera adecuada las relaciones de escala, i.\,e. tomando en cuenta los efectos
 % de gradientes radiales y de ángulo de inclinación.
-
+\end{columns}
 \end{frame}
 
 \begin{frame}{\textsc{relaciones clásicas --- resumen}}%{\textbf{Incertidumbres en los modelos}}
@@ -675,8 +749,18 @@ $$Z = y\ln{\left[{\mu_\text{gas}}^{-1}\right]},$$
 
 \end{frame}
 
-\begin{frame}{\textsc{ciclo de masa visto por CALIFA}}
-%
+\begin{frame}{\textsc{CALIFA --- una nueva forma de ver el ciclo de masa}}
+
+\begin{columns}
+\column{0.4\textwidth}
+\begin{itemize}
+\setlength\itemsep{0.5em}
+\item Resolución espacial,
+\item resolución espectral $R\sim1000$,
+\item muestra de $600$ galaxias de todas las clases morfológicas.
+\end{itemize}
+
+\column{0.6\textwidth}
 % La madurez alcanzada por los sondeos con IFU en la última década ha permitido la construcción de
 % muestras de galaxias de todas las clases espectrales. La culminación del sondeo CALIFA
 % \citep{Sanchez2012, Sanchez2016} ha significado un hito en este sentido, pues con el tercer
@@ -685,8 +769,10 @@ $$Z = y\ln{\left[{\mu_\text{gas}}^{-1}\right]},$$
 % el universo local.
 % Fig. 20 Husemann+2013.
 \begin{figure}
-\includegraphics[scale=1]{img/husemann2013-20}
+\flushright\citep{Sanchez2012,Husemann2013}
+\includegraphics[scale=0.6]{img/husemann2013-20}
 \end{figure}
+\end{columns}
 % Ante las incertidumbres y las preguntas que quedaban abiertas respecto a la relación entre la edad,
 % la masa y la metalicidad, sobre todo en sistemas con formación estelar, CALIFA presenta una
 % oportunidad inigualable. Los estudios que buscaban desentrañar el caracter local de las relaciones
@@ -694,19 +780,34 @@ $$Z = y\ln{\left[{\mu_\text{gas}}^{-1}\right]},$$
 %
 \end{frame}
 
-\begin{frame}{\textsc{ciclo de masa visto por CALIFA --- $M\,$--$\,Z$}}
+\begin{frame}{\textsc{ciclo de masa visto por CALIFA --- $\Sigma_\star\,$--$\,Z_{\rm frío}$}}
 
-\citet{Rosales2012} estudia por primera vez la relación entre la masa, la metalicidad y la tasa de
-TFE específica en $\sim2\,$k regiones H\textsc{ii} segregadas en una muestra de galaxias tardías
-sondeadas por CALIFA.
+\begin{columns}
+\column{0.4\textwidth}
+% \citet{Rosales-Ortega2012} estudia por primera vez la relación entre la masa, la metalicidad y la tasa de
+% TFE específica en $\sim2\,$k regiones H\textsc{ii} segregadas en una muestra de galaxias tardías
+% sondeadas por CALIFA.
 % Fig. 1 Rosales-Ortega+2012:
 \begin{figure}
-\includegraphics[scale=1]{img/rosales-ortega2012-1}
+\includegraphics[scale=0.65]{img/rosales-ortega2012-1}
 \end{figure}
-\end{frame}
-
-\begin{frame}{\textsc{ciclo de masa visto por CALIFA --- $M\,$--$\,Z$}}
-
+\column{0.6\textwidth}
+\only<1>{
+\begin{itemize}
+\setlength\itemsep{0.5em}
+\item La relación $\Sigma_\star\,$--$\,Z_\text{frío}$ es similar a la relación \emph{global},
+\item regiones más densas tienden a $\tau_Z$ corta,
+\item regiones menos densas tienden a $\tau_Z$ larga,
+\alert{\item esto se corresponde con un crecimiento \emph{inside-out}.}
+\end{itemize}}
+\only<2>{
+\begin{itemize}
+\setlength\itemsep{0.5em}
+\item Existe una anticorrelación $\Sigma_\star\,$--$\,\text{EW}(\text{H}\alpha)$,
+\item regiones más densas tienden a $\tau_\star$ larga en el presente,
+\item regiones menos densas tienden a $\tau_\star$ corta en el presente,
+\alert{\item esto se corresponde con un \emph{downsizing} local.}
+\end{itemize}}
 % La similitud con la MMR global (Tremonti+2004) es sorprendente.
 % Aún considerando unas pocas galaxias, el espacio de parámetros está bien muestreado.
 % Pareciera haber una segunda correlación con el ancho equivalente de H$\alpha$.
@@ -715,24 +816,34 @@ sondeadas por CALIFA.
 % directamente correlacionadas y ambas propiedades inversamente correlacionadas con la TFE específica.
 % Fig. 3 Rosales-Ortega+2012. Intepretada como evidencia de downsizing local.
 \begin{figure}
-\includegraphics[scale=1]{img/rosales-ortega2012-3}
+\flushright\citep{rosales-ortega2012}
+\uncover<2>{\includegraphics[scale=0.88]{img/rosales-ortega2012-3}}
 \end{figure}
-% \citeauthor{Rosales2012} demostraron que la relación masa-metalicidad encontrada en estudios usando
+% \citeauthor{Rosales-Ortega2012} demostraron que la relación masa-metalicidad encontrada en estudios usando
 % datos integrados (con efectos de apertura incluidos) puede explicarse como la suma de dos efectos:
 % Dada la anticorrelación entre la TFE y la densidad superficial de masa.
 % un crecimiento tipo \emph{inside-out}, en el que la región central de las galaxias se forma primero
 % y luego la formación estelar se extiende sobre el disco; y un efecto de \emph{downsizing} local,
 % donde las regiones más masivas forman estrellas más rápido y por lo tanto en una escala temporal más
 % corta.
+\end{columns}
 \end{frame}
 
-\begin{frame}{\textsc{ciclo de masa visto por CALIFA --- $M\,$--$\,Z$}}
 
+\begin{frame}{\textsc{ciclo de masa visto por CALIFA --- $\Sigma_\star\,$--$\,Z_{\rm frío}$}}
+
+\begin{columns}
+\column{0.82\textwidth}
 % Ambos fenómenos a su vez explican los gradientes radiales observados en galaxias con discos.
 % Fig. 17 Gonzalez+2015:
 \begin{figure}
-\includegraphics[scale=1]{img/gonzalez2015-17}
+\flushleft
+\includegraphics[scale=0.85]{img/gonzalez2015-17}
 \end{figure}
+% \begin{tikzpicture}
+% \draw[help lines] (0,0) grid (\textwidth,16);
+% \includegraphics[scale=0.85]{img/gonzalez2015-17}
+% \end{tikzpicture}
 % Los perfiles de densidad superficial de masa, de edad y de metalicidad decrecen con el radio
 % Esto es consistente con los resultados de Rosales-Ortega+2012 y soportan el crecimiento inside-out.
 % Es interesante notar también que el hecho de que la relación masa-metalicidad tenga un origen local
@@ -740,9 +851,21 @@ sondeadas por CALIFA.
 % estelar el enriquecimiento químico ocurre en una escala temporal más corta, mientras que en las de
 % menor formación estelar los metales quedan atrapados en el interior de las estrellas de baja masa
 % por más tiempo.
+
+\column{0.25\textwidth}
+\flushleft
+\begin{equation*}\tiny
+\begin{cases}
+\text{Las galaxias menos masivas}\\
+\text{han perdido de manera}\\
+\text{selectiva sus metales.}
+\end{cases}
+\end{equation*}
+
+\end{columns}
 \end{frame}
 
-\begin{frame}{\textsc{ciclo de masa visto por CALIFA --- $M\,$--$\,Z$}}
+\begin{frame}{\textsc{ciclo de masa visto por CALIFA --- $M_\star\,$--$\,Z_\star$}}
 
 % Comparar el rol de los fenómenos locales y globales resulta entonces muy interesante de cara aun
 % mejor entendimiento del ciclo de masa bariónica. \citet{Gonzalez2014b} estudió el rol de los efectos
@@ -752,11 +875,12 @@ sondeadas por CALIFA.
 % formación estelar reciente donde el reciclaje ocurre en una escala de tiempo muy corta.
 % Fig. 1 Gonzalez+2014b
 \begin{figure}
-\includegraphics[scale=1]{img/gonzalez2014b-1}
+\flushleft\citep{Gonzalez2014b}
+\includegraphics[scale=0.7]{img/gonzalez2014b-1}
 \end{figure}
 \end{frame}
 
-\begin{frame}{\textsc{ciclo de masa visto por CALIFA --- $M\,$--$\,Z$}}
+\begin{frame}{\textsc{ciclo de masa visto por CALIFA --- $M_\star\,$--$\,Z_\star$}}
 
 % La relación masa-metalicidad como función de la distancia al centro de las galaxias mostraba una
 % dispersión en metalicidad que era claramente modulada por los efectos globales medidos por la masa
@@ -768,11 +892,12 @@ sondeadas por CALIFA.
 % global regula la metalicidad.
 % Fig. 3 Gonzalez+2014b
 \begin{figure}
-\includegraphics[scale=1]{img/gonzalez2014b-3}
+\flushleft\citep{Gonzalez2014b}
+\includegraphics[scale=0.7]{img/gonzalez2014b-3}
 \end{figure}
 \end{frame}
 
-\begin{frame}{\textsc{ciclo de masa visto por CALIFA --- $M\,$--$\,Z\,$--$\,\Psi$}}
+\begin{frame}{\textsc{ciclo de masa visto por CALIFA --- $M_\star\,$--$\,Z_{\rm frío}\,$--$\,\Psi$}}
 
 % Esta relación, también llamada relación fundamental (o plano fundamental) de masa-metalicidad ya
 % había sido estudiada \citep{Lara-Lopez2010, Mannucci2010} y tiene la siguiente forma: a una masa
@@ -784,7 +909,8 @@ sondeadas por CALIFA.
 % intergaláctico.
 % Fig. 1 Mannucci+2010.
 \begin{figure}
-\includegraphics[scale=1]{img/mannucci2010-1}
+\flushleft\citep{Mannucci2010}
+\includegraphics[scale=0.7]{img/mannucci2010-1}
 \end{figure}
 % La dispersión estadística en la relación masa-metalicidad se disminuye considerablemente si se introduce la TFE
 % En galaxias menos masivas la dependencia entre la metalicidad y la TFE es fuerte
@@ -802,7 +928,8 @@ sondeadas por CALIFA.
 % intergaláctico, mientras que la segunda es entendida en la capacidad de las galaxias por retener los
 % metales que producen.
 \begin{figure}
-\includegraphics[scale=1]{img/sanchez2017-4}
+\flushleft\citep{Sanchez2017}
+\includegraphics[scale=0.7]{img/sanchez2017-4}
 \end{figure}
 % Los resultados de \citeauthor{Sanchez2017} de nuevo ponen en el tapete la necesidad de introducir
 % fenómenos reguladores para explicar de manera convincente la ausencia de una relación
