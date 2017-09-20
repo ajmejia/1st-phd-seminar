@@ -14,7 +14,7 @@
 \usepackage[top=1.5cm,bottom=1.5cm,outer=6cm,inner=4cm,heightrounded,marginparwidth=4cm,%
             marginparsep=1.2cm]{geometry}
 
-\allsectionsfont{\mdseries\scshape}
+\allsectionsfont{\fontsize{12}{15}\mdseries\scshape}
 
 \newcommand{\note}[1]{\color{OrangeRed}(#1)\xspace}
 \newcommand{\definition}[2]{\marginnote{{\color{teal}#1:} #2}}
@@ -234,14 +234,15 @@ la definición de probabilidad). Podemos usar esto a nuestro favor.
 
 %---------------------------------------------------------------------------------------------------
 
-\section*{El efecto del prior}
+\section*{El efecto de la distribución previa}
 %
 En esta sección veremos como la elección de la distribución prior puede afectar significativamente
-nuestra inferencia y como depende dicho efecto en la cantidad de los datos y en la forma del prior.
+nuestra inferencia y como depende dicho efecto en la cantidad de los datos y en la forma de la
+distribución previa.
 
-Para cuantificar el efecto del prior, estudiaré la dependencia de la diferencia entre las
-distribuciones posteriores obtenidas usando un prior objetivo y uno subjetivo, como función del
-número de datos observados.
+Para cuantificar el efecto de la distribución previa, estudiaré la dependencia de la diferencia
+entre las distribuciones posteriores obtenidas usando un prior objetivo y uno subjetivo, como
+función del número de datos observados.
 
 \paragraph{\textit{\color{teal}Dependencia con la cantidad de los datos.}} Supongamos que la
 distribución \emph{likelihood} dado un conjunto de datos $\dat$ es
@@ -339,24 +340,79 @@ con la igualdad si y solo si $\pro{\theta}{I}=1/(\theta_\text{max}-\theta_\text{
 la probabilidad previa de ocurrencia de un evento se puede cuantificar la información que se obtiene
 tras su observación simplemente usando la probabilidad asignada. Además, la entropía es la
 información que se espera obtener dada una distribución de probabilidad. En este sentido, parece
-coherente que una forma justa de asignar la distribución previa, $\pri{\theta}{I}$ consista en
+coherente que una forma objetiva de asignar la distribución previa, $\pri{\theta}{I}$ consista en
 maximizar la entropía, esto es, maximizar la información que se obtiene una vez se ha hecho una
 observación.
 
-Supongamos que tenemos información contrastable sobre un conjunto exhaustivo de eventos mutuamente
-excluyentes $\hip$ y queremos asignar una distribución de probabilidad que cumpla con esa condición
-y que a la vez garantice que posterior a la observación tendremos la máxima información posible. El
-método de máxima entropía consiste en optimizar la función:
+Supongamos que tenemos información contrastable, $I$, sobre un conjunto exhaustivo de eventos
+mutuamente excluyentes $\hip$ y queremos asignar una distribución de probabilidad que cumpla con esa
+condición y que a la vez garantice que posterior a la observación tendremos la máxima información
+posible. El método de máxima entropía consiste en optimizar la función:
 %
-$$L(Pr;\theta,I) = \int\pro{\theta}{I}\,\log{\left[1/\pro{\theta}{I}\right]}\,\text{d}\theta - \lambda_0\left[\int\pro{\theta}{I}\,\text{d}\theta-1\right] - \sum_{i=1}^N \lambda_i\,g_i(Pr;\theta,I),$$
+$$L\equiv\int\pro{\theta}{I}\,\log{\left[1/\pro{\theta}{I}\right]}\,\text{d}\theta - \lambda_0\left[\int\pro{\theta}{I}\,\text{d}\theta-1\right] - \sum_{i=1}^N \lambda_i\,g_i(Pr;\theta,I),$$
 %
-donde el primer término es la entropía, el segundo es la condición de normalización y es una
-restricción necesaria y la sumatoria representa las restricciones impuestas por la información
-contrastable encapsulada en las funciones $g_i(Pr;\theta,I)$. Los factores $\lambda_i$ son los
-multiplicadores de Lagrange $\lambda_i$.
+donde el primer término es la entropía, el segundo es la condición de normalización (necesaria) y la
+sumatoria representa las restricciones impuestas por la información contrastable encapsulada en las
+funciones $g_i(Pr;\theta,I)$. Los factores $\lambda_i$ son los multiplicadores de Lagrange
+$\lambda_i$.
 
-\paragraph{\textsc{\color{Blue}Ejemplo: función inicial de masa.}} En este ejemplo vamos a
-reconstruir la FIM usando el método de máxima entropía. Como información verificable
+Veamos un ejemplo interesante para ilustrar la utilidad de esta técnica para asignar distribuciones
+de probabilidad a partir de $I$.
+
+\paragraph{\textsc{\color{Blue}Ejemplo: función inicial de masa.}} La Función Inicial de Masa (FIM)
+puede escribirse como una distribución de probabilidad en masa estelar, $m$, de la forma:
+% mostrar las distintas versiones de la FIM, e.g. Fig. 1 de Offner+2013
+$$\pro{m}{I} = \gamma\,m^{-\alpha},$$
+%
+donde $\gamma$ es una constante de normalización y $\alpha$ es el exponente. Vamos a tratar de
+recuperar la misma forma funcional de la FIM usando argumentos estadísticos y el método de la ME.
+
+Supongamos que en la región alrededor de una protoestrella la densidad del gas que esta está
+acretando por la protoestrella $i$ es $\rho^g_i$, si la tasa de acreción es:
+%
+$$R_i = \frac{m_i}{\tau_i^\text{din}},$$
+%
+con $m_i$ la masa de la protoestrella y $\tau_i^\text{din}$ la escala de tiempo dinámica del
+entorno. Si la acreción ocurre en caída libre (i.\,e., la viscosidad del medio es despreciable)
+entonces:
+%
+$$R_i \propto (m_i\,r_i)^{3/2},$$
+%
+donde $r_i$ es el radio de la protoestrella. La densidad de tasa de acreción es $R_i/V_i$, de manera
+que:
+%
+$$\rho_i^R \propto (m_i/r_i)^{3/2}.$$
+%
+Queremos encontrar entonces el conjunto $\set{P_i}$ que defina de probabilidad de que la estrella
+$i$ tenga masa $m_i$ cuando entre a la secuencia principal o lo que es igual, en el instante en que
+$R_i=0$. Como las estrellas de secuencia principal siguen la relación de escala: $r_i = m_i^{0.8}$,
+entonces la ecuación de arriba queda simplemente como:
+%
+$$\rho_i^R \propto m_i^{0.2}.$$
+%
+Vamos a suponer además que el proceso de acreción estelar ocurre de manera que esta es una versión
+local de la Ley de Kennicutt-Schmidt \citep{Kennicutt1998} de formación estelar:
+%
+$$\rho_\Psi = \epsilon\rho_g^{3/2},$$
+%
+de manera que:
+%
+$$\sum_i P_i\,\log{m_i} \propto \log{\rho_g} + K,$$
+%
+Así, el Lagrangiano queda:
+%
+$$L = \sum_i P_i\,\log{(1/P_i)} - \lambda_0\left[\sum_i P_i-1\right] - \lambda_1\left[A+B\sum_i P_i\log{m_i}-\log{\rho_g}\right],$$
+%
+donde $A$ y $B$ son constantes. Entonces:
+%
+$$\frac{\partial L}{\partial P_i} = -(1+\lambda_0) - B\lambda_1\log{m_i} - \log{P_i},$$
+%
+haciendo $\alpha\equiv B\lambda_1$ y $\gamma\equiv e^{-1-\lambda_0}$, concluimos que:
+%
+$$P_i = \gamma\,m_i^{-\alpha}\quad\Longrightarrow\quad \pro{m}{I} = \gamma\,m^{-\alpha}.$$
+%
+Hemos demostrado que la FIM puede explicarse por un proceso estocástico usando la Ley de formación
+estelar de KS.
 
 %---------------------------------------------------------------------------------------------------
 
