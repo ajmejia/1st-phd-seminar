@@ -342,6 +342,7 @@ Z_\star & \text{metalicidad}
 % En galaxias tardías, los rasgos de metalicidad \emph{estelar} en el óptico son débiles, mientras que
 % la emisión del MIE difuso permite estimar la metalicidad en fase de gas.
 % Espectro del SDSS con sus líneas de emisión identificadas. Fig. 2 Calabro+2017
+% Fig. 14.1 Mo+2010
 \begin{figure}
 \includegraphics[scale=0.61]{img/hayes2016-2}
 \end{figure}
@@ -463,7 +464,7 @@ Z_\text{frío} & \text{metalicidad del gas}
 De acuerdo con \citet{Ocvirk2006a}:
 \begin{equation*}
 \Lambda(t) = \frac{\Psi(t)}{\Delta\lambda}\,\int_{\lambda_\text{min}}^{\lambda_\text{max}}\,L_\lambda^\text{PES}(Z;t)\,\text{d}\lambda
-\Longrightarrow \alert{\left<t_\star\right>\sim\Psi}
+% \Longrightarrow \alert{\left<t_\star\right>\sim\Psi}
 \end{equation*}
 % La relación entre la edad estelar y la metalicidad estelar no es trivial porque la formación estelar
 % es un proceso cíclico: las estrellas nacen, enriquecen el MIE, mueren y luego otra generación de
@@ -472,9 +473,9 @@ De acuerdo con \citet{Ocvirk2006a}:
 \uncover<2->{
 \begin{tikzpicture}
 % \draw[help lines] (0,0) grid (\textwidth,10);%(10,10);
-\path[->,draw,very thick] (0,0) -- node[near end,below,sloped] {$\left<t_\star\right>$} (10,0);
-\path[->,draw,very thick] (0,0) -- node[near end,above,sloped] {color}                  (0,10);
-\path[->,draw,very thick] (0,0) -- node[near end,below,sloped] {$Z_\star$}              (7,7);
+\path[->,draw,very thick] (0,0) -- node[near end,below,sloped]     {edad media}          (10,0);
+\path[->,draw,very thick] (0,0) -- node[near end,above,sloped]     {evolución espectral} (0,10);
+\path[->,draw,very thick] (0,0) -- node[near end,below=1cm,sloped] {metalicidad media}   (7,7);
 
 \draw[decorate,decoration={coil,aspect=1,segment length=2cm,amplitude=1cm}] (0,0) -- (7,7);
 \end{tikzpicture}
@@ -636,6 +637,42 @@ M_0          &\qquad\text{masa bariónica a la cual $y_\text{ef}=y_0/2$.}
 \end{columns}
 \end{frame}
 
+\begin{frame}{\textsc{ciclo de masa visto por CALIFA --- $M_\star\,$--$\,Z_{\rm frío}\,$--$\,\Psi$}}
+
+\begin{columns}
+\column{0.6\textwidth}
+% Esta relación, también llamada relación fundamental (o plano fundamental) de masa-metalicidad ya
+% había sido estudiada \citep{Lara-Lopez2010, Mannucci2010} y tiene la siguiente forma: a una masa
+% fija, las galaxias con mayor TFE tienen menor metalicidad y para galaxias de baja masa esta
+% dependencia con la TFE es más fuerte. Existen varios fenómenos que pueden alterar la abundancia
+% química presente en una galaxia: el enriquecimiento es producido en primer lugar por la formación y
+% la evolución estelar, la acreción de material pristino del medio intergaláctico que diluye y
+% disminuye la metalicidad, y las corrientes de salida que eyectan material enriquecido al medio
+% intergaláctico.
+% Fig. 1 Mannucci+2010.
+\begin{figure}
+\flushleft\scriptsize\citep{Mannucci2010}
+\includegraphics[width=\textwidth]{img/mannucci2010-1}
+\end{figure}
+
+\column{0.4\textwidth}
+% La dispersión estadística en la relación masa-metalicidad se disminuye considerablemente si se introduce la TFE
+% En galaxias menos masivas la dependencia entre la metalicidad y la TFE es fuerte
+% En galaxias más masivas la dependencia es prácticamente inexistente
+\begin{itemize}\scriptsize
+\setlength\itemsep{0.5em}
+\item La dispersión en la relación $M_\star\,$--$\,Z$ se debe a distintos niveles de $\Psi$,
+\item a $M_\star$ fija:
+\begin{itemize}\scriptsize
+\item galaxias $\log{M_\star/\text{M}_\odot}<10.5$ forman una secuencia en $\Psi\,$--$\,Z_\text{frío}$,
+\item galaxias $\log{M_\star/\text{M}_\odot}>10.5$ no muestran dependencia fuerte $\Psi\,$--$\,Z_\text{frío}$.
+\end{itemize}
+\alert{\item La dependencia $\Psi\,$--$\,Z_\text{frío}$ puede explicarse como un efecto de apertura fija e inclinación.}
+\end{itemize}
+
+\end{columns}
+\end{frame}
+
 \begin{frame}{\textsc{relaciones clásicas --- resumen}}
 \begin{columns}
 \column{0.5\textwidth}
@@ -731,7 +768,7 @@ fenómenos locales y globales.
 % más viejas que unos pocos Gaños evolucionando pasivamente.
 % mostrar evolución de M/L
 \begin{figure}
-\includegraphics[scale=1]{img/placeholder}
+\includegraphics[scale=1]{img/text4732}
 \end{figure}
 % Las galaxias tardías, por otro lado suponen retos que dificultan la interpretación de sus
 % propiedades integradas como ya vimos en el punto anterior. Adicionalmente modelos de HFE más
@@ -978,6 +1015,8 @@ A nivel local:
 
 \begin{frame}{\textsc{ciclo de masa visto por CALIFA --- $M_\star\,$--$\,Z_{\rm frío}\,$--$\,\Psi$}}
 
+\begin{columns}
+\column{0.6\textwidth}
 % Esta relación, también llamada relación fundamental (o plano fundamental) de masa-metalicidad ya
 % había sido estudiada \citep{Lara-Lopez2010, Mannucci2010} y tiene la siguiente forma: a una masa
 % fija, las galaxias con mayor TFE tienen menor metalicidad y para galaxias de baja masa esta
@@ -988,15 +1027,9 @@ A nivel local:
 % intergaláctico.
 % Fig. 1 Mannucci+2010.
 \begin{figure}
-\flushleft\citep{Mannucci2010}
-\includegraphics[scale=0.7]{img/mannucci2010-1}
+\flushleft\scriptsize\citep{Mannucci2010, Sanchez2017}
+\includegraphics[width=\textwidth]{img/mannucci2010-1}
 \end{figure}
-% La dispersión estadística en la relación masa-metalicidad se disminuye considerablemente si se introduce la TFE
-% En galaxias menos masivas la dependencia entre la metalicidad y la TFE es fuerte
-% En galaxias más masivas la dependencia es prácticamente inexistente
-\end{frame}
-
-\begin{frame}{\textsc{ciclo de masa visto por CALIFA --- $M\,$--$\,Z\,$--$\,\Psi$}}
 
 % Sin embargo, \citet{Sanchez2013, Sanchez2017} mostró que la correlación entre la TFE y la
 % metalicidad (local e integrada) es producto de ambos, el sesgo de apertura introducido por los
@@ -1006,21 +1039,39 @@ A nivel local:
 % discuten. La primera es entendida en el marco del fenómeno de acreción de gas del medio
 % intergaláctico, mientras que la segunda es entendida en la capacidad de las galaxias por retener los
 % metales que producen.
+\uncover<2->{
 \begin{figure}
-\flushleft\citep{Sanchez2017}
-\includegraphics[scale=0.7]{img/sanchez2017-4}
-\end{figure}
+\includegraphics[width=\textwidth]{img/sanchez2017-4}
+\end{figure}}
+
+\column{0.4\textwidth}
+% La dispersión estadística en la relación masa-metalicidad se disminuye considerablemente si se introduce la TFE
+% En galaxias menos masivas la dependencia entre la metalicidad y la TFE es fuerte
+% En galaxias más masivas la dependencia es prácticamente inexistente
+
 % Los resultados de \citeauthor{Sanchez2017} de nuevo ponen en el tapete la necesidad de introducir
 % fenómenos reguladores para explicar de manera convincente la ausencia de una relación
 % TFE-metalicidad.
+\begin{itemize}\scriptsize
+\setlength\itemsep{0.5em}
+\item La dispersión en la relación $M_\star\,$--$\,Z$ se debe a distintos niveles de $\Psi$,
+\item a $M_\star$ fija:
+\begin{itemize}\scriptsize
+\item galaxias $\log{M_\star/\text{M}_\odot}<10.5$ forman una secuencia en $\Psi\,$--$\,Z_\text{frío}$,
+\item galaxias $\log{M_\star/\text{M}_\odot}>10.5$ no muestran dependencia fuerte $\Psi\,$--$\,Z_\text{frío}$.
+\end{itemize}
+\alert{\item La dependencia $\Psi\,$--$\,Z_\text{frío}$ puede explicarse como un efecto de apertura fija e inclinación.}
+\end{itemize}
 
+\end{columns}
 \end{frame}
 
 \begin{frame}{\textsc{ciclo de masa visto por CALIFA --- resumen}}
 % resumir los hallazgos de CALIFA
+
 \end{frame}
 
-\begin{frame}{\textsc{una visión teórica del ciclo de masa}}
+\begin{frame}{\textsc{ciclo de masa --- un modelo de juguete}}
 
 % mostrar una lista de los fenómenos
 % mostrar esquema representando los reservorios de material bariónico
