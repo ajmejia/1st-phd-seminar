@@ -1,0 +1,34 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{eulervm}
+
+\begin{document}
+
+$$\sum_i P(\mathcal{H}_i\,|\,\mathcal{C})=1$$
+$$P(\mathcal{H}_A,\mathcal{H}_B\,|\,\mathcal{C})=P(\mathcal{H}_A\,|\,\mathcal{H}_B,\mathcal{C})\times P(\mathcal{H}_B\,|\,\mathcal{C})$$
+
+$$P(L\,|\,\mathcal{C})=0,76$$
+$$P(S\,|\,\mathcal{C})=0,24$$
+$$P(S\,|\,\mathcal{C})=1-P(L\,|\,\mathcal{C})$$
+
+$$P(N\,|\,\mathcal{C})=0,63$$
+$$P(L\,|\,N,\mathcal{C})=0,81$$
+$$P(L,\bar{N}\,|\,\mathcal{C})\leq \left[1-P(L\,|\,N,\mathcal{C})\right]\times P(\bar{N}\,|\,\mathcal{C})$$
+$$P(L,\bar{N}\,|\,\mathcal{C})\leq 0,07$$
+
+\newpage
+
+$$P(\mathcal{H}\,|\,\mathcal{D},\mathcal{C})=\frac{P(\mathcal{D}\,|\,\mathcal{H},\mathcal{C})\times P(\mathcal{H}\,|\,\mathcal{C})}{P(\mathcal{D\,|\,\mathcal{C}})}$$
+
+$$P(\mathcal{H}\,|\,\mathcal{D},\mathcal{C})\propto P(\mathcal{D}\,|\,\mathcal{H},\mathcal{C})\times P(\mathcal{H}\,|\,\mathcal{C})$$
+
+\newpage
+
+$$\mathcal{L}(m,b\,|\,\{y\},\{x\},\{\sigma_y\})\propto\prod_i\exp{\left[-\frac{(\mu(m,b;x_i)-y_i)^2}{2{\sigma_y}_i^2}\right]}$$
+
+\begin{align*}\mathcal{L}(m\,|\,\{y\},\{x\},\{\sigma_y\}) &= \int_b \mathcal{L}(m,b\,|\,\{y\},\{x\},\{\sigma_y\}) \\\mathcal{L}(b\,|\,\{y\},\{x\},\{\sigma_y\}) &= \int_m \mathcal{L}(m,b\,|\,\{y\},\{x\},\{\sigma_y\})\end{align*}
+
+$$P(m,b\,|\,\{y\},\{x\},\{\sigma_y\})\propto \mathcal{L}(m,b\,|\,\{y\},\{x\},\{\sigma_y\})\times P(m,b\,|\,\{x\},\{\sigma_y\})$$
+
+\end{document}
