@@ -1,23 +1,16 @@
-\documentclass[xcolor=dvipsnames,4pt,hyperref={colorlinks,citecolor=black,linkcolor=black,urlcolor=black}]{beamer}
+\documentclass{article}
 
-\usepackage{amsmath}
-\usepackage{eulervm}
 
-\setbeamertemplate{navigation symbols}{}
-\usefonttheme{professionalfonts}
-\useinnertheme{circles}
 \usepackage[spanish]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[orientation=portrait,size=custom,width=32,height=18]{beamerposter}
+\usepackage{amsmath}
+\usepackage{eulervm}
+\usepackage{libertine}
 
 \usepackage{multirow}
 \usepackage{graphicx}
-\usepackage{tikz}
-
-\usecolortheme[named=Black]{structure}
-
-\usetikzlibrary{arrows,shapes,positioning,backgrounds}
+\usepackage[dvipsnames]{xcolor}
 
 \PassOptionsToPackage{%
 %backend=biber, % Instead of bibtex
@@ -38,6 +31,7 @@ eprint=false %
 
 \addbibresource{library.bib}
 
+\usepackage{hyperref}
 \hypersetup{
 % Uncomment the line below to remove all links (to references, figures, tables, etc), useful for b/w printouts
 %draft,
@@ -51,65 +45,14 @@ urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
 %urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,%
 }
 
-% My default font
-%\usepackage{newcent}
-
-% Computer Modern Bright font
-%\usepackage{cmbright}
-
-% Iwona light
-\usepackage[light]{iwona}
-
-% LX fonts
-%\usepackage{lxfonts}
-
-% Malvern
-%\input T1fmv.fd
-%\renewcommand*\sfdefault{fmv}
-%\renewcommand*\familydefault{\sfdefault}
-
-% Comfortaa
-%\usepackage[default]{comfortaa}
-
-%\setbeamercolor{frametitle}{fg=NavyBlue}
-%\setbeamercolor{structure}{fg=NavyBlue}
-%\setbeamercolor{normal text}{fg=black}
-\setbeamercolor{alerted text}{fg=NavyBlue}
-%\setbeamercolor{example text}{fg=red}
-
-\newcommand{\cl}[1]{\multicolumn{1}{c}{#1}}
-
-\newenvironment{changemargin}[2]{%
-  \begin{list}{}{%
-    \setlength{\topsep}{0pt}%
-    \setlength{\leftmargin}{#1}%
-    \setlength{\rightmargin}{#2}%
-    \setlength{\listparindent}{\parindent}%
-    \setlength{\itemindent}{\parindent}%
-    \setlength{\parsep}{\parskip}%
-  }%
-\item[]}{\end{list}}
-
 \begin{document}
-\tikzstyle{every picture}+=[remember picture]
-\tikzstyle{na} = [baseline=-.5ex]
-
-\begin{frame}
 \title{Formación y Evolución de las Galaxias}
-%\subtitle{}
-\author{Alfredo J. Mej\'ia$^{1,2}$}
-
+\author{Alfredo J. Mej\'ia}
 \date{\today}
-
-\institute{$^{1}$Posgrado de F\'isica Fundamental\\ Universidad de Los Andes \and $^{2}$Centro de %
-Investigaciones de Astronom\'ia%
-}
-
 \maketitle
-\end{frame}
 
 %Motivación
-\begin{frame}[allowframebreaks]{\textsc{Motivación}}
+\section{Motivación}
 %
 Si bien los sondeos de galaxias de última generación han revelado detalles de los fenómenos físicos
 que intervienen en la formación y evolución de las galaxias, una construcción física \emph{ab
@@ -130,8 +73,8 @@ naturalmente sesgado hacia los resultados del método semianalítico, sin embarg
 pertienente señalaré las diferencias entre los resultados de ambos métodos en comparación con las
 observaciones.
 %
-\end{frame}
-\begin{frame}{\textsc{Estructura del seminario}}
+
+\section{Estructura del seminario}
 En el presente, la lista de fenómenos físicos que capturaban la esencia de la formación y evolución
 de galaxias en el universo estándar ha alcanzado un punto de equilibrio:
 % mostrar esta lista
@@ -144,9 +87,8 @@ de galaxias en el universo estándar ha alcanzado un punto de equilibrio:
 \item formación de agujeros negros supermasivos, y
 \item \emph{feedback} de núcleos activos.
 \end{itemize}
-\end{frame}
 
-\begin{frame}[allowframebreaks]{\textsc{Teoría de formación de galaxias -- fundamentos}}
+\section{Teoría de formación de galaxias -- fundamentos}
 %
 En el marco del \emph{Big Bang} se postula que el universo comenzó en un estado altamente denso,
 caliente y esencialmente homogéneo. Durante un corto período en su expansión, llamado inflación, se
@@ -240,9 +182,8 @@ observaciones:
 \end{itemize}
 %
 \end{description}
-\end{frame}
 
-\begin{frame}[allowframebreaks]{\textsc{Enfriamiento del gas}}
+\section{Enfriamiento del gas}
 %
 % Electron-ionized plasmas (also called collisionally ionized plasmas) are formed in a di-
 % verse variety of objects in the universe. These range from stellar coronae and supernova
@@ -271,7 +212,7 @@ $$
 Bajo esta suposición, el mecanismo de enfriamiento más eficiente a escalas cosmológicas son los
 procesos radiativos de dos cuerpos. Dependiendo de la temperatura del gas, el mecanismo específico
 de enfriamiento, encapsulado en la función $\Lambda(T_\text{gas}, Z_\text{gas})$, será uno de los
-siguientes \citep{Somerville2014}:
+siguientes \citep{Somerville2015}:
 %
 \begin{description}
 %
@@ -308,10 +249,8 @@ Durante el proceso de acreción del gas se asume que el disco conserva su moment
 Para que la formación estelar tenga lugar, el gas debe entonces enfriarse lo suficiente como para
 condensarse en nubes de unas pocas decenas de parsecs de manera que la formación de H\,\textsc{ii}
 prospere.
-%
-\end{frame}
 
-\begin{frame}[allowframebreaks]{\textsc{Formación estelar y acreción de halos}}
+\section{Formación estelar y acreción de halos}
 %
 El contenido estelar de una galaxia se ve enriquecido principalmente por dos fenómenos: la formación
 estelar, que es un fenómeno \emph{in situ} que ocurre a escalas de unas pocas decenas de parsecs
@@ -540,10 +479,9 @@ la formación estelar (más adelante explicaré con más detalle la física detr
 \emph{feedback}).
 % Diagrama resumen de las implicaciones de los procesos de fusión de galaxias.
 \end{description}
-%
-\end{frame}
 
-\begin{frame}[allowframebreaks]{\textsc{Evolución química}}
+
+\section{Evolución química}
 %
 Una de las consecuencias de la evolución estelar es el enriquecimiento químico del MIE y del MIG.
 Posteriormente parte del material devuelto al MIG en eventos de supernovas y/o AGNs puede retornar
@@ -563,7 +501,7 @@ Existen principalmente dos mecanismos mediante los cuales las estrellas pueden r
 MIE: vientos estelares y explosiones de supernova. El primer mecanismo es importante para el retorno
 al MIE del material enriquecido producido en el proceso de nucleosíntesis en el interior de las
 estrellas y es particularmente eficiente en la fase de gigantes de las estrellas de masa intermedia,
-$\lesssim5\,$M$_\odot$. En estrellas de mayor masa $<100\,$M$_\odot$, los vientos estelares y la
+$<5\,$M$_\odot$. En estrellas de mayor masa $<100\,$M$_\odot$, los vientos estelares y la
 nucleosíntesis en explosiones de supernova al final de la vida de estas estrellas son más
 importantes. Por otra parte, existen especies en la composición inicial de las estrellas que no es
 ni creado ni destruido durante la vida de las estrellas. La importancia de estas especies dependerá
@@ -625,10 +563,8 @@ En la práctica solo un número reducido de especies es considerado puesto que e
 más abundantes que otras y por lo tanto más facilmente observables/medibles. En particular las
 especies en color en el gráfico son importantes en el calculo de las tasas de enfriamiento del gas
 \citep{Wiersma2009a}.
-%
-\end{frame}
 
-\begin{frame}[allowframebreaks]{\textsc{Fenómenos de \emph{Feedback}}}
+\section{Fenómenos de \emph{Feedback}}
 %
 Los fenómenos de \emph{feedback} (e.\,g., vientos estelares y los eventos de supernova) no solo
 pueden cambiar la composición química del MIE, también inyectan cantidades importantes de energía
@@ -673,9 +609,9 @@ más cortos que el tiempo de vida de las estrellas masivas y la segunda es más 
 donde la población está en equilibrio estadístico: la tasa a la que nacen las estrellas es la misma
 a la que mueren. Entonces, para que el momento inyectado en el MIE pueda suprimir la formación
 estelar y transportar material a escalas de cúmulos o asociaciones estelares tiene que ocurrir que
-$\dot{V}\times\tau_\text{din}\gtrsim V_\text{local}$. Alternativamente, para que el momento
+$\dot{V}\times\tau_\text{din}> V_\text{local}$. Alternativamente, para que el momento
 inyectado en el MIE pueda remover material del MIE y expulsarlo al MIG tiene que ocurrir que
-$V\gtrsim V_\text{global}$.
+$V> V_\text{global}$.
 
 Entre las fuentes de energía--momento lo suficientemente importantes como para regular la TFE a
 escalas galácticas están:
@@ -786,10 +722,8 @@ masivas: ¿por qué son aparentemente más viejas? ¿el fenómeno de \emph{downs
 químico del MIG?.
 %
 \end{description}
-%
-\end{frame}
 
-\begin{frame}[allowframebreaks]{\textsc{Poder Predictivo -- Teoría vs. Observaciones}}
+\section{Poder Predictivo -- Teoría vs. Observaciones}
 %
 En las siguientes secciones mostraré cómo todas las reglas físicas que he expuesto hasta ahora se
 compaginan para reproducir las observaciones que hacemos en el universo local y, por lo tanto
@@ -843,7 +777,7 @@ modelos predicen exitosamente la pendiente en casi todo el rango de masa, sin em
 en la mayoría de los casos está subestimada. Más aún, el cambio de la pendiente en la región de alta
 masa no es el mismo en todos los modelos, lo cual refleja incertidumbres en la definición de
 galaxias pasivas, es decir, incertidumbres en la implementación del `apagado' de la TFE. En el rango
-$4<z\lesssim0$ se espera que la TFE diverja de la tasa de acreción de materia oscura en los halos,
+$4<z<0$ se espera que la TFE diverja de la tasa de acreción de materia oscura en los halos,
 pues la `formación estelar' está dominada por procesos \emph{in situ}. A $z>4$ por otra parte es de
 esperarse que la eficiencia en la TFE sea baja debido a prolongados tiempos de enfriamiento del gas
 en un MIE pobre en metales, sin embargo, modelos en los que se incorporan estas consideraciones aún
@@ -889,9 +823,7 @@ disipativa en los progenitores de las galaxias dominadas por esferoides.
 %
 \end{description}
 
-\end{frame}
-
-\begin{frame}[allowframebreaks]{\textsc{Resumen y perspectivas}}
+\section{Resumen y perspectivas}
 %
 \begin{description}
 %
@@ -924,7 +856,7 @@ agujero negro transportan energía y momento hacia el MIE. Las simulaciones demu
 fenómeno de AGN puede ser suficiente para frenar la formación estelar en los halos más masivos a
 $z>2$ y en halos vecinos. La formación de las galaxias elípticas como las conocemos a $z=0$ procede
 mayormente por acreción de subhalos con una fracción de gas baja de manera que aunque estas apenas
-se están ensamblando a $z\gtrsim1$ la mayor parte de su contenido estelar se formó \emph{ex situ} a
+se están ensamblando a $z>1$ la mayor parte de su contenido estelar se formó \emph{ex situ} a
 $z>2$. En los suburbios del MIG, los halos de materia oscura de masa intermedia y de baja masa
 prosperan de forma menos agitada: los discos se mantienen y la masa estelar crece de manera secular
 mediante la formación estelar y la acreción de halos de menor masa y ricos en gas. Los perfiles de
@@ -953,11 +885,7 @@ directamente con la capacidad de que en ciertas regiones ($<10\,$parsecs) exista
 % \item Mencionar resultados más importantes de las simulaciones.
 % \item Decir cuales son las perspectivas.
 % \end{itemize}
-%
-\end{frame}
 
-\begin{frame}[allowframebreaks]{\textsc{Referencias}}
 \printbibliography
-\end{frame}
 
 \end{document}
