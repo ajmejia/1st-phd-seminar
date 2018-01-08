@@ -4,8 +4,8 @@
 \usepackage[spanish]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{times}
 \usepackage{eulervm}
+\usepackage{libertine}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{xspace}
 \usepackage{natbib}
@@ -91,9 +91,9 @@ $\theta_B$, podemos admitir que sabemos nuestro grado de conocimiento de $\theta
 $\theta_B$.
 
 %---------------------------------------------------------------------------------------------------
-
+\newpage
 \section*{El teorema de Bayes}
-%
+
 \definition{$\pos{\hip}{\dat,I}$}{es la distribución de probabilidad posterior y representa
 nuestro grado de conocimiento de la hipótesis a la luz de los datos, $\dat$.}
 %
@@ -152,7 +152,7 @@ anterior a la obtención de los datos actuales o incluso, pudo ser la posterior 
 distinto. En estos casos decimos que la distribución prior está introduciendo dominio de
 conocimiento sobre el modelo.
 
-\paragraph{\textsc{\color{Blue}Ejemplo: regresión lineal.}} Ahora vamos a hacer el ejercicio más
+\paragraph{\textsc{Ejemplo: regresión lineal.}} Ahora vamos a hacer el ejercicio más
 vulgar y silvestre y, aún así uno de los más útiles si se hace bien: ajustar una línea recta a un
 conjunto de datos. Supongamos que dicho conjunto de datos está descrito por un arreglo independiente
 (i.\,e., dado) $\set{x_i}$ y un arreglo de medidas $\set{y_i}$ cuyas desviaciones estándar están
@@ -359,7 +359,7 @@ $\lambda_i$.
 Veamos un ejemplo interesante para ilustrar la utilidad de esta técnica para asignar distribuciones
 de probabilidad a partir de $I$.
 
-\paragraph{\textsc{\color{Blue}Ejemplo: función inicial de masa.}} La Función Inicial de Masa (FIM)
+\paragraph{\textsc{Ejemplo: función inicial de masa.}} La Función Inicial de Masa (FIM)
 puede escribirse como una distribución de probabilidad en masa estelar, $m$, de la forma:
 % mostrar las distintas versiones de la FIM, e.g. Fig. 1 de Offner+2013
 $$\pro{m}{I} = \gamma\,m^{-\alpha},$$
@@ -453,7 +453,5 @@ verosimilitud sería muy parecida a la del problema de ajustar una línea recta 
 \end{description}
 
 %---------------------------------------------------------------------------------------------------
-
-\section*{Resumen}
 
 \end{document}
