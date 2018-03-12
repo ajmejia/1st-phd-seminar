@@ -1,2 +1,14 @@
+.ipynb_checkpoints
+data
 library
 .comments
+*.snm
+*.aux
+*.out
+*.nav
+*.log
+*.toc
+*.xml
+*.bbl
+*.blg
+*blx.bib
