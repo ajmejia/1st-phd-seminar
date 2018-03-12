@@ -1,0 +1,891 @@
+\documentclass{article}
+
+
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{eulervm}
+\usepackage{libertine}
+
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+
+\PassOptionsToPackage{%
+%backend=biber, % Instead of bibtex
+backend=bibtex8,bibencoding=ascii,%
+language=auto,%
+%style=numeric-comp,%
+style=authoryear-comp, % Author 1999, 2010
+bibstyle=authoryear,dashed=false, % dashed: substitute rep. author with ---
+sorting=ynt, % year, name, title
+maxbibnames=3, % default: 3, et al.
+backref=false,%
+natbib=true, % natbib compatibility mode (\citep and \citet still work)
+url=false, %
+doi=false, %
+eprint=false %
+}{biblatex}
+\usepackage{biblatex}
+
+\addbibresource{library.bib}
+
+\usepackage{hyperref}
+\hypersetup{
+% Uncomment the line below to remove all links (to references, figures, tables, etc), useful for b/w printouts
+%draft,
+colorlinks=true, linktocpage=true, pdfstartpage=3, pdfstartview=FitV,
+% Uncomment the line below if you want to have black links (e.g. for printing black and white)
+%colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=3, pdfstartview=FitV,
+breaklinks=true, pdfpagemode=UseNone, pageanchor=true, pdfpagemode=UseOutlines,%
+plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,%
+hypertexnames=true, pdfhighlight=/O,%nesting=true,%frenchlinks,%
+urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=Maroon, %pagecolor=RoyalBlue,%
+%urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,%
+}
+
+\begin{document}
+\title{Formación y Evolución de las Galaxias}
+\author{Alfredo J. Mej\'ia}
+\date{\today}
+\maketitle
+
+%Motivación
+\section{Motivación}
+%
+Si bien los sondeos de galaxias de última generación han revelado detalles de los fenómenos físicos
+que intervienen en la formación y evolución de las galaxias, una construcción física \emph{ab
+initio} permanece aún elusiva. La principal limitación en este sentido sigue siendo la tecnología.
+Por otra parte, desde el punto de vista teórico, mediante simulaciones cosmológicas autoconsistentes
+de formación de estructuras a gran escala, hemos llegado a la satisfactoria realización de que
+conocemos (y hasta cierto punto, entendemos) los aspectos físicos más relevantes en la formación de
+las galaxias. Existen esencialmente dos formas de modelar los procesos físicos de la formación y la
+evolución de las galaxias en dichas simulaciones: uno es mediante simulaciones hidrodinámicas de
+materia oscura y bariónica y el otro es el llamado método semianalítico; aunque ambos métodos son
+fundamentalmente distintos, obtienen resultados similares. Más aún, estos están en acuerdo
+cualitativo con las observaciones. Aún así, existen fenómenos físicos de gran importancia en la
+construcción de una teoría de formación de galaxias, que carecen aún de un entendimiento completo.
+Es el objeto de este seminario hacer un recuento fenomenológico de los procesos físicos que
+intervienen en la formación de las galaxias, señalar las incertidumbres que existe en cada proceso y
+establecer las perspectivas a futuro. Ya que el enfoque es fenomenológico, este seminario estará
+naturalmente sesgado hacia los resultados del método semianalítico, sin embargo, cuando sea
+pertienente señalaré las diferencias entre los resultados de ambos métodos en comparación con las
+observaciones.
+%
+
+\section{Estructura del seminario}
+En el presente, la lista de fenómenos físicos que capturaban la esencia de la formación y evolución
+de galaxias en el universo estándar ha alcanzado un punto de equilibrio:
+% mostrar esta lista
+\begin{itemize}
+\item Fusión de (sub)halos (gravedad),
+\item enfriamiento del material bariónico (termodinámica y transferencia radiativa),
+\item formación estelar,
+\item evolución química,
+\item \emph{feedback} de la formación estelar,
+\item formación de agujeros negros supermasivos, y
+\item \emph{feedback} de núcleos activos.
+\end{itemize}
+
+\section{Teoría de formación de galaxias -- fundamentos}
+%
+En el marco del \emph{Big Bang} se postula que el universo comenzó en un estado altamente denso,
+caliente y esencialmente homogéneo. Durante un corto período en su expansión, llamado inflación, se
+manifestaron fluctuaciones cuánticas que dieron origen a inhomogeneidades, las mismas que se miden
+ahora en el Fondo Cósmico de Microondas (FCM).
+% mostrar imagen del FCM
+Estas mediciones han permitido determinar que el universo en el presente es plano y que está
+dominado por materia oscura y energía oscura en más de un $95\,$por ciento. Es comúnmente asumido
+que la materia oscura se comporta como un fluído frío y no colisional y constituye el $\sim25\,$por
+ciento de la materia-energía en el universo.
+% mencionar varios candidatos para la materia oscura
+La energía oscura es aún más incierta y representa el $\sim70\,$por ciento de la materia-energía. El
+restante $\sim4\,$por ciento es materia bariónica.
+
+Dadas estas condiciones iniciales, en un universo en expansión que contiene solo materia oscura, se
+desarrollan de manera natural regiones de sobre densidad.
+% mostrar un conjunto de halos de materia oscura
+A medida que el universo se expande la densidad de campo (densidad promedio) disminuye.
+% mostrar flechas de expansión del universo
+Sin embargo, cuando en estas regiones de sobre densidad se alcanza un valor crítico, la expansión
+del universo es despreciable y el material acumulado se convierte en autogravitante: es en estos
+halos de materia oscura que la formación de las galaxias ocurre.
+% mostrar flechas de autogravedad
+
+Los sondeos del cielo de los últimos 20 años nos ha permitido estudiar con relativo detalle
+(estadísticamente hablando) los propiedades observables y físicas de las galaxias en escalas de
+tiempo cosmológicas ($z<6$). Por una parte los métodos que buscan explotar los registros fósiles en
+el universo local ($z<0.5$) han servido su propósito revelando correlaciones entre las propiedades
+físicas de las galaxias (\cites[la relación masa-metalicidad,][]{Tremonti2004, Sanchez2013}[la
+relación edad-metalicidad,][]{Worthey1994, Gallazzi2005, Panter2008}), mientras que estudios fuera
+del universo local ($z>1$) han permitido muestrear la distribución de masa estelar a escalas
+cosmológicas, la densidad de TFE, entre otros \citep[véase][para una revisión completa]{Madau2014}.
+Estas observaciones y mediciones han permitido la construcción de calibraciones en vista de una
+construcción \emph{ab initio} de la formación de galaxias. Aunque pareciera que conocemos los
+fenómenos necesarios para la formación de las galaxias, los aspectos fundamentales relacionados con
+la formación estelar no están completamente entendidos lo cual se traduce en predicciones erróneas
+de propiedades como la distribución de colores, la tasa de formación estelar presente y el tamaño de
+los discos galácticos.
+% mostrar Figs. 11 y 12 Guo+2011
+% mostrar Fig. 11 Croton+2006
+
+Por un lado las simulaciones que apuntan a resolver el problema de la formación de galaxias a
+escalas cosmológicas, de primeros principios, (e.\,g.,
+\cites[\textsc{millenium}][]{Springel2005c}[\textsc{illustris}][]{Vogelsberger2014}) no han
+alcanzado la resolución espacial ($<20\,$pc) y ni en masa ($<10^6\,$M$_\odot$) requeridos para
+experimentar distintos escenarios de formación estelar físicamente plausibles, de nuevo, en el
+contexto cosmológico. Por otro lado, las observaciones, incluso en nuestra propia galaxia
+\citep[e.\,g.][]{Lada2010}, son aún insuficientes para elaborar una compresión completa de los
+mecanismos físicos que intervienen en el MIE y como estos propician o inhiben la formación estelar
+\citep[véase][para revisiones recientes]{McKee2007, Krumholz2014, Naab2016}.
+
+A continuación una representación esquemática de los ingredientes necesarios para la elaboración de
+una teoría de formación de galaxias.
+%
+% - Eje horizontal: tiempo cosmico, eje vertical: espacio.
+% - Evolución desde la fusión de halos de materia oscura hasta la formación de una galaxia como la
+%   veríamos a z=0.
+% - En cada estadío evolutivo, representar lo que sucede a distintas escalas espaciales.
+%
+\begin{description}
+%
+\item[\textsc{Formación de galaxias.}] Los primeros modelos de formación de galaxias lograban
+predecir algunas propiedades globales, como la función de luminosidad de las galaxias y la
+existencia de galaxias satelites y galaxias centrales masivas compartiendo el mismo halo de materia
+oscura \citep{White1978}.
+% mostrar Fig. 8 White+1991
+En particular, aún el modelo más simple, el de colapso monolítico, permite predecir algunas de las
+propiedades observadas en galaxias elípticas \citep{Larson1974b, Larson1974c}.
+% mostrar Fig. 5 Larson+1974b
+% mostrar AMR estelar de Gallazzi+2005
+En el marco de este modelo, sin embargo, se predecían colores más azules hacia el núcleo galáctico
+que los observados, esto debido a que la tasa de formación estelar se extendendía desde el momento
+en que el colapso iniciaba hasta el presente. \citet{Larson1974c} sugería que para `apagar' la
+formación estelar en este tipo de galaxias, una fuente de energía en el núcleo de estas galaxias era
+necesaria para barrer y calentar el material gaseoso. Desde entonces, la realización de que algunos
+fenómenos físicos faltan para la construcción de una teoría de la formación y evolución de las
+galaxias, se ha traducido en los avances más significativos.
+%
+\item[\textsc{Predicciones.}] Los primeros intentos por simular la formación de estructuras a
+escalas cosmológicas, lograban hacer predicciones cualitativamente en acuerdo un conjunto de
+observaciones:
+%
+\begin{itemize}
+%
+\item La formación de sobredensidades de materia oscura,
+% mostrar esfera negra acretando gas de su entorno
+\item la formación de cúmulos de galaxias,
+% mostrar grupo de esferas negras acretando material de su entorno
+\item los propiedades cinemáticas de esferoides y discos estelares.
+% mostrar disco embebido en esfera negra
+\end{itemize}
+%
+\end{description}
+
+\section{Enfriamiento del gas}
+%
+% Electron-ionized plasmas (also called collisionally ionized plasmas) are formed in a di-
+% verse variety of objects in the universe. These range from stellar coronae and supernova
+% remnants to the interstellar medium and gas in galaxies or in clusters of galaxies. The phys-
+% ical properties of these sources can be determined using spectral observations coupled with
+% theoretical models. This allows one to infer electron and ion temperatures, densities, emis-
+% sion measure distributions, and ion and elemental abundances. Reliably determining these
+% properties requires accurate fractional abundance calculations for the different ionization
+% stages of the various elements in the plasma (i.e., the ionization balance of the gas).
+% Since many of the observed sources are not in local thermodynamic equilibrium, in order
+% to determine the ionization balance of the plasma one needs to know the rate coefficients
+% for all the relevant ionization and recombination processes. Often the observed systems
+% are optically-thin, low-density, dust-free, and in steady-state or quasi-steady-state. Under
+% these conditions the effects of any radiation field can be ignored, three-body collisions are
+% unimportant, and the ionization balance of the gas is time-independent. This is commonly
+% called collisional ionization equilibrium (CIE) or sometimes coronal equilibrium.
+%
+El gas en el halo se asume que es calentado por ondas de choque producidas por el durante el
+colapso. Tradicionalmente se asume que el gas se encontraba en equilibrio colisional \citep[sin
+embargo véase][]{Wiersma2009a}, por lo tanto el tiempo de enfriamiento se puede escribir como
+%
+$$
+t_\text{enf} = \frac{3}{2}\frac{1}{\mu\,m_\text{H}}\frac{k\,T_\text{gas}}{\rho_\text{gas}(r)\Lambda(T_\text{gas}, Z_\text{gas})}.
+$$
+%
+Bajo esta suposición, el mecanismo de enfriamiento más eficiente a escalas cosmológicas son los
+procesos radiativos de dos cuerpos. Dependiendo de la temperatura del gas, el mecanismo específico
+de enfriamiento, encapsulado en la función $\Lambda(T_\text{gas}, Z_\text{gas})$, será uno de los
+siguientes \citep{Somerville2015}:
+%
+\begin{description}
+%
+\item[\textsc{\emph{Bremsstrahlung}.}] A temperaturas $T>10^7\,$K, el gas está completamente
+ionizado, por lo tanto se enfría vía interacciones libre-libre como enfriamiento `Bremsstrahlung'.
+% mostrar Fig 3.20 Tennyson+2005.
+\item[\textsc{Recombinación.}] En el rango de temperaturas $10^4<T<10^7\,$K, las especies
+colisionalmente ionizadas pueden decaer al nivel base y los electrones recombinarse con los iones.
+% ilustrar la probabilidad de recombinación como función del peso atómico:
+% e.g. mientras más pesado es el ión, más probable es que capture un electrón(?)
+% tal vez por esto es que el enfriamiento de un medio enriquecido es más eficiente
+\item[\textsc{Emisión de metales.}] A temperaturas $T<10^4\,$K el enfriamiento ocurre mediante
+excitación/des-excitación colisional de especies pesadas, mediante un proceso llamado emisión de
+metales.
+% mostrar proceso de excitación colisional
+% mostrar que la probabilidad de que ocurra otra colisión es baja
+% mostrar emisión espontánea de un fotón que puede escapar del medio
+% mostrar Fig. 6 Wiersma+2009a
+\end{description}
+%
+la eficiencia de cada mecanismo depende, por supuesto, de las condiciones del gas y del medio en que
+este se encuentra. Si alguno de los procesos antes mencionados no es capaz de enfriar eficientemente
+el gas, este se convertirá en una estructura cuasi-estática soportada por presión, con una
+temperatura cercana a la temperatura virial. Eventualmente, sin importar el proceso de enfriamiento,
+el gas perderá su estructura soportada por presión.
+% mostrar halo de gas caliente + halo de gas frío
+El gas frío es acretado en un disco en el centro del halo de materia oscura.
+% mostrar formación del disco. Explicar que la formación de un disco se debe a la conservación del
+% momento angular específico y que este es regulado por el proceso de feedback estelar (posponer la
+% discusión)
+Durante el proceso de acreción del gas se asume que el disco conserva su momento angular
+\citep[véase][]{White1991, Cole2000}.
+
+Para que la formación estelar tenga lugar, el gas debe entonces enfriarse lo suficiente como para
+condensarse en nubes de unas pocas decenas de parsecs de manera que la formación de H\,\textsc{ii}
+prospere.
+
+\section{Formación estelar y acreción de halos}
+%
+El contenido estelar de una galaxia se ve enriquecido principalmente por dos fenómenos: la formación
+estelar, que es un fenómeno \emph{in situ} que ocurre a escalas de unas pocas decenas de parsecs
+% mostrar halo de materia oscura+disco con formación estelar
+% mostrar inset del disco donde está ocurriendo la formación estelar
+y la fusión de halos de materia oscura por acción de la gravedad, el cual tiene lugar en escalas de
+millones de parsecs.
+% mostrar la acreción de halos pequeños con contenido estelar
+% mostrar inset de uno de estos halos donde esté ocurriendo la formación estelar
+Las escalas temporales también son bastente diferentes entre un fenómeno y otro. La formación
+estelar es un fenómeno secular que depende de la escala temporal térmica y dinámica, por tanto, se
+puede extender desde la formación del disco hasta el presente. El fenómeno de fusión de halos, por
+otra parte, depende de la escala temporal dinámica y puede borrar buena parte de sus huellas en
+cuestión de unos pocos giga años.
+
+\begin{description}
+%
+\item[\textsc{Formación estelar.}] Formación estelar es probablemente el fenómeno físico más
+fundamental en la astrofísica. Aunque es ampliamente estudiado, existen aspectos relacionados con
+las condiciones físicas bajo las cuales tiene lugar que aún no tienen respuesta. Esta dificultad
+está probablemente relacionada con el hecho de que la formación estelar ocurre en regiones densas y
+de alta extinción difíciles de resolver con telescopios ópticos.
+% mostrar una fotico de alguna región de formación estelar
+
+Desde el punto de vista teórico se entiende que las propiedades físicas del MIE (donde la formación
+estelar tiene lugar) son extremadamente complejas: primero el MIE está compuesto por gas en
+distintas fases coexistiendo en un amplio rango de densidades y temperaturas, se conoce poco del
+impacto de los tiempos típicos de formación de ciertas especies moleculares \emph{versus} las
+escalas dinámicas, de los campos magnéticos, etc. Aunque las simulaciones \emph{ab initio} pueden,
+en principio, restringir la magnitud del problema simplemente probando distintas condiciones
+físicamente plausibles y comparándolas con las observaciones, en el presente no es posible hacer
+simulaciones a gran escala (e.\,g. simulaciones cosmológicas) en tan amplio rango de escalas
+temporal y espacial. La formación estelar en el marco cosmológico es el \emph{conundrum} por
+excelencia en nuestro camino hacia entender los procesos de formación y evolución de galaxias.
+
+En una visión bastante esquemática, el proceso de formación estelar, partiendo del acentamiento del
+gas frío en una estructura soportada por momento angular, se puede resumir como sigue:
+% mostrar una lista de las condiciones del MIE donde ocurre la formación estelar
+\begin{itemize}
+\item Formación de gas atómico frío,
+\item formación de nubes de gas auto-gravitantes,
+\item formación de moleculas y nubes moleculares,
+\item formación de aglomeraciones densas dentro de esas nubes,
+\item formación de núcleos preestelares, estrellas y cúmulos estelares.
+\end{itemize}
+% mostrar un esquema que represente cada uno de los items de esta lista
+De este conjunto de eventos, podemos decir que conocemos con cierto grado de certidumbre las
+condiciones iniciales, es decir, la formación del disco de gas, y el estadío final, cuando las
+estrellas y los cúmulos estelares ya se han formado. Desafortunadamente, las propiedades ópticas del
+del MIE en nubes de formación estelar dificultan la resolución de los fenómenos físicos mediante
+estudios observacionales. En particular, la formación de gas atómico, gas molecular y la formación
+subsiguiente de nubes moleculares, e incluso su rol en la formación estelar, son aún muy incertas.
+
+A escalas galácticas existen dos correlaciones `globales' (o que se manifiestan de manera global)
+que resultan sumamente favorables \citep[e.\,g.][]{Schmidt1959, Kennicutt1998, Kennicutt2012}. La
+primera es la estrecha relación entre la densidad de gas molecular y la densidad de formación
+estelar y la segunda es la relación entre la densidad de gas molecular dividida entre el tiempo
+orbital y la densidad de formación estelar, todas estas cantidades promediadas en el disco galáctico
+% mostrar Fig. 11 Kennicutt+2012
+% mostrar Fig. 3 Krumholz+2014
+% mostrar Figs. 6 y 7 Kennicutt+1998b
+Ambas leyes de formación estelar se pueden representar mediante la relación:
+$$
+\dot{\Sigma}_\star = \epsilon_\star\,\frac{\Sigma_\text{gas}}{t_\star}\propto\Sigma_\text{gas}^N,
+$$
+%
+donde $t_\star$ representa la escala de tiempo de formación estelar \emph{global} en el disco
+galáctico, $N\sim1.5$ y $\epsilon_\star$ representa la eficiencia con que se transforma gas en
+estrellas.
+
+Las simulaciones de formación de galaxias basadas en estas leyes nos han permitido hacer avances en
+nuestro entendimiento teórico de los procesos físicos involucrados en la formación estelar
+\citep{Krumholz2014} y, además, descubrir los que parecen ser fenómenos relevantes responsables de
+regular la formación de estrellas en las galaxias de manera consistente con las observaciones. El
+problema sigue siendo, sin embargo, el amplio abanico de fenómenos físicos y sus escalas típicas.
+Esto se traduce en que asignar $t_\star$ no sea trivial, pudiendo ser e.\,g.: tiempo de caída libre
+del gas en una nube, el tiempo de paso de una nube, el tiempo de caída libre de una capa de gas en
+el disco o el tiempo dinámico del disco y de los tránsitos de los brazos espirales. Esta
+incertidumbre es capturada en el parámetro $\epsilon_\star$, comunmente definido como
+\citep{Krumholz2014}:
+% mostrar Fig. 4 Krumholz+2014
+$$
+\epsilon_\star \equiv \frac{t_\text{cl}}{t_\star}.
+$$
+
+En la actualidad existen dos tendencias principales para explicar el fenómeno de formación estelar:
+una en la que los efectos locales dominan los mecanismos de formación estelar y otra en la que los
+efectos globales lo hacen. En el esquema global, la formación estelar es dominada por fenómenos
+dinámicos, de manera que la transición entre los distintos regímenes de formación estelar es la
+manifestación de inestabilidades dinámicas en el disco (e.\,g. la inestabilidad de Toomre), siendo
+$t_\star\sim\tau_\text{din}$. En este sentido, la relación entre la TFE y la densidad del gas viene
+de escalas temporales de autogravitación acortadas en regiones de alta densidad o escalas dinámicas
+más cortas \citep[e.\,g.][]{Ostriker2010}, con $t_\star\propto(\Sigma_\text{gas}/h)^{-0.5}$. En este
+esquema es la densidad total del gas es la que gobierna la TFE, lo cual deviene en un estado de
+equilibrio entre el \emph{feedback} estelar y la presión hidrostática o actúa para producir un
+equilibrio poroso en el MIE \citep{Kennicutt2012}. La relación entre $\dot{\Sigma}_\star$ y
+$t_\text{orb}$ del disco no es explicada de manera convincente por este esquema
+\citep{Kennicutt1998b}. Así como tampoco lo es la existencia de distintos umbrales en la eficiencia
+de formación estelar en nubes moleculares o la dependencia entre la formación estelar y la
+metalicidad del MIE.
+% mostrar Fig. 12 Kennicutt+2012 donde se ve que las regiones de baja metalicidad tienen baja eficiencia también
+% revisar bolatto+2011
+Más aún, el \emph{feedback} estelar responsable de ajustar el valor de $\epsilon_\star$ global no
+corresponderse con el valor local $\epsilon_\star\sim0.01$. Entonces, ¿por qué los fenómenos
+dinámicos de \emph{feedback} que explican la eficiencia a escalas galácticas no serían los mismos a
+escalas de nubes moleculares individuales? En efecto, la eficiencia tan baja en nubes moleculares
+pareciera ser independiente de la presencia de estrellas masivas.
+% revisar Leroy+2008 y evans+2009
+El esquema local toma partida de las observaciones que el esquema global, usando como suposición
+seminal (bien justificada por las observaciones) que la formación de H$_2$ sigue a la formación
+estelar, lo cual conduce naturalmente, a diferencia del esquema global, a la predicción de tres
+modos (eficiencias) de formación estelar asociados con dos umbrales: la transformación de gas
+atómico en gas molecular y el regimen de formación estelar eficiente asociado con la formación de
+aglomeraciones (\emph{clumps}), de manera que la TFE queda determinada completamente por la cantidad
+de gas molecular y su estructura. La ley global de potencia de Schmidt se explica por un decremento
+en la escala de tiempo característica o por un incremento de la fracción de gas en el regimen de gas
+denso (i.\,e. en aglomeraciones), suponiendo $t_\star=f_\text{gas}\times t_\text{cl}$, donde
+$f_\text{gas}$ es la fracción de gas en aglomeraciones. Observacionalmente este hecho es respaldado
+por \citet{Lada2010}, quienes encontraron que existe una fuerte correlación entre la abundancia de
+gas molecular en regiones de alta densidad con el número de objetos estelares jóvenes (directamente
+proporcional a la TFE).
+% mostrar el gráfico 4 de Lada+2010.
+A pesar del aparente éxito, el esquema local tiene sus objeciones. La primera y más obvia es que,
+aunque reproduce naturalmente las leyes de formación estelar de acuerdo con la fase del gas que es
+convertido en estrellas, no ofrece una explicación a por qué la ley física existe en primer lugar
+¿por qué la fase del gas está relacionada con la formación estelar? la explicación de arriba parece
+sugerir que la respuesta a esta pregunta es pura conincidencia física, pero el hecho de que exista
+una dependencia entre la metalicidad y la masa de H$_2$ pero que la relación
+$\dot{\Sigma}_\text{gas} / M_{\text{H}_2}$ sea independiente de la metalicidad resulta llamativa, de
+manera que la pregunta que interesa es ¿por qué la formación estelar y H$_2$ están relacionadas y
+por qué ambas dependen de la misma forma de la metalicidad? una posible explicación es el efecto del
+polvo, el cual depende de la presencia de metales en el MIE. El polvo absorbe efectivamente el FUV a
+1000A, la formación de H$_2$ prospera porque no hay fotones que lo disocien. La ausencia de esos
+mismos fotones hace que el gas continúe enriandose hasta activar la formación estelar. A metalicidad
+solar el umbral de densidad para la formación de H$_2$ y de estrellas es similar, sin embargo, a
+baja metalicidad debería romperse la correlación entre ambos, inhibiendo la formación de H$_2$.
+% mostrar Fig. 17 Krumholz+2014
+
+Aunque el esquema local predice naturalmente la existencia de umbrales de densidad que se
+manifiestan como puntos de quiebre en la relación entre la densidad de gas molecular y la densidad
+de TFE,
+% mostrar Fig. 15 Kennicutt+2012
+sin embargo, no explica el mecanismo que vincula H$_2$ con la formación estelar en una galaxia, ni
+por qué parte de ella se encuentra en distintos regímenes de formación estelar. Aunque los modelos
+que regulan la TFE mediante turbulencia logran predecir el valor observado $\epsilon_\star\sim0.01$,
+su independencia del tamaño o la densidad de la nube molecular, no logran predecir su comportamiento
+como función de la metalicidad del ambiente, ni su evolución en el tiempo de manera adecuada. El
+esquema global no intenta predecir los fenómenos a escalas de nubes moleculares individuales, por
+ejemplo la independencia de la eficiencia con las propiedades de escala de las nubes moleculares y
+la dependencia de las leyes de formación estelar con la metalicidad.
+
+Es claro entonces que los modelos globales y locales requieren alguna especie de catarsis:
+% mostrar el siguiente esquema:
+% disco con regiones de formación estelar
+% en las regiones de formación estelar, mostrar nubes moleculares
+% mostrar la estructura de las nubes moleculares (Fig. 9 Krumholz+2014). Resaltar regiones de mayor extinción
+% mostrar el efecto de la turbulencia en la eficiencia con campo de velocidades
+% mostrar el efecto de escudo del polvo para evitar la disociación del H_2 por parte de FUV
+% mostrar estrellas recien formadas
+% mostrar FUV, feedback estelar: radiativo y mecánico
+% mostrar disipasión y calentamiento de la nube molecular
+% mostrar aumento de la metalicidad comparando especies químicas en t=0 con las especies después de
+% una generación estelar
+% mostrar enfriamiento con nueva metalicidad en una escala t mas corta que en t=0
+
+\item[\textsc{Fusión de halos.}] Como consecuencia de inhomogeneidades en la distribución primordial
+de masa-energía, en regiones de sobredensidad prosperan aglomeraciones de materia oscura que
+llamamos halos de materia oscura. La distribución de halos conforma el esqueleto del Universo
+primigenio donde cada halo es un semillero el nacimiento de la primera generación de estrellas. En
+el marco de la cosmología estándar, se piensa que los halos de materia oscura crecen en un proceso
+auto-similar llamado \emph{formación jerárquica}: los halos menos masivos se forman primero y luego
+los más masivos.
+
+Debido a que la materia oscura no interactúa si no es gravitacionalmente, es muy difícil hacer
+observaciones directas de esta, de manera que el único trazador de la estructura a gran escala es la
+emisión de la materia bariónica cuando se ha condensado en estrellas. De manera que la fusión de
+halos es uno de los mecanismos mediante los cuales la masa luminosa de una galaxia cambia.
+
+Debido a que el gas es una componente disipativa que puede radiar su energía interna, dependiendo de
+la fracción de gas en las componentes interactuantes, la fusión de halos puede propiciar eventos de
+formación estelar violentos, caracterizados por un incremento en la eficiencia $\epsilon_\star$ y
+modificar dramáticamente la estructura de las galaxias y propiciar el acrecimiento de materia al
+agujero negro supermasivo en la región central de las galaxias. La existencia de una variada
+morfología de galaxias observadas ha conducido de manera inexorable a un debate sobre el rol del
+proceso de fusión de halos en la estructura final de una galaxia.
+
+Las simulaciones de fusión de halos de materia oscura, han permitido avances significativos hacia la
+elaboración de una teoría que explique el rol de la materia oscura en la definición del contenido
+bariónico de las galaxias.
+% mostrar Fig. 2 Qu+2016 Notar que una predicción fundamental es que la fusión de halos masivos es poco frecuente
+
+Uno puede distinguir entre dos casos extremos en la fusión de halos. Uno en el que la componente
+gaseosa es despreciable y por lo tanto la interacción es no colisional, y otro donde la componente
+gaseosa es importante, luego los fenómenos disipativos tienen un papel fundamental.
+
+En el primer caso solo materia oscura y materia luminosa interactúan gravitacionalmente y
+dependiendo de la relación entre las masas, la galaxia resultante puede desarrollar un halo más
+compacto debido a relajación violenta. El proceso de relajación violenta propiciará un intercambio
+de momento angular entre el disco de la componente principal y el halo correspondiente, produciendo
+un sistema cinemáticamente caliente. En general existirá transferencia de momento angular entre el
+halo y la componente estelar y entre la componente estelar siendo engullida y la componente
+existente. El momento angular orbital de la componente de menor masa se transformará en momento
+rotacional en la componente más masiva, de manera que la galaxia resultante rotará más que sus
+progenitoras, independientemente de la morfología de las componentes interactuantes \citep{Qu2017}.
+
+Si los sistemas interactuantes son esferoidales (y una es mucho menos masiva que la otra), no habrá
+relajación violenta y la galaxia de mayor masa asimilará a la galaxia más pequeña en un radio mayor.
+Este mecanismo, de hecho es capaz de explicar con éxito la evolución estructural de las galaxias
+tempranas más masivas que vemos en el universo local. Sin embargo, el rol de las fusiones menores en
+la formación de este tipo de galaxias dependerá de la frecuencia de estos eventos y de la morfología
+de las componentes de involucradas. Si la frecuencia de fusiones es muy baja, por ejemplo, la
+componente más masiva podría conservar su morfología original. En el caso de un disco estelar,
+podría haber un calentamiento moderado.
+
+Por supuesto cuando la componente gaseosa no es despreciable en ninguna de las galaxias
+interactuantes ya no es posible asumir dinámica no colisional, tampoco es posible ignorar los
+efectos de transporte de energía mediante radiación. Interacciones de este tipo parecen ser las
+responsables de los fenómenos de brotes de formación estelar, como los observados en galaxias
+ultra-luminosas en el IR. El gas acentado en el centro de la galaxia puede hacer que el potencial
+sea más esférico, propiciando el desarrollo de cinemática rotacional y galaxias con morfología de
+disco \citep{Jesseit2007}. En este tipo de interacciones, la componente gaseosa acretada por el
+disco, si tiene momento angular lo suficientemente bajo puede ser acretada por el agujero negro
+supermasivo central de la galaxia. La energía liberada durante el proceso de acreción se ha
+encontrado responsable de imprimir momentum al gas acentado en el disco, disminuyendo dramáticamente
+la formación estelar (más adelante explicaré con más detalle la física detrás de los procesos de
+\emph{feedback}).
+% Diagrama resumen de las implicaciones de los procesos de fusión de galaxias.
+\end{description}
+
+
+\section{Evolución química}
+%
+Una de las consecuencias de la evolución estelar es el enriquecimiento químico del MIE y del MIG.
+Posteriormente parte del material devuelto al MIG en eventos de supernovas y/o AGNs puede retornar
+al MIE, en el que el ciclo de formación estelar tiene lugar. La evolución química de estos medios es
+importante para la formación y evolución de galaxias por varias razones:
+%
+\begin{itemize}
+\item La tasa de enfriamiento del gas puede depender de la metalicidad,
+\item la presencia de elementos pesados en el MIE propicia el crecimiento de granos de polvo,
+\item las propiedades observables de las galaxias son afectadas directa e indirectamente.
+\end{itemize}
+%
+El objetivo principal de la teoría de evolución química del material bariónico es seguir la
+evolución de la abundancia de las distintas especies \emph{observadas} en estrellas y en el MIE/MIG.
+El punto de partida es el calculo de la masa retornada por las estrellas durante su vida al MIE.
+Existen principalmente dos mecanismos mediante los cuales las estrellas pueden retornar material al
+MIE: vientos estelares y explosiones de supernova. El primer mecanismo es importante para el retorno
+al MIE del material enriquecido producido en el proceso de nucleosíntesis en el interior de las
+estrellas y es particularmente eficiente en la fase de gigantes de las estrellas de masa intermedia,
+$<5\,$M$_\odot$. En estrellas de mayor masa $<100\,$M$_\odot$, los vientos estelares y la
+nucleosíntesis en explosiones de supernova al final de la vida de estas estrellas son más
+importantes. Por otra parte, existen especies en la composición inicial de las estrellas que no es
+ni creado ni destruido durante la vida de las estrellas. La importancia de estas especies dependerá
+por supuesto de la composición química inicial de las estrellas. La masa retornada por una estrella
+en un momento dado al MIE depende entonces de varios factores:
+%
+\begin{itemize}
+\item la masa inicial de la estrella,
+\item La composición química inicial de la estrella,
+\item la edad de la estrella.
+\end{itemize}
+%
+Sin embargo, las propiedades estelares son descritas más facilmente si se considera que las
+estrellas nacen en grupo a partir del material en nubes moleculares, por lo tanto es una
+aproximación justa asumir que en un instante dado un conjunto de estrellas tendrá la misma
+composición química, $Z_\star$ y la misma edad, $t$ y estará distribuída en masa de acuerdo a una
+FIM, $\phi(m,Z_\star)$. El artificio físico que mejor describe a tal población es conocido como una
+población estelar simple (PES). La tasa de masa eyectada por una PES en el instante $t$ es
+\citep{Yates2013}:
+%
+$$
+e_\text{masa}(t) = \int_{m_\text{inf}}^{m_\text{sup}}\left[m-m_\text{rem}(m,Z_\star)\right]\psi(t-\tau(m,Z_\star))\phi(m,Z_\star)\text{d}m,
+$$
+%
+donde $m_\text{rem}$ es la masa del remanente estelar que deja una estrella de masa y metalicidad
+iniciales $m$ y $Z_\star$, respectivamente; $\tau(m,Z_\star)$ es el tiempo de vida y
+$\phi(m,Z_\star)$ es la FIM normalizada de manera que su integral en el rango
+$m_\text{inf}\,$---$\,m_\text{sup}$ es igual al número de estrellas en una PES de $1\,$M$_\odot$. En
+este sentido, el producto $\psi(t-\tau)\times\phi$ es la tasa de nacimiento de estrellas de masa $m$
+y metalicidad $Z$ en el instante $t-\tau$. El producto de esta tasa de nacimiento por
+$m-m_\text{rem}$ es simplemente la tasa de eyección instantánea de masa en estrellas de masa $m$ en
+$t$. Ahora, más interesante que esto es la masa en \emph{metales} eyectada por una PES:
+%
+$$
+e_Z(t) = \int_{m_\text{inf}}^{m_\text{sup}}\left[y(m,Z_\star)+Z_\star\times(m-m_\text{rem})\right]\psi(t-\tau(m,Z_\star))\phi(m,Z_\star)\text{d}m,
+$$
+%
+donde $y(m,Z_\star)$ es el \emph{yield} (la masa en metales nucleosintéticos) y
+$Z_\star\times(m-m_\text{rem})$ es la masa inicial en metales que no fue procesada por la estrella.
+La suma de estos dos términos es la masa en metales retornada al MIE por una estrella de masa y
+metalicidad iniciales, $m$ y $Z_\star$, respectivamente. Lo que en realidad nos interesa es la
+contribución en masa de cada especie. En ese caso el corchete en la integral anterior se puede
+escribir como:
+%
+$$
+m_i = y_i(m,Z_\star) + \frac{m_i}{m}(m-m_\text{rem}).
+$$
+%
+Las funciones $\tau(m,Z_\star)$, $y_i(m,Z_\star)$ son resultados de la teoría de evolución estelar
+\citep[e.\,g.][]{Portinari1998, Marigo2001}.
+% mostrar fig. 1 de Yates et al. 2013 (tiempos de vida).
+De acuerdo de predicciones de la teoría de evolución estelar, el \emph{yield} es el resultado de
+distintos mecanismo de eyección que se activan en tiempos diferentes, como podemos ver en los
+gráficos a continuación \citep{Yates2013}.
+% mostrar fig. 2 Yates et al. 2013 (masa de distintas especies eyectada por estrellas en AGB).
+% mostrar fig. 3 Yates et al. 2013 (masa de distintas especies eyectada por supernovas Ia).
+% mostrar fig. 4 Yates et al. 2013 (masa de distintas especies eyectada por supernovas II).
+En la práctica solo un número reducido de especies es considerado puesto que estas son relativamente
+más abundantes que otras y por lo tanto más facilmente observables/medibles. En particular las
+especies en color en el gráfico son importantes en el calculo de las tasas de enfriamiento del gas
+\citep{Wiersma2009a}.
+
+\section{Fenómenos de \emph{Feedback}}
+%
+Los fenómenos de \emph{feedback} (e.\,g., vientos estelares y los eventos de supernova) no solo
+pueden cambiar la composición química del MIE, también inyectan cantidades importantes de energía
+cinética. Como tal, el efecto neto del \emph{feedback} estelar es el de regular la TFE. Tal
+regulación puede ocurrir de dos formas:
+%
+\begin{description}
+\item[\textsc{Preventiva,}] retardando la acreción del gas al MIE,
+\item[\textsc{Eyectiva,}] removiendo el gas previamente acretado al MIE.
+\end{description}
+%
+Ambos efectos tienen un impacto relativo dependiendo de la situación de equilibrio dinámico del
+sistema en el que actúan. Por ejemplo, en sistemas cinemáticamente calientes, los fenómenos
+preventivos son más efectivos; mientras que en sistemas sostenidos por rotación, los fenómenos
+eyectivos juegan un papel más importante.
+
+Por su procedencia, los fenómenos de \emph{feedback} se pueden clasificar en \emph{feedback} estelar
+y en \emph{feedback} de núcleos activos.
+%
+\begin{description}
+%
+\item[\textsc{Estelar.}] En las secciones anteriores ya vimos que los vientos estelares y los
+eventos de supernovas regulan la evolución química en el MIE y la tasa de enfriamiento del gas en el
+mismo, por lo tanto, regulan vimos que estos fenómenos efectivamente regulan la TFE. Desde el punto
+de vista cinemático, estos fenómenos inyectan cantidades importantes de momento y energía necesarios
+para regular la TFE en regiones de formación estelar, donde la eficiencia observada es de apenas
+$\sim1\,\%$. Más aún la fracción de materia bariónica presente en galaxias se estima que es
+$\sim20\,\%$. En efecto, los trabajos en los que se incorporó únicamente el efecto termodinámico del
+\emph{feedback} estelar llevaron a la conclusión inmediata de que los fenómenos radiativos
+únicamente no era lo suficientemente eficientes como para explicar la ineficiencia en la formación
+estelar ni la pequeña fracción de material bariónico observada en las galaxias. De esta forma, el
+momento inyectado en el MIE mediante mecanismos estelares puede parametrizarse en función de la
+tasa en la que este es inyectado como:
+%
+\begin{align}
+\dot{V} &= \frac{\dot{p}}{M_\star},\quad\text{ó}\nonumber\\
+V       &= \frac{\dot{p}}{\dot{M}_\star},\nonumber
+\end{align}
+%
+La primera relación es más apropiada en regiones donde la población se dispersa en escalas de tiempo
+más cortos que el tiempo de vida de las estrellas masivas y la segunda es más relevante en regiones
+donde la población está en equilibrio estadístico: la tasa a la que nacen las estrellas es la misma
+a la que mueren. Entonces, para que el momento inyectado en el MIE pueda suprimir la formación
+estelar y transportar material a escalas de cúmulos o asociaciones estelares tiene que ocurrir que
+$\dot{V}\times\tau_\text{din}> V_\text{local}$. Alternativamente, para que el momento
+inyectado en el MIE pueda remover material del MIE y expulsarlo al MIG tiene que ocurrir que
+$V> V_\text{global}$.
+
+Entre las fuentes de energía--momento lo suficientemente importantes como para regular la TFE a
+escalas galácticas están:
+%
+\begin{itemize}
+\item Supernovas ($V_\text{SN}>48\,$km/s),
+\item vientos estelares ($V_\text{viento}>140\,$km/s a $Z=Z_\odot$),
+\item presión de radiación ($V_L>190\,$km/s$>V_\text{NM}\sim10\,$km/s),
+\item rayos cósmicos,
+\item fotoionización y calentamiento FUV.
+\end{itemize}
+%
+\citep[ver][para una revisión completa]{Krumholz2014}.
+%
+\item[\textsc{Núcleos activos.}] Primeros indicios de que un número significativo de galaxias
+podrían albergar un agujero negro supermasivo ($\sim10^6\,$---$\,10^9\,$M$_\odot$) apareció entre
+finales de los 80's y comienzos de los 90's \citep[véase][para una revisión]{Kormendy1995}. Estos
+indicios, aunque en su mayoría circunstanciales, fueron suficientes para motivar la búsqueda de
+agujeros negros supermasivos en el universo local. Eventualmente, los movimientos estelares a
+escalas de unos pocos parsecs proveyó evidencia irrefutable de que muchas galaxias
+(independientemente de la clase morfológica), albergaban un agujero negro supermasivo en su núcleo.
+Más importante aún, las masas de dicho agujero negro estaban correlacionadas con la luminosidad
+\citep{Magorrian1998} y con la masa \citep[medida con la dispersión de velocidades
+central][]{Ferrarese2000}. Estas correlaciones indicaban claramente que debía existir un vínculo
+fundamental entre la formación de las galaxias y la formación del agujero negro supermasivo que
+estas albergan. Eventualmente, los intentos por teorizar la formación de las galaxias comenzaron a
+incluir la formación y evolución de agujeros negros supermasivos y los efectos ambientales que estos
+producían \citep[e.\,g.][]{Springel2005d}.
+
+Probablemente una de las evidencias más claras de que las galaxias más masivas
+($>10^{11}\,$M$_\odot$) siguen mecanismos formación/evolución diferentes al que siguen las galaxias
+menos masivas ($<10^{11}\,$M$_\odot$) se encuentra en la dicotomía observada en sus clases
+espectrales: las galaxias masivas son consistentemente las más rojas en el óptico (en reposo)
+mientras que las galaxias menos masivas son sistemáticamente más azules. La distribución de color
+como función de la luminosidad muestra una clara bimodalidad \citep{Strateva2001, Baldry2004,
+Balogh2004}, sin embargo no muestra fuerte dependencia con el ambiente \citep[medido usando la
+densidad local, e.\,g.,][]{Balogh2004}. Desde hace algún tiempo ha sido claro que las galaxias más
+masivas se forman en regiones preferiblemente más densas, lo cual podría sugerir que mecanismos
+dinámicos dominan la formación de estos objetos. Sin embargo, bajo el escenario de que las
+componentes que ensamblan a estas galaxias contienen una fracción importante del material bariónico
+en forma de gas, no es posible reproducir galaxias tan rojas como las galaxias que observamos en el
+universo local. Más aún, no es posible reproducir la dicotomía en la distribución de color la cual
+sugiere que si las galaxias azules de alguna forma son progenitoras de las galaxias rojas, entonces
+la evolución/transición tiene que ocurrir en una escala de tiempo lo suficientemente corta como para
+que la dicotomía.
+% mostrar fig. 1 de Balogh+2004
+De manera independiente la aparentemente íntima relación entre la masa del agujero negro central y
+la dispersión de velocidades del bulbo sugería un vínculo co-evolutivo entre ambas componentes
+\citep{Ferrarese2000, Tremaine2002}. La acreción de material en el agujero central puede activar un
+AGN no solo es capaz de inyectar energía térmica a escalas galácticas sino también energía y momento
+mecánicos. Se piensa que dicha energía-momento asociados son mantenidos hasta que el agujero negro
+ha barrido todo el material disponible para acretar. Si dicha hipótesis es cierta, los AGNs pueden
+regular o incluso detener completamente la formación estelar en una galaxia.
+% mostrar figs. 2 y 3 de Springel+2005a
+Estos primeros resultados de \citet{Springel2005a} parecían prometedores, sin embargo, sobrestimaban
+artificialmente la influcencia térmica en la reducción de la TFE. Como hemos visto antes, los
+fotones pueden distribuir en energía y momento en el MIE. De hecho, la contribución al
+\emph{feedback} del AGN puede dividirse en dos componentes: radiativa y mecánica. La primera es
+relativamente simple y establece la conexión entre los flujos entrantes y salientes de materia y el
+material acretado, el momento y la energía cinética. Suponiendo leyes de conservación estas
+relaciones son:
+%
+\begin{align}
+\dot{M}_\text{acr}    &= \dot{M}_\text{ent} - \dot{M}_\text{sal}, \nonumber\\
+\dot{E}_\text{viento} &= \epsilon_\text{viento}\dot{M}_\text{acr}c^2 = \frac{1}{2}\dot{M}_\text{sal}\left<v_\text{viento}^2\right>, \nonumber\\
+\dot{p}               &= \dot{M}_\text{sal}\left<v_\text{viento}\right>, \nonumber
+\end{align}
+%
+donde la tasa de acreción en la región central alrededor del agujero negro se puede resolver, según
+el modelo de acreción de Bondi-Hoyle-Lyttleton, a partir del radio de Bondi
+%
+$$
+R_\text{Bondi} \equiv \frac{2GM_\text{AN}}{c_\text{s}^2 + v_\text{rel}^2},
+$$
+%
+donde $v_\text{rel}$ es la velocidad relativa del gas respecto del AN. La masa acretada por el
+agujero negro es
+%
+$$
+\dot{M}_\text{int} = \dot{M}_\text{Bondi} \equiv \frac{4\pi G^2M_\text{AN}^2\rho}{\left(c_\text{s}^2 + v_\text{rel}^2\right)^{3/2}}.
+$$
+%
+De manera que la masa realmente acretada por el AN es
+%
+$$
+\dot{M}_\text{acr} = \dot{M}_\text{ent}\frac{1}{1+\psi_\text{acr}},
+$$
+%
+donde $\psi_\text{acr} = 2\epsilon_\text{viento}c^2/v_\text{viento}^2$ es un parámetro relacionado
+con la eficiencia en dicha acreción y por lo general se fija en las simulaciones de formación de
+galaxias.
+%
+% esquema que representa las interacciones descritas por estas ecuaciones:
+% - agujero negro central, acreción, radio de Bondi, flujo de entrada y de salida.
+%
+El espectro de energía de un AGN tiene un pico importante en la región de los rayos X, los cuales
+son capaces de impartir momento en el medio. Durante la fase de AGN, las condiciones del MIE son
+modificadas drásticamente y la formación estelar es esencialmente suprimida, de manera que las
+galaxias crecen casi exclusivamente mediante fusión de halos. Eventualmente el flujo másico de
+entrada se iguala con el se salida y la acreción se detiene. En este punto una fracción importante
+del gas que estaba originalmente en el MIE ha sido expulsada al MIG y la radiación emitida por el
+AGN ha termalizado el ambiente de manera que este tiene una probabilidad muy baja de reingresar al
+halo de materia oscura y resumir la formación estelar. La distribución de colores y de masas en el
+universo local parece consistente con esta idea.
+
+Las ideas expuestas en el párrafo anterior resuelven varias incógnitas en la formación de galaxias
+masivas: ¿por qué son aparentemente más viejas? ¿el fenómeno de \emph{downsizing}? ¿enriquecimiento
+químico del MIG?.
+%
+\end{description}
+
+\section{Poder Predictivo -- Teoría vs. Observaciones}
+%
+En las siguientes secciones mostraré cómo todas las reglas físicas que he expuesto hasta ahora se
+compaginan para reproducir las observaciones que hacemos en el universo local y, por lo tanto
+proveen una teoría física (aunque incompleta) para describir la formación y la evolución de las
+galaxias.
+
+En general, en las simulaciones de formación y evolución de galaxias un conjunto de $\sim6$
+parámetros son introducidos y ajustados para reproducir un conjunto de observables y/o estimaciones
+basadas en la observaciones, mayormente en el universo local \citep{Somerville2015, Guo2016,
+Naab2016}.
+
+\begin{description}
+%
+\item[\textsc{Función de masa.}] La Función de Masa contiene la información más fundamental sobre la
+formación y la evolución de las galaxias. Reproducirla es por supuesto de vital importancia en el
+marco de una compresión completa de los mecanismos de formación y de evolución de galaxias.
+
+% figura 4 de Naab+2017
+En la figura se muestran en color las distintas Funciones de Masa que resultan de las simulaciones
+numéricas de distintos grupos y se comparan con las medidas de Li y White y de Bernardi y
+colaboradores. La fracción cósmica de bariones se muestra como comparación y demuestra el caracter
+no lineal del origen de la Función de Masa. Los halos de materia oscura de baja masa se forman
+primero y luego estos ensamblan halos de mayor masa. Por el contrario y de acuerdo con las
+observaciones, las galaxias más masivas forman su contenido estelar primero y en escalas de tiempo
+cortas que las galaxias de masa intermedia y baja, las cuales forman su contenido estelar después en
+escalas de tiempo extendidas. Este fenómeno se ha apodado \emph{downsizing} \citep{Cowie1996}. Las
+dos pendientes en la Función de Masa de alguna manera reflejan esas diferencias en la forman en que
+las galaxias adquieren su contenido estelar.
+
+Las regiones donde existen las discrepancias más grandes se encuentran en los extremos de la Función
+de Masa. En la región de galaxias de baja masa los modelos tienden a sobreestimar la producción de
+galaxias de baja masa. De hecho, contrario a lo que las observaciones indican, en las simulaciones
+la formación estelar sigue tendencias muy similares a la historia de acreción de materia oscura en
+halos. De acuerdo con lo dicho anteriormente, estas diferencias están probablemente relacionadas con
+las incertidumbres en la física que describe la formación estelar \citep{McKee2007, Krumholz2014}.
+En la región de alta masa de la Función de Masa, por otra parte, hay concenso general en que el
+\emph{feedback} de AGNs juega un papel importante regulando la tasa de formación estelar en halos de
+alta masa. Las recetas para la inclusión de los efectos del AGN en MIE de las galaxias y en el MIG
+están aún en discusión. En algunos casos pareciera suficiente la inclusión de mecanismos puramente
+radiativos, los cuales logran resolver el problema de la eficiencia en la formación estelar en estos
+halos, sin embargo, no logran reproducir las observaciones del MIG.
+%
+\item[\textsc{Relaciones de escala.}] Las relaciones de escala son probablemente las pruebas más
+exigentes por las que tiene que pasar cualquier modelo que intenta describir la formación y la
+evolución de las galaxias. A continuación mostraré aquellas relaciones de escala que han sido
+particularmente difíciles de reproducir en el contexto de las simulaciones de formación de galaxias.
+
+\textbf{La relación TFE\,--\,$M_\star$} como función del tiempo cósmico representa la evolución
+competitiva entre la acreción del gas al MIE y los fenómenos de \emph{feedback}. La mayoría de los
+modelos predicen exitosamente la pendiente en casi todo el rango de masa, sin embargo, la amplitud
+en la mayoría de los casos está subestimada. Más aún, el cambio de la pendiente en la región de alta
+masa no es el mismo en todos los modelos, lo cual refleja incertidumbres en la definición de
+galaxias pasivas, es decir, incertidumbres en la implementación del `apagado' de la TFE. En el rango
+$4<z<0$ se espera que la TFE diverja de la tasa de acreción de materia oscura en los halos,
+pues la `formación estelar' está dominada por procesos \emph{in situ}. A $z>4$ por otra parte es de
+esperarse que la eficiencia en la TFE sea baja debido a prolongados tiempos de enfriamiento del gas
+en un MIE pobre en metales, sin embargo, modelos en los que se incorporan estas consideraciones aún
+fallan en reproducir la amplitud de esta relación.
+% figura 5 Somerville+2015
+
+\textbf{La relación $Z_\text{gas}\,$--$\,M_\star$} representa la competencia entre el flujo de
+material enriquecido afuera del MIE y el proceso de reciclaje del mismo material. Cuando sea que la
+galaxia logre retener el material enriquecido en el MIE, el reciclaje será más eficiente, logrando
+retener la composición química a expensas de los mecanismos de \emph{feedback} que tienden a
+transportar el material enriquecido hacia afuera del MIE. Esto es lo que sucede en las galaxias de
+masivas.
+% figura 6 Somerville+2015
+Estos resultados parecen menos alentadores que los anteriores, pero hay que tener en cuenta que acá
+no solo cuentan las incertidumbres en los mecanismos de la formación estelar, sino también los de la
+evolución estelar, me refiero en particular a los calculos de vientos y de pérdida de masa. En
+general parece haber más acuerdo entre las observaciones y los modelos en el régimen de alta masa,
+sin embargo, en galaxias de baja masa los modelos tienden a subestimar la metalicidad. No hay forma
+de, ajustando la dependencia del flujo de salida del material en el MIE, conciliar la Función de
+Masa y la relación $Z_\text{gas}\,$--$\,M_\star$ de manera simultánea. Este hecho podría apuntar a
+que el mecanismo de \emph{feedback} dominante es preventivo o que existe un mecanismo regulador que
+ha sido consistentemente ignorado en las simulaciones.
+
+\textbf{Las relaciones de escala estructurales} son particularmente difíciles de predecir en
+simulaciones pues muchas de las interacciones físicas entre la materia bariónica y los halos de
+materia oscura se implementan con un conjunto de suposiciones y \emph{switches ad hoc}. Esto se debe
+principalmente a la resolución espacial necesaria para resolver los fenómenos dinámicos en
+simulaciones cosmológicas. \citeauthor{Hopkins2009} mostraron en una serie de simulaciones que es
+posible conciliar las relaciones de escala en sistemas dominados por esferoides con la cosmología
+estándar, siempre que los fenómenos disipativos sean implementados consistentemente. Las relaciones
+de escala estructurales surjen como consecuencia de los cambios estructurales debidos a fenómenos
+ambientales (e.\,g. fusión de halos) o inestabilidades dinámicas debidas a procesos disipativos
+internos de las galaxias (e.\,g. enfriamiento del gas, formación estelar). El Plano Fundamental
+establece una estrecha relación entre la luminosidad, el tamaño y la cinemática en sistemas
+dominados por esferoides. Esta relación puede entenderse como que dichos sistemas están en
+equilibrio virial. Sin embargo, las observaciones sugieren que el Plano Fundamental está
+sistemáticamente desviado de dicho equilibrio \citep[véase discusión en][]{Cappellari2016}.
+\citep{Hopkins2009} demuestra el rol de los efectos disipativos en los modelos de evolución de
+fusión de halos en términos de las relaciones de escala. En particular, la desviación del equilibrio
+virial en el Plano Fundamental es explica esencialmente por la presencia de una componente
+disipativa en los progenitores de las galaxias dominadas por esferoides.
+% figura 9 y 2 Hopkins+2009
+%
+\end{description}
+
+\section{Resumen y perspectivas}
+%
+\begin{description}
+%
+\item[\textsc{Fenómenos físicos.}] Un conjunto de fenómenos físicos son necesarios para tener una
+comprensión completa sobre la formación de las galaxias en el contexto de la cosmología estándar.
+Las fluctuaciones cuánticas en el universo pre-inflacionario dejaron huellas durante el proceso de
+inflación que en consecuencia se manifestaron como sobredensidades de materia oscura que
+eventualmente crecieron mediante acreción gravitacional. Estos halos de materia oscura se
+convertirán en autogravitantes, dominando su entorno sobre el efecto de la expansión cósmica. Al
+mismo tiempo, el material bariónico se acumula en los halos de materia oscura, sin embargo, a
+diferencia de la materia oscura, la materia bariónica es disipativa. La fusión de halos hace que la
+materia bariónica se caliente por ondas de choque. Sin embargo, se enfriará mediante procesos
+radiativos y por transferencia de torques y momento con halos entrantes, ganará momento angular y se
+acentará en el centro del halo en un disco. En este disco, las condiciones de densidad, presión y
+temperatura se darán para que comience la formación estelar. Ahora sabemos con certeza que la
+formación estelar es un proceso autoregulado. Las estrellas masivas evolucionan rápidamente
+alterando la distribución y la química del MIE circundante mediante vientos estelares y fenómenos de
+supernova. La evolución química altera la capacidad del MIE para enfriarse. En particular, en
+ausencia de un campo de radiación ionizante el medio, los elementos pesados se recombinarán
+rápidamente. A gran escala, los vientos estelares pueden tener efectos dramáticos en el MIG: el
+material enriquecido mediante nucleosíntesis y supernovas es expulsado al MIG. En las galaxias más
+masivas este fenómeno podría ser insuficiente para evitar el reingreso del material al halo
+original. En galaxias menos masivas, sin embargo, no podrán retener el material enriquecido. Los
+halos con discos ricos en gas seguirán fusionándose en lo que serán las galaxias más masivas en el
+universo local. Existe evidencia teórica y observacional de que estas galaxias en algún momento
+($z>1\,$---$\,3$) sufren eventos de formación estelar, propiciados probablemente por la fusión de
+halos masivos y ricos en gas, que pueden activar la acreción de un agujero negro supermasivo en el
+núcleo de las galaxias. La radiación y el flujo saliente del material en la zona de influencia del
+agujero negro transportan energía y momento hacia el MIE. Las simulaciones demuestran que el
+fenómeno de AGN puede ser suficiente para frenar la formación estelar en los halos más masivos a
+$z>2$ y en halos vecinos. La formación de las galaxias elípticas como las conocemos a $z=0$ procede
+mayormente por acreción de subhalos con una fracción de gas baja de manera que aunque estas apenas
+se están ensamblando a $z>1$ la mayor parte de su contenido estelar se formó \emph{ex situ} a
+$z>2$. En los suburbios del MIG, los halos de materia oscura de masa intermedia y de baja masa
+prosperan de forma menos agitada: los discos se mantienen y la masa estelar crece de manera secular
+mediante la formación estelar y la acreción de halos de menor masa y ricos en gas. Los perfiles de
+luminosidad de las galaxias en $z=0$ proporcionan evidencias interesantes (e independientes) sobre
+la historia de acreción de halos en las galaxias. En simulaciones de alta resolución se ha
+encontrado que la componente disipativa presente en los halos progenitores define el potencial de la
+galaxia, al menos en la región central: las galaxias originadas por fusión de halos ricos en gas
+desarrollan perfiles con forma de núcleos, los cuales se observan en galaxias elípticas con una
+componente rotacional; las galaxias originadas en eventos de fusión con una componente disipativa
+relativamente despreciable desarrollan perfiles con forma de cúspides, los cuales se observan en
+galaxias sin componente rotacional importante.
+
+Aún existen retos importantes frente a la construcción de una teoría completa que describa la
+formación y la evolución de las galaxias en el contexto cosmológico. Los más relevantes suceden a
+escalas de unos pocos parsecs, donde las observaciones son generalmente difíciles, incluso en
+nuestra propia galaxia y donde las simulaciones de formación de galaxias aún no pueden resolver los
+fenómenos físicos. Me refiero por supuesto a la formación estelar. Específicamente no existe certeza
+sobre las condiciones en las cuales se da la formación estelar: ¿es un fenómeno relacionado
+directamente con los parámetros de escala del disco galáctico? o ¿es un fenómeno relacionado
+directamente con la capacidad de que en ciertas regiones ($<10\,$parsecs) exista H$_2$?
+%
+\end{description}
+% \begin{itemize}
+% \item Mencionar los fenómenos físicos fundamentales que intervienen en la formación de las galaxias.
+% \item Mencionar las incertidumbres en cada uno de estos fenómenos.
+% \item Mencionar resultados más importantes de las simulaciones.
+% \item Decir cuales son las perspectivas.
+% \end{itemize}
+
+\printbibliography
+
+\end{document}
